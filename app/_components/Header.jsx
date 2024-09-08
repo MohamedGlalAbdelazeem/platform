@@ -86,11 +86,6 @@ const Header = () => {
               <a href="#" className='text-[#333] block text-sm font-semibold'>Medical Books</a>
             </li>
           </ul>
-
-          <div className='lg:mx-8 max-xl:hidden flex items-center bg-gray-100 px-4 h-10 rounded flex-1'>
-             <FaSearch />
-            <input type='text' placeholder='Search something...' className='w-full outline-none text-sm bg-transparent' />
-          </div>
         </div>
 
         <div className='flex items-center ml-auto'>
@@ -100,48 +95,29 @@ const Header = () => {
                  <TbHeartFilled  className='text-3xl' />
               </div>
             </li>
-
             <li>
               <div className="flex flex-col justify-center items-center cursor-pointer">
                <FaBell className='text-3xl' />
               </div>
             </li>
-
             <li onClick={handleProfileClick} >
-              <div className="flex flex-col justify-center items-center cursor-pointer">
-                <HiUserCircle className='text-3xl' />
+              <div className="flex  gap-3 justify-center items-center cursor-pointer">
+                <HiUserCircle className='text-4xl' />
+                <span>Hesham Mousa</span>
               </div>
-              <div
-                className={`bg-white z-20 shadow-lg py-6 px-6 sm:min-w-[320px] max-sm:min-w-[250px] max-sm:-right-32 absolute right-0 top-14 ${isProfileOpen ? 'block' : 'hidden'}`}
-              >
-                <h6 className="font-semibold text-sm">Welcome</h6>
-                <p className="text-sm text-gray-500 mt-1">To access account and manage orders</p>
-                <button
-                  type='button'
-                  className="bg-transparent border border-gray-300 hover:border-pink-500 px-4 py-2 mt-4 text-sm text-pink-500 font-semibold"
-                >
-                  LOGIN / SIGNUP
-                </button>
-                <hr className="border-b-0 my-4" />
-                <ul className="space-y-1.5">
-                  {['Order', 'Wishlist', 'Gift Cards', 'Contact Us'].map((item, index) => (
-                    <li key={index}><a href='#' className="text-sm text-gray-500 hover:text-pink-500">{item}</a></li>
-                  ))}
-                </ul>
-                <hr className="border-b-0 my-4" />
-                <ul className="space-y-1.5">
-                  {['Coupons', 'Saved Credits', 'Contact Us', 'Saved Addresses'].map((item, index) => (
-                    <li key={index}><a href='#' className="text-sm text-gray-500 hover:text-pink-500">{item}</a></li>
-                  ))}
-                </ul>
+              <div className={`bg-slate-200  z-20 rounded-2xl shadow-lg py-6 px-6 sm:min-w-[200px] max-sm:min-w-[250px] max-sm:-right-32 absolute right-5 top-20 ${isProfileOpen ? 'block' : 'hidden'}`}  >
+                <div className='text-lg mt-1  flex flex-col'>
+                 <Link href="/Profile" className='my-2'>Profile</Link>
+                 <Link href="/Profile" className='my-1'>Log out</Link>
+                </div>
               </div>
             </li>
           </ul>
-
           <button id="toggleOpen" className='lg:hidden ml-7' onClick={handleMenuClick}>
              <FaBars />
           </button>
         </div>
+        
       </div>
     </header>
   );

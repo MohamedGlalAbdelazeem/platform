@@ -14,13 +14,13 @@ function Page() {
            <span>Don’t Worry</span>
         </div>
         <p>
-         Please enter the email address associated with your account, and we’ll send you a code to reset your password.
+        We've sent a code to your email. Please enter the code below to verify your identity.
       </p>
        {/* email */}
        <div className="grid lg:grid-cols-1 my-6">
           <div>
-            <label className="text-gray-800 text-sm mb-2 block">Email *</label>
-            <input name="name" type="text" className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Your Email here" />
+            <label className="text-gray-800 text-sm mb-2 block">Reset Code</label>
+            <input name="name" type="text" className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="******" />
           </div>
         </div>
       {/* email */}
@@ -31,10 +31,10 @@ function Page() {
 
         <div className="mt-6 ">
           <button type="button" className="w-full py-3 px-6 text-sm tracking-wide font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition-all">
-          Send Reset Code
+            Verify Code
           </button>
-        <div className='w-full flex justify-center my-6'>
-            <span className=''>Back</span>
+          <div className='w-full flex justify-center my-6'>
+            <span className=''>Didn’t receive a code?  <button className='font-bold border-b-2 border-black' >Resend</button></span>
         </div>
         </div>
       </form>

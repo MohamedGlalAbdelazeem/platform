@@ -5,6 +5,9 @@ import { HiUserCircle } from "react-icons/hi2";
 import { TbHeartFilled } from "react-icons/tb";
 import { FaBell } from "react-icons/fa";
 import { FaBars } from "react-icons/fa6";
+import { FaRoadBarrier } from "react-icons/fa6";
+import { FaSearch } from "react-icons/fa";
+import Link from 'next/link';
 
 
 const Header = () => {
@@ -34,7 +37,7 @@ const Header = () => {
         <div id="collapseMenu"
           className={`max-lg:hidden lg:!flex lg:items-center lg:flex-1 max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50 ${isMenuOpen ? 'block' : 'hidden'}`} >
           <button id="toggleClose" className='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3' onClick={handleMenuClick}>
-            icon
+          <FaRoadBarrier />
           </button>
 
           <ul className='lg:ml-14 lg:flex lg:gap-x-8 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-10 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
@@ -48,21 +51,21 @@ const Header = () => {
             >
               <a href="#" className='text-[#333] block text-sm font-semibold'>Home</a>
             </li>
-            <li
-              className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'
-              onMouseEnter={handleCoursesClick} // Toggle dropdown on hover
+            <li className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'
+              onMouseEnter={handleCoursesClick} 
               onMouseLeave={handleCoursesClick}
             >
-              <a href='#' className='text-[#333] flex items-center text-sm font-semibold'>Courses 
+              <a href='#' className='text-[#333] flex items-center text-sm font-semibold'>
+                Courses 
                <MdKeyboardArrowDown className='text-lg' />
               </a>
               {isCoursesOpen && (
                 <ul className='absolute left-0 top-full bg-white shadow-md py-2'>
                   <li className='px-4 py-2  hover:bg-gray-100'>
-                    <a href="/all-courses" className="text-sm text-gray-700 block">All Courses</a>
+                    <Link href="/All-courses" className="text-sm text-gray-700 block">All Courses</Link>
                   </li>
                   <li className='px-4 py-2 hover:bg-gray-100'>
-                    <a href="/our-courses" className="text-sm text-gray-700 block">Our Courses</a>
+                    <Link href="/Our-courses" className="text-sm text-gray-700 block">Our Courses</Link>
                   </li>
                 </ul>
               )}
@@ -85,7 +88,7 @@ const Header = () => {
           </ul>
 
           <div className='lg:mx-8 max-xl:hidden flex items-center bg-gray-100 px-4 h-10 rounded flex-1'>
-            icon
+             <FaSearch />
             <input type='text' placeholder='Search something...' className='w-full outline-none text-sm bg-transparent' />
           </div>
         </div>

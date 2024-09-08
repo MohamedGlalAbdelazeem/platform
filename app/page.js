@@ -4,7 +4,6 @@ import OurCourses from "./_components/OurCourses";
 import Quizzes from "./_components/Quizzes";
 import Blogs from "./_components/Blogs";
 import Books from "./_components/Books";
-import Footer from "./_components/Footer";
 export default function Home() {
   return (
    <>
@@ -14,7 +13,6 @@ export default function Home() {
      <Quizzes/>
      <Blogs/>
      <Books/>
-     <Footer/>
    </> 
   );
 }

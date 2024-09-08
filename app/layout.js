@@ -1,3 +1,5 @@
+import Header from "./_components/Header";
+import Footer from "./_components/Footer";
 
 
 import { Cairo } from "next/font/google";
@@ -14,7 +16,9 @@ export default function RootLayout({ children }) {
   return (
         <html lang="en" >
           <body className={`cairo-font ${cairo.className}`}>
+            <Header/>
             {children}
+            <Footer/>
           </body>
         </html>
   );

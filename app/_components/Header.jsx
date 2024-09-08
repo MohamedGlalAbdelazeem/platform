@@ -30,9 +30,9 @@ const Header = () => {
   return (
     <header className='flex shadow-lg py-4 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide relative z-50'>
       <div className='w-full flex flex-wrap items-center lg:gap-y-4 '>
-        <a href="#" className='font-extrabold text-lg'>
+        <Link href="/" className='font-extrabold text-lg'>
           Naser's Academy
-        </a>
+        </Link>
 
         <div id="collapseMenu"
           className={`max-lg:hidden lg:!flex lg:items-center lg:flex-1 max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50 ${isMenuOpen ? 'block' : 'hidden'}`} >
@@ -49,7 +49,7 @@ const Header = () => {
             <li
               className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'
             >
-              <a href="#" className='text-[#333] block text-sm font-semibold'>Home</a>
+              <Link href="/" className='text-[#333] block text-sm font-semibold'>Home</Link>
             </li>
             <li className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'
               onMouseEnter={handleCoursesClick} 

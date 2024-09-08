@@ -6,7 +6,6 @@ import { TbHeartFilled } from "react-icons/tb";
 import { FaBell } from "react-icons/fa";
 import { FaBars } from "react-icons/fa6";
 import { FaRoadBarrier } from "react-icons/fa6";
-import { FaSearch } from "react-icons/fa";
 import Link from 'next/link';
 
 
@@ -107,8 +106,8 @@ const Header = () => {
               </div>
               <div className={`bg-slate-200  z-20 rounded-2xl shadow-lg py-6 px-6 sm:min-w-[200px] max-sm:min-w-[250px] max-sm:-right-32 absolute right-5 top-20 ${isProfileOpen ? 'block' : 'hidden'}`}  >
                 <div className='text-lg mt-1  flex flex-col'>
-                 <Link href="/Profile" className='my-2'>Profile</Link>
-                 <Link href="/Profile" className='my-1'>Log out</Link>
+                 <Link href="/pages/Profile" className='my-2'>Profile</Link>
+                 <Link href="/" className='my-1'>Log out</Link>
                 </div>
               </div>
             </li>

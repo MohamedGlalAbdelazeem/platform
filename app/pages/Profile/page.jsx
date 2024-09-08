@@ -157,7 +157,7 @@ function Page() {
             </div>
             <div>
               <button className="w-full md:w-[175px] hover:shadow-form rounded-3xl bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                Change Password
+              Save Changes
               </button>
             </div>
           </form>

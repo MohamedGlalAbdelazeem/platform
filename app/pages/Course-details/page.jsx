@@ -70,7 +70,7 @@ function page() {
             </p>
           </div>
         
-                {/* Module 1 */}
+            
                 <div className="my-9">
                   <h1 className="font-bold text-2xl my-6">Course Content:</h1>
                  <ol class="list-decimal">

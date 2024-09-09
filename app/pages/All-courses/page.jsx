@@ -1,62 +1,90 @@
-import Link from "next/link"
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+'use client';
+import { useState } from "react";
+import Banner from "../../_components/Banner";
+import MultiRangeSlider from "multi-range-slider-react";
+import { FaSearch } from "react-icons/fa";
+
+import "./allCourses.css"
 
 function page() {
+  const [minValue, set_minValue] = useState(25);
+  const [maxValue, set_maxValue] = useState(75);
+  const handleInput = (e) => {
+    set_minValue(e.minValue);
+    set_maxValue(e.maxValue);
+  };
   return (
    <>
-    <div className="bg-gray-200">
-      <div className="text-center max-w-2xl max-md:max-w-md mx-auto py-8 px-2">
-        <div>
-          <h2 className="text-gray-800 md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px]">Explore Our Medical Courses</h2>
-          <p className="text-gray-600 mt-6 text-sm leading-relaxed">
-          Enhance your medical expertise with courses designed for healthcare professionals and students. Dive deeper into specific fields or explore new topics with expert-led learning experiences. Plus, you can upload your own courses to share your knowledge with others.
-          </p>
-          <div className="mt-12 flex gap-x-6 gap-y-4 mb-10 justify-center max-sm:flex-col">
-            <button type='button'
-              className="bg-blue-600 hover:bg-transparent hover:text-blue-600 border border-blue-600 transition-all text-white font-bold text-sm rounded px-6 py-3">Upload Your Course</button>
-          </div>
+   <Banner 
+   title={"Explore Our Medical Courses"}
+   body={"Enhance your medical expertise with courses designed for healthcare professionals and students. Dive deeper into specific fields or explore new topics with expert-led learning experiences. Plus, you can upload your own courses to share your knowledge with others."}
+   btnTitle={"Upload Your Course"}/>
+
+
+     {/* filteration  */}
+    <div className="-mt-9 mb-20 w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
+      <div className="w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
+      
+       {/*  Category */}
+        <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
+            <label htmlFor="countries" className="block  text-sm font-medium text-gray-900">Category</label>
+            <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl  block w-full p-2  ">
+              <option defaultValue>All (225)</option>
+              <option value="test">test</option>
+              <option value="test">test</option>
+              <option value="test">test</option>
+            </select>
         </div>
+         {/* Category */}
+
+        {/* Sub Category */}
+        <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
+            <label htmlFor="countries" className="block text-sm font-medium text-gray-900">SubCategory</label>
+            <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl  block w-full p-2  ">
+              <option defaultValue>All (285)</option>
+              <option value="test">test</option>
+              <option value="test">test</option>
+              <option value="test">test</option>
+            </select>
+        </div>
+   {/* Sub Category */}
+
+     {/* Ratings   */}
+     <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
+            <label htmlFor="countries" className="block  text-sm font-medium text-gray-900"> Ratings</label>
+            <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl  block w-full p-2  ">
+              <option defaultValue>5.00</option>
+              <option value="test">test</option>
+              <option value="test">test</option>
+              <option value="test">test</option>
+            </select>
+        </div>
+   {/*  Ratings */}
+
+     {/* Pricing   */}
+     <div className="w-[350px] gap-3 px-5 py-5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
+            <label htmlFor="countries" className="block  text-sm font-medium text-gray-900"> Pricing</label>
+            <MultiRangeSlider
+             className="w-full"
+              min={10}
+              max={100}
+              step={5}
+              minValue={minValue}
+              maxValue={maxValue}
+              onInput={(e) => {
+                handleInput(e);
+              }}
+            />
+        </div>
+    {/*  Pricing */}
+     {/* search   */}
+     <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
+        <FaSearch  className="text-2xl"/>
+        </div>
+    {/*  search */}
       </div>
     </div>
-
-    <div class="-mt-9 mb-20 w-max mx-auto bg-gray-100 border divide-x divide-white flex rounded overflow-hidden">
-      <button type="button" class="px-5 py-4 flex items-center  text-sm outline-none hover:bg-gray-300 transition-all">
-        <span className="mr-2">Category</span>
-        <Link href="/" className="gap-1 flex items-center bg-white p-2 rounded-2xl">
-          All (215)
-          <MdOutlineKeyboardArrowRight />
-        </Link>
-      </button>
-
-      <button type="button" class="px-5 py-2.5 flex items-center  text-sm outline-none hover:bg-gray-300 transition-all">
-        <span className="mr-2">Sub Category</span>
-        <Link href="/" className="gap-1 flex items-center bg-white p-2 rounded-2xl">
-          All (805)
-          <MdOutlineKeyboardArrowRight />
-        </Link>
-      </button>
-
-      <button type="button" class="px-5 py-2.5 flex items-center  text-sm outline-none hover:bg-gray-300 transition-all">
-        <span className="mr-2">Ratings</span>
-        <Link href="/" className="gap-1 flex items-center bg-white p-2 rounded-2xl">
-          (5.00)
-          <MdOutlineKeyboardArrowRight />
-        </Link>
-      </button>
-
-      <button type="button" class="px-5 py-2.5 flex items-center  text-sm outline-none hover:bg-gray-300 transition-all">
-        <span className="mr-2">Pricing</span>
-        <Link href="/" className="gap-1 flex items-center bg-white p-2 rounded-2xl">
-          All (215)
-          <MdOutlineKeyboardArrowRight />
-        </Link>
-      </button>
-
-    </div>
-    
-
    </>
   )
 }
-
 export default page

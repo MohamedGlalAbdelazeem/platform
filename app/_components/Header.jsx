@@ -61,7 +61,7 @@ const Header = () => {
               {isCoursesOpen && (
                 <ul className='absolute left-0 top-full bg-white shadow-md py-2'>
                   <li className='px-4 py-2  hover:bg-gray-100'>
-                    <Link href="/All-courses" className="text-sm text-gray-700 block">All Courses</Link>
+                    <Link href="/pages/All-courses" className="text-sm text-gray-700 block">All Courses</Link>
                   </li>
                   <li className='px-4 py-2 hover:bg-gray-100'>
                     <Link href="/Our-courses" className="text-sm text-gray-700 block">Our Courses</Link>
@@ -79,38 +79,48 @@ const Header = () => {
             >
               <a href="#" className='text-[#333] block text-sm font-semibold'>Blogs</a>
             </li>
-            <li
-              className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'
-            >
+            <li className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'   >
               <a href="#" className='text-[#333] block text-sm font-semibold'>Medical Books</a>
             </li>
           </ul>
         </div>
 
-        <div className='flex items-center ml-auto'>
+        <div className='flex  items-center'>
           <ul className="flex">
            <li>
-              <div className="flex flex-col justify-center items-center cursor-pointer">
+              <div className="flex mx-3 flex-col justify-center items-center cursor-pointer">
                  <TbHeartFilled  className='text-3xl' />
               </div>
             </li>
             <li>
-              <div className="flex flex-col justify-center items-center cursor-pointer">
+              <div className="flex flex-col mx-3 justify-center items-center cursor-pointer">
                <FaBell className='text-3xl' />
               </div>
             </li>
-            <li onClick={handleProfileClick} >
-              <div className="flex  gap-3 justify-center items-center cursor-pointer">
+            <li>
+              <div className=" text-lg  mx-3 py-1 flex flex-col justify-center items-center cursor-pointer">
+                <Link href={"/"}>Sign in</Link>
+              </div>
+            </li>
+            <li>
+              <div className=" text-lg mx-3 rounded-lg py-1 flex flex-col justify-center items-center cursor-pointer border-2 border-gray-400 px-6">
+                <Link href={"/"}>Get Started</Link>
+              </div>
+            </li>
+          {/* profile*/}
+            {/* <li onClick={handleProfileClick} >
+              <div className="flex   gap-3 justify-center items-center cursor-pointer">
                 <HiUserCircle className='text-4xl' />
                 <span>Hesham Mousa</span>
               </div>
-              <div className={`bg-slate-200  z-20 rounded-2xl shadow-lg py-6 px-6 sm:min-w-[200px] max-sm:min-w-[250px] max-sm:-right-32 absolute right-5 top-20 ${isProfileOpen ? 'block' : 'hidden'}`}  >
+              <div className={`bg-slate-200  z-20 rounded-2xl shadow-lg py-2 px-6 sm:min-w-[200px] max-sm:min-w-[250px] max-sm:-right-32 absolute right-5 top-20 ${isProfileOpen ? 'block' : 'hidden'}`}  >
                 <div className='text-lg mt-1  flex flex-col'>
                  <Link href="/pages/Profile" className='my-2'>Profile</Link>
                  <Link href="/" className='my-1'>Log out</Link>
                 </div>
               </div>
-            </li>
+            </li> */}
+          {/* profile */} 
           </ul>
           <button id="toggleOpen" className='lg:hidden ml-7' onClick={handleMenuClick}>
              <FaBars />

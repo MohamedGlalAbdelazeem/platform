@@ -1,0 +1,50 @@
+.multi-range-slider {
+  display: flex;
+  position: relative;
+  border: none;
+  padding-top: 5px;
+  box-shadow: none;
+  flex-direction: column;
+}
+
+.multi-range-slider .ruler {
+  display: none;
+  overflow: hidden;
+}
+
+.multi-range-slider .labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom:  -60px;
+}
+
+.multi-range-slider .caption {
+  position: absolute;
+  bottom: 35px;
+  width: 2px;
+  height: 2px;
+  left: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  display: none;
+}
+
+.multi-range-slider .thumb .caption * {
+  position: absolute;
+  min-width: 30px;
+  height: 10px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 15px;
+  background-color: transparent;
+  color: black;
+  box-shadow: none;
+  padding: 0px;
+  white-space: nowrap;
+}

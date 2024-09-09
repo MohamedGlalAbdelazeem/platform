@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
 import { BsArrowDownRightCircleFill } from "react-icons/bs";
+import { PiStarThin } from "react-icons/pi";
+import { FaArrowRightLong } from "react-icons/fa6";
+
 
 function page() {
   return (
-    <div class="container mx-auto px-4 py-8">
-      <div class="flex flex-row-reverse  justify-around flex-wrap mt-14">
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-row-reverse  justify-around flex-wrap mt-14">
     
       {/* course video */}
-        <div class="w-[335px]  px-4 mb-8">
+        <div className="w-[335px]  px-4 mb-8">
             <div  className="rounded-3xl p-3 overflow-hidden shadow-lg">
                         <div className="relative">
                             <img
@@ -49,15 +52,15 @@ function page() {
       {/* Course video: */}
 
         {/* Course Content: */}
-        <div class="w-full md:w-1/2 ">
-          <h2 class="text-2xl font-bold mb-2">Advanced Cardiology: Diagnosis and Treatment</h2>
-          <h3 class="font-bold mb-4">What You Will Learn:</h3>
-          <p class="text-sm leading-8 ">Experience premium sound quality and industry-leading noise cancellation
+        <div className="w-full md:w-1/2 ">
+          <h2 className="text-2xl font-bold mb-2">Advanced Cardiology: Diagnosis and Treatment</h2>
+          <h3 className="font-bold mb-4">What You Will Learn:</h3>
+          <p className="text-sm leading-8 ">Experience premium sound quality and industry-leading noise cancellation
           Gain in-depth knowledge of cardiovascular diseases, diagnostic techniques, and treatment methods. This course is designed for medical professionals looking to specialize in cardiology or enhance their understanding of heart-related conditions.
         </p>
 
          <div>
-            <ul class="list-disc list-inside text-gray-700">
+            <ul className="list-disc list-inside text-gray-700">
               <li>Understand the anatomy and physiology of the heart</li>
               <li>Learn how to interpret ECGs and other diagnostic tools</li>
               <li>Explore treatment options for common cardiovascular diseases</li>
@@ -76,10 +79,10 @@ function page() {
             
                 <div className="my-9">
                   <h1 className="font-bold text-2xl my-6">Course Content:</h1>
-                 <ol class="list-decimal">
+                 <ol className="list-decimal">
                         <li className="my-6">
                             Module 1: Introduction to Cardiovascular System
-                            <ul class="list-disc list-inside text-gray-700">
+                            <ul className="list-disc list-inside text-gray-700">
                                 <li>Understand the anatomy and physiology of the heart</li>
                                 <li>Learn how to interpret ECGs and other diagnostic tools</li>
                                 <li>Explore treatment options for common cardiovascular diseases</li>
@@ -89,7 +92,7 @@ function page() {
                
                         <li className="my-6">
                             Module 1: Introduction to Cardiovascular System
-                            <ul class="list-disc list-inside text-gray-700">
+                            <ul className="list-disc list-inside text-gray-700">
                                 <li>Understand the anatomy and physiology of the heart</li>
                                 <li>Learn how to interpret ECGs and other diagnostic tools</li>
                                 <li>Explore treatment options for common cardiovascular diseases</li>
@@ -99,7 +102,7 @@ function page() {
                
                         <li className="my-6">
                             Module 1: Introduction to Cardiovascular System
-                            <ul class="list-disc list-inside text-gray-700">
+                            <ul className="list-disc list-inside text-gray-700">
                                 <li>Understand the anatomy and physiology of the heart</li>
                                 <li>Learn how to interpret ECGs and other diagnostic tools</li>
                                 <li>Explore treatment options for common cardiovascular diseases</li>
@@ -108,7 +111,7 @@ function page() {
                         </li>
                         <li className="my-6">
                             Module 1: Introduction to Cardiovascular System
-                            <ul class="list-disc list-inside text-gray-700">
+                            <ul className="list-disc list-inside text-gray-700">
                                 <li>Understand the anatomy and physiology of the heart</li>
                                 <li>Learn how to interpret ECGs and other diagnostic tools</li>
                                 <li>Explore treatment options for common cardiovascular diseases</li>
@@ -121,32 +124,26 @@ function page() {
          {/* Course Content: */}
 
         {/* Course Preview: */}
-        <section class="bg-white px-4 py-12 md:py-24">
-            <div class="max-w-screen-xl mx-auto">
-                <div className="my-5 flex justify-between items-center">
-                    <h3 class="text-xl font-bold">
+        <section className="bg-white px-4 py-12 md:py-24">
+            <div className="max-w-screen-xl mx-auto">
+                <div className="my-5 flex flex-wrap justify-between items-center">
+                    <h3 className="text-xl font-bold">
                     Course Preview:
                     </h3>
-                    <Link href="/" className="font-bold">
-                    See All Reviews
+                    <Link href="/" className="font-bold flex items-center gap-4">
+                    See All Reviews <FaArrowRightLong />
                     </Link>
                 </div>
-                <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 relative">
-                <div class="bg-gray-200 rounded-lg p-8 text-center md:w-1/3">
-                    <p class="font-bold uppercase">John Doe</p>
-                    <p class="text-xl font-light italic text-gray-700">This podcast is amazing! The storytelling and production
-                    quality are top-notch. I can't wait for the next episode!</p>
-                </div>
-                <div class="bg-gray-200 rounded-lg p-8 text-center md:w-1/3">
-                    <p class="font-bold uppercase">Jane Smith</p>
-                    <p class="text-xl font-light italic text-gray-700">This podcast kept me on the edge of my seat. It's a
-                    must-listen for true crime enthusiasts!</p>
-                </div>
-                <div class="bg-gray-200 rounded-lg p-8 text-center md:w-1/3">
-                    <p class="font-bold uppercase">Emily Johnson</p>
-                    <p class="text-xl font-light italic text-gray-700">I can't get enough of this podcast! The host's voice is so
-                    soothing, and the stories are gripping. Highly recommend!</p>
-                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center items-center">
+                {["a", "f", "f", "r", "a", "f", "f", "r"].map((item, index) => (
+                    <div key={index} className="bg-gray-200 rounded-lg p-5">
+                    <p className="mb-2 text-sm font-bold leading-7 line-clamp-5">
+                        I recently completed the Advanced Cardiology: Diagnosis and Treatment course, and it exceeded all my expectations. The content was detailed yet easy to follow see more
+                    </p>
+                    <PiStarThin className="mb-2" />
+                    <span>Hisahsm Mosa</span>
+                    </div>
+                ))}
                 </div>
             </div>
             </section>

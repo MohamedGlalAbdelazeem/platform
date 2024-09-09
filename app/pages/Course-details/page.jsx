@@ -1,5 +1,4 @@
-import MultiRangeSlider from "multi-range-slider-react";
-import { FaSearch } from "react-icons/fa";
+import Link from "next/link";
 import { FaHeart } from "react-icons/fa";
 import { BsArrowDownRightCircleFill } from "react-icons/bs";
 
@@ -7,6 +6,8 @@ function page() {
   return (
     <div class="container mx-auto px-4 py-8">
       <div class="flex flex-row-reverse  justify-around flex-wrap mt-14">
+    
+      {/* course video */}
         <div class="w-[335px]  px-4 mb-8">
             <div  className="rounded-3xl p-3 overflow-hidden shadow-lg">
                         <div className="relative">
@@ -45,7 +46,9 @@ function page() {
                         </div>
             </div>
         </div>
-  
+      {/* Course video: */}
+
+        {/* Course Content: */}
         <div class="w-full md:w-1/2 ">
           <h2 class="text-2xl font-bold mb-2">Advanced Cardiology: Diagnosis and Treatment</h2>
           <h3 class="font-bold mb-4">What You Will Learn:</h3>
@@ -115,6 +118,40 @@ function page() {
                 </ol>
             </div>
         </div>
+         {/* Course Content: */}
+
+        {/* Course Preview: */}
+        <section class="bg-white px-4 py-12 md:py-24">
+            <div class="max-w-screen-xl mx-auto">
+                <div className="my-5 flex justify-between items-center">
+                    <h3 class="text-xl font-bold">
+                    Course Preview:
+                    </h3>
+                    <Link href="/" className="font-bold">
+                    See All Reviews
+                    </Link>
+                </div>
+                <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 relative">
+                <div class="bg-gray-200 rounded-lg p-8 text-center md:w-1/3">
+                    <p class="font-bold uppercase">John Doe</p>
+                    <p class="text-xl font-light italic text-gray-700">This podcast is amazing! The storytelling and production
+                    quality are top-notch. I can't wait for the next episode!</p>
+                </div>
+                <div class="bg-gray-200 rounded-lg p-8 text-center md:w-1/3">
+                    <p class="font-bold uppercase">Jane Smith</p>
+                    <p class="text-xl font-light italic text-gray-700">This podcast kept me on the edge of my seat. It's a
+                    must-listen for true crime enthusiasts!</p>
+                </div>
+                <div class="bg-gray-200 rounded-lg p-8 text-center md:w-1/3">
+                    <p class="font-bold uppercase">Emily Johnson</p>
+                    <p class="text-xl font-light italic text-gray-700">I can't get enough of this podcast! The host's voice is so
+                    soothing, and the stories are gripping. Highly recommend!</p>
+                </div>
+                </div>
+            </div>
+            </section>
+         {/* Course Preview: */}
+
       </div>
     </div>
   )

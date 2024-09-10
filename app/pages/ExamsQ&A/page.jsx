@@ -3,6 +3,7 @@ import { useState } from "react";
 import Banner from "../../_components/Banner";
 import { FaSearch } from "react-icons/fa";
 import { IoTimeSharp } from "react-icons/io5";
+import Link from "next/link";
 
 
 
@@ -76,7 +77,7 @@ function page() {
                           </ul>
                       </div>
                       <div className="px-2 gap-3 py-1 flex flex-col items-center">
-                          <button className="border-2 border-black bg-black text-white  p-2 w-full rounded-xl">Start Your Free Test  </button>
+                          <Link href="/pages/Exam-details" className="text-center border-2 border-black bg-black text-white  p-2 w-full rounded-xl">Start Your Free Test  </Link>
                           <button className="border-2 border-black  p-2 w-full rounded-xl"> Go To Premium  </button>
                       </div>
                   </div>

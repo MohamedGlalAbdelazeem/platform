@@ -71,8 +71,8 @@ const Header = () => {
             <li
               className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'
             >
-              <a href="#" className='text-[#333] block text-sm font-semibold'>Exams (Q&A)</a>
-            </li>
+              <Link href="/pages/ExamsQ&A" className='text-[#333] block text-sm font-semibold'>Exams (Q&A)</Link>
+            </li> 
             <li
               className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'>
               <Link href="/pages/Blogs" className='text-[#333] block text-sm font-semibold'>Blogs</Link>

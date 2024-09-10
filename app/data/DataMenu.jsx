@@ -16,5 +16,4 @@ const headerItms = [
       link:"/pages/Medical-books",
     },
   ]
-
   export default headerItms

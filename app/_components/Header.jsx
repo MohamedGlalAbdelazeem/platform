@@ -16,7 +16,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-xl text-teal-600 dark:text-teal-600">MedLearn Hub</Link>
+          <Link href="/" className="text-2xl font-bold text-white">MedLearn Hub</Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6 text-sm">
@@ -52,7 +52,7 @@ const Header = () => {
               )}
               {!isLogin && (
                 <>
-                  <Link href="#" className="rounded-md bg-teal-600 px-5 py-3 text-sm text-white dark:hover:bg-teal-500">Sign in</Link>
+                  <Link href="/sign-in" className="rounded-md bg-teal-600 px-5 py-3 text-sm text-white dark:hover:bg-teal-500">Sign in</Link>
                   <Link href="#" className="rounded-md border-2 bg-gray-100 px-5 py-2 text-sm text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">Get Started</Link>
                 </>
               )}
@@ -67,7 +67,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-white dark:bg-gray-900 shadow-lg">
+          <div className=" md:hidden absolute top-16 left-0 w-full bg-white dark:bg-gray-900 shadow-lg">
             <nav className="flex flex-col items-center gap-4 py-4 text-sm">
               {headerItms.map((item, index) => (
                 <Link key={index} href={item.link} className="text-gray-500 hover:text-gray-500/75 dark:text-white dark:hover:text-white/75">
@@ -79,7 +79,7 @@ const Header = () => {
                 <FaBell className="text-white text-2xl cursor-pointer" />
               </div>
               <div className="flex items-center gap-6">
-                <Link href="#" className="rounded-md bg-teal-600 px-5 py-3 text-sm text-white dark:hover:bg-teal-500">Sign in</Link>
+                <Link href="/sign-in" className="rounded-md bg-teal-600 px-5 py-3 text-sm text-white dark:hover:bg-teal-500">Sign in</Link>
                 <Link href="#" className="rounded-md border-2 bg-gray-100 px-5 py-2 text-sm text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">Get Started</Link>
               </div>
               {isLogin && (

@@ -2,7 +2,7 @@
 
 function Banner({title,body,btnTitle}) {
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-200 ">
     <div className="text-center max-w-2xl max-md:max-w-md mx-auto py-8 px-2">
       <div>
         <h2 className="text-gray-800 md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px]">{title}</h2>

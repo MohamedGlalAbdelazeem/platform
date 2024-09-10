@@ -1,41 +1,91 @@
+'use client'
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
+import React from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './books.css';
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules';
 
 function Books() {
- 
-
   return (
-    <section class="sm:mt-6 lg:mt-8 mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-gray-300 p-16 rounded-2xl my-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 flex gap-3 lg:flex-justify items-center lg:flex flex-col lg:flex-row">
-        <div class="sm:text-center lg:text-left">
-            <h1 class="text-xl tracking-tight font-extrabold text-gray-800 sm:text-5xl md:text-2xl">
-               Explore Essential Medical Books!
-              </h1>
-            <p
-                class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Discover a curated selection of medical books to support your learning and professional growth. Browse through detailed descriptions and download resources directly from our Telegram channel.
-            </p>
-           
-            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div class="mt-3 sm:mt-0 sm:ml-3">
-                    <Link href="/pages/Medical-books"
-                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-800 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
-                        Show All Books
-                        <FaArrowRight />
-                    </Link>
-                </div>
-            </div>
-           
+    <section className="mt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-gray-300 p-8 sm:p-12 md:p-16 rounded-2xl my-10 flex flex-col lg:flex-row items-center lg:gap-6">
+        {/* Left side - Text, Swiper, and Button */}
+        <div className="text-center lg:text-left lg:w-1/2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-xl font-extrabold text-gray-800">
+            Explore Essential Medical Books!
+          </h1>
+          <p className="mt-3 text-base sm:text-lg md:text-xl text-gray-500">
+            Discover a curated selection of medical books to support your learning and professional growth. Browse through detailed descriptions and download resources directly from our Telegram channel.
+          </p>
+          
+          {/* Swiper Component */}
+          <div className="my-6 hidden lg:flex sm:hidden">
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={6}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+              }}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCp4WM0yFsxwkNRMrMvv2Gbl0BqN0zfOLulA&s" alt="Book 1" className="rounded-lg shadow-md" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIEmcB6jdeHGCxiIQJhuleEpp3VMK0F-ngg&s" alt="Book 2" className="rounded-lg shadow-md" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzzzdo3wb_zBqS0YZh86MTBUhMJd3NNeI9xQpaGSku0Z6kjv-HhEpj-lUxtpt8Nw6LiBI&usqp=CAU" alt="Book 4" className="rounded-lg shadow-md" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://medicosage.com/wp-content/uploads/2021/11/Carol-dunham.webp" alt="Book 5" className="rounded-lg shadow-md" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCp4WM0yFsxwkNRMrMvv2Gbl0BqN0zfOLulA&s" alt="Book 1" className="rounded-lg shadow-md" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIEmcB6jdeHGCxiIQJhuleEpp3VMK0F-ngg&s" alt="Book 2" className="rounded-lg shadow-md" />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+
+          {/* Button */}
+          <div className="mt-5 flex justify-center lg:justify-start">
+            <Link href="/pages/Medical-books" className="flex items-center px-4 py-2 border border-transparent text-sm font-bold text-gray-800 bg-indigo-100 hover:bg-indigo-200 rounded-md">
+              Show All Books
+              <FaArrowRight className="ml-2" />
+            </Link>
+          </div>
         </div>
 
-  
-        <div class="lg:inset-y-0 lg:right-0 lg:w-1/2 my-4">
-            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://i.pinimg.com/originals/ac/ee/6b/acee6bad92436f7c7ca99f9c6fe8fb32.png" alt=""/>
+        {/* Right side - Big Image */}
+        <div className="mt-8 lg:mt-0 lg:w-1/2">
+          <img className="rounded-3xl h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://i.pinimg.com/originals/ac/ee/6b/acee6bad92436f7c7ca99f9c6fe8fb32.png" alt="Main book image"/>
         </div>
-       
-    </div>
-
-</section>
+      </div>
+    </section>
   );
 }
 

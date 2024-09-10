@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState } from 'react';
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { TbHeartFilled } from "react-icons/tb";
@@ -7,8 +7,8 @@ import { FaBars } from "react-icons/fa6";
 import { FaRoadBarrier } from "react-icons/fa6";
 import Link from 'next/link';
 
-
 const Header = () => {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);  
@@ -24,20 +24,17 @@ const Header = () => {
   const handleCoursesClick = () => {
     setIsCoursesOpen(!isCoursesOpen);
   };
-
-  return (
-    <header className='flex shadow-lg py-4 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide relative z-50'>
-      <div className='w-full flex flex-wrap items-center lg:gap-y-4 '>
-        <Link href="/" className='font-extrabold text-lg'>
-          Naser's Academy
-        </Link>
-
+return (
+    <header className='fixed  left-0 right-0 top-0  flex py-4  md:px-16 sm:px-6 bg-red-300 min-h-[70px] tracking-wide  z-50'>
+      <div className='w-full flex flex-wrap items-center lg:gap-y-4'>
+         <Link href="/" className='font-extrabold text-lg'>
+           Naser's Academy
+         </Link>
         <div id="collapseMenu"
           className={`max-lg:hidden lg:!flex lg:items-center lg:flex-1 max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50 ${isMenuOpen ? 'block' : 'hidden'}`} >
           <button id="toggleClose" className='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3' onClick={handleMenuClick}>
           <FaRoadBarrier />
           </button>
-
           <ul className='lg:ml-14 lg:flex lg:gap-x-8 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-10 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
             <li className='mb-6 hidden max-lg:block'>
               <a href="#">
@@ -97,7 +94,7 @@ const Header = () => {
             </li>
             <li>
               <div className=" text-lg  mx-3 py-1 flex flex-col justify-center items-center cursor-pointer">
-                <Link href={"/"}>Sign in</Link>
+                <Link href={"/sign-in"}>Sign in</Link>
               </div>
             </li>
             <li>
@@ -124,10 +121,8 @@ const Header = () => {
              <FaBars />
           </button>
         </div>
-        
       </div>
     </header>
   );
 };
-
 export default Header;

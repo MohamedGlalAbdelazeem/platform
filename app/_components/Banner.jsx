@@ -11,7 +11,7 @@ function Banner({title,body,btnTitle}) {
         </p>
         <div className="mt-12 flex gap-x-6 gap-y-4 mb-10 justify-center max-sm:flex-col">
           <button type='button'
-            className="bg-blue-600 hover:bg-transparent hover:text-blue-600 border border-blue-600 transition-all text-white font-bold text-sm rounded px-6 py-3">{btnTitle}</button>
+            className="hover:bg-transparent  border  transition-all text-white font-bold text-sm rounded px-6 py-3">{btnTitle}</button>
         </div>
       </div>
     </div>

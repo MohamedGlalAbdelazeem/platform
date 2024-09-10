@@ -8,7 +8,7 @@ import { BsArrowDownRightCircleFill } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 import "./allCourses.css"
-
+ 
 function page() {
   const [minValue, set_minValue] = useState(25);
   const [maxValue, set_maxValue] = useState(75);

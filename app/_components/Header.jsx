@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react';
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { HiUserCircle } from "react-icons/hi2";
 import { TbHeartFilled } from "react-icons/tb";
 import { FaBell } from "react-icons/fa";
 import { FaBars } from "react-icons/fa6";
@@ -75,12 +74,11 @@ const Header = () => {
               <a href="#" className='text-[#333] block text-sm font-semibold'>Exams (Q&A)</a>
             </li>
             <li
-              className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'
-            >
-              <a href="#" className='text-[#333] block text-sm font-semibold'>Blogs</a>
+              className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'>
+              <Link href="/pages/Blogs" className='text-[#333] block text-sm font-semibold'>Blogs</Link>
             </li>
             <li className='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'   >
-              <a href="#" className='text-[#333] block text-sm font-semibold'>Medical Books</a>
+              <Link href="/pages/Medical-books" className='text-[#333] block text-sm font-semibold'>Medical Books</Link>
             </li>
           </ul>
         </div>

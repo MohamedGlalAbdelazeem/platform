@@ -1,6 +1,7 @@
- 'use client';
-
+'use client';
+import { GoCheckCircleFill } from "react-icons/go";
 import { useState } from 'react';
+
 
 function Page() {
   const [progress, setProgress] = useState(30); // Example progress percentage
@@ -47,7 +48,7 @@ function Page() {
     {
         title: "Course Exam",
         videos: [
-          {
+          { 
           },
         ],
       },
@@ -88,14 +89,13 @@ function Page() {
                 <button
                   type="button"
                   className={`w-full text-sm font-semibold text-left p-6 flex items-center transition-all ${expandedLesson === lessonIndex ? 'text-blue-600' : 'text-gray-800'}`}
-                  onClick={() => toggleLesson(lessonIndex)}
-                >
+                  onClick={() => toggleLesson(lessonIndex)}>
+                  <span className="mr-2 text-lg"><GoCheckCircleFill /></span>
                   <span className="mr-4">{lesson.title}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-[14px] fill-current ml-auto shrink-0" viewBox="0 0 42 42">
                     <path
                       d={expandedLesson === lessonIndex ? 'M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z' : 'M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z'}
-                      data-original="#000000"
-                    />
+                      data-original="#000000"/>
                   </svg>
                 </button>
 
@@ -106,8 +106,7 @@ function Page() {
                       <p
                         key={videoIndex}
                         className="text-sm text-gray-600 leading-relaxed cursor-pointer hover:text-blue-600"
-                        onClick={() => handleVideoSelect(lessonIndex, videoIndex)}
-                      >
+                        onClick={() => handleVideoSelect(lessonIndex, videoIndex)}>
                         {video.title}
                       </p>
                     ))}

@@ -30,7 +30,7 @@ function Footer() {
             <p className="text-gray-500 text-sm mb-10">
               MedLearn Hub is an online platform offering medical courses, tests, a blog, and a collection of medical books. The platform is designed for medical professionals and students, providing them with valuable learning resources and tools to enhance their knowledge. This documentation serves as a comprehensive guide for developers and clients, outlining the core features and functionalities of the platform.
             </p>
-            <div>
+            <div className="flex flex-wrap gap-2">
               <a href="#" className="mx-2 bg-gray-400 p-2 rounded-sm text-lg ">Join Our Community</a>
               <a href="#" className="mx-2 border-2 border-black p-2 rounded-sm">Browse Courses</a>
             </div>

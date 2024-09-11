@@ -7,7 +7,7 @@ import { FaBarsStaggered, FaHeart, FaBell, FaCircleUser } from "react-icons/fa6"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -45,7 +45,7 @@ const Header = () => {
               {isLogin && (
                 <div className="relative group">
                   <FaCircleUser className="text-3xl  cursor-pointer" />
-                  <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute -right-20 mt-5 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
                     <a href="#" className="block px-4 py-2 text-gray-700 dark:text-white">Log out</a>
                   </div>
@@ -54,9 +54,9 @@ const Header = () => {
               {!isLogin && (
                 <>
                   <Link href="/sign-in" className=" px-5 py-3 text-xl">Sign in</Link>
-                  <Link href="#" className="rounded-md border-2 bg-gray-300 px-5 py-2 text-xl">Get Started</Link>
                 </>
               )}
+              <Link href="#" className="rounded-md border-2 bg-gray-300 px-5 py-2 text-xl">Get Started</Link>
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -89,7 +89,7 @@ const Header = () => {
               {isLogin && (
                 <div className="relative group">
                   <FaCircleUser className="text-3xl text-gray-500 dark:text-white cursor-pointer" />
-                  <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute right-0 z-50 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
                     <a href="#" className="block px-4 py-2 text-gray-700 dark:text-white">Log out</a>
                   </div>

@@ -10,7 +10,7 @@ function OurCourses() {
         <h3 className="mx-2 text-center capitalize text-2xl sm:text-xl font-normal">Our Courses</h3>
     </div>
     <h1 className='text-center text-3xl font-bold'>Explore Our Top Medical Courses</h1>
-    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+    <div className="max-w-screen-xl mx-auto sm:p-3 md:p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
             {["A", "v", "f", "A", "v", "f"].map((item, index) => (
                 <div key={index} className="rounded-3xl p-3 overflow-hidden shadow-lg">

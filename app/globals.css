@@ -14,8 +14,8 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: black; 
-    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.436); 
+    border-radius: 0px;
   }
   
   /* Handle on hover */

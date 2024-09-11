@@ -1,5 +1,4 @@
-'use client';
-import { useState } from "react";
+ 
 import Banner from "../../_components/Banner";
 import { FaSearch } from "react-icons/fa";
 import { IoTimeSharp } from "react-icons/io5";
@@ -17,7 +16,7 @@ function page() {
      {/* filteration  */}
     <div className="-mt-9 w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
       <div className="w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
-      
+
        {/*  Category */}
         <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
             <label htmlFor="countries" className="block  text-sm font-medium text-gray-900">Category</label>

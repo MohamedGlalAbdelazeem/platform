@@ -41,7 +41,7 @@ function Footer() {
                 <a className="hover:text-indigo-600" href="#">About Us</a>
               </li>
               <li className="my-2">
-                <Link href="/Privacy-Policy" className="hover:text-indigo-600">Privacy Policy</Link>
+                <Link href="/pages/Privacy-Policy" className="hover:text-indigo-600">Privacy Policy</Link>
               </li>
               <li className="my-2">
                 <a className="hover:text-indigo-600" href="#">Terms of Service</a>

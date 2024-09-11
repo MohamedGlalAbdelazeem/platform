@@ -1,10 +1,9 @@
 const page = () => {
     return (
     <>
-           <div className="bg-gray-300 pt-12 mb-24 h-32">
-             <h1 class=" text-center text-3xl font-bold mb-4">Privacy Policy for MedLearn Hub</h1>
-           </div>
-    
+        <div className="bg-gray-300  p-28 mb-10 h-32">
+            <h1 class=" text-center text-3xl font-bold mb-4">Privacy Policy for MedLearn Hub</h1>
+        </div>
         <div class="container mx-auto px-4 ">
             <h2 class="text-sm font-bold mb-2">Introduction</h2>
             <p class="mb-4"> At MedLearn Hub, we prioritize the privacy of our users. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you use our platform, including our website and services.  </p>

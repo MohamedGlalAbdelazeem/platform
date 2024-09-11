@@ -1,13 +1,12 @@
 'use client';
 import { useState } from "react";
-import Banner from "../../_components/Banner";
 import MultiRangeSlider from "multi-range-slider-react";
 import { FaSearch } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-import { BsArrowDownRightCircleFill } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
-
-import "./allCourses.css"
+import { BsArrowDownRightCircleFill } from "react-icons/bs";
+import "./allCourses.css" 
+import RegisterModel from "../Course-details/RegisterModel";
  
 function page() {
   const [minValue, set_minValue] = useState(25);
@@ -17,11 +16,26 @@ function page() {
     set_maxValue(e.maxValue);
   };
   return (
-   <>
-   <Banner 
-   title={"Explore Our Medical Courses"}
-   body={"Enhance your medical expertise with courses designed for healthcare professionals and students. Dive deeper into specific fields or explore new topics with expert-led learning experiences. Plus, you can upload your own courses to share your knowledge with others."}
-   btnTitle={"Upload Your Course"}/>
+  <>
+  <div className="bg-gray-200 ">
+    <div className="text-center max-w-3xl p-28 max-md:max-w-md mx-auto">
+      <div>
+        <h2 className="text-gray-800 md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px]">Explore Our Medical Courses</h2>
+        <p className="text-gray-600 mt-6 text-lg leading-relaxed">
+        Enhance your medical expertise with courses designed for healthcare professionals and students. Dive deeper into specific fields or explore new topics with expert-led learning experiences. Plus, you can upload your own courses to share your knowledge with others
+        </p>
+        <div className="mt-2 flex items-center justify-center max-sm:flex-col">
+          <button type="button"
+            onClick={<RegisterModel/>}
+            className="hover:bg-transparent  border transition-all  font-bold text-lg rounded px-2 py-3">
+              Upload Your Course
+            </button>
+            <FaArrowRightLong />
+        </div>
+      </div>
+    </div>
+  </div>
+
      {/* filteration  */}
     <div className="-mt-9 w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
       <div className="w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">

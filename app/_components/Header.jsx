@@ -30,8 +30,8 @@ const Header = () => {
                 Courses <IoIosArrowDown />
               </button>
               <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Link href="/pages/Our-courses" className="block px-4 py-2 text-gray-700 dark:text-white">Our Courses</Link>
                 <Link href="/pages/All-courses" className="block px-4 py-2 text-gray-700 dark:text-white">All Courses</Link>
+                <Link href="/pages/Our-courses" className="block px-4 py-2 text-gray-700 dark:text-white">Our Courses</Link>
               </div>
             </div>
           </nav>

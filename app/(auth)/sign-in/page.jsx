@@ -1,19 +1,18 @@
-import React from 'react';
+import Link from "next/link";
+
 
 function Page() {
   return (
-    <div className="flex flex-col justify-center items-center font-[sans-serif] bg-gradient-to-r from-blue-800 to-blue-500 lg:h-screen p-6">
+    <div className="flex flex-col justify-center items-center  bg-gradient-to-r from-blue-800 to-blue-500 lg:h-screen p-6">
     <div className="grid md:grid-cols-2 items-center gap-y-8 bg-white max-w-7xl w-full shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md overflow-hidden">
       <div className="max-md:order-1 flex flex-col justify-center sm:p-8 p-4 bg-gradient-to-r from-blue-600 to-blue-700 w-full h-full">
        image
       </div>
-
-      <form className="sm:p-8 my-16 w-full">
+      <form className="sm:p-8 my-6 w-full">
         <div className="text-center my-10 w-full mx-auto">
            <span>Welcome to</span>
           <h3 className="text-blue-500 text-2xl font-extrabold max-md:text-center">MedLearn Hub</h3>
         </div>
-     
        {/* email */}
        <div className="grid lg:grid-cols-1 my-6">
           <div>
@@ -22,7 +21,6 @@ function Page() {
           </div>
         </div>
       {/* email */}
-
          {/* password */}
         <div className="grid lg:grid-cols-1 gap-6">
            <div>
@@ -36,17 +34,15 @@ function Page() {
             </div>
         </div>
        {/* password */}
-
        <div className="flex items-center mt-6">
-           <p>Forget Password?</p>
+           <Link href={"/Forget-pass"} className="font-bold">Forget Password?</Link>
         </div>
-
         <div className="mt-6 ">
           <button type="button" className="w-full py-3 px-6 text-sm tracking-wide font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition-all">
           Sign In
           </button>
         <div className='w-full flex justify-center my-6'>
-            <span className=''>Don’t have an accoun <button className='font-bold border-b-2 border-black' >Join Now</button></span>
+            <span>Don’t have an accoun <Link href={"/sign-up"} className='ml-2 font-bold border-b-2 border-black' >Join Now</Link></span>
         </div>
         </div>
       </form>
@@ -54,5 +50,4 @@ function Page() {
   </div>
   );
 }
-
 export default Page;

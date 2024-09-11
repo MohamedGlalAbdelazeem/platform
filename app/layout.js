@@ -17,7 +17,12 @@ export default function RootLayout({ children }) {
   const pathname = usePathname(); 
 
 
-  const hideHeaderFooter = pathname === "/sign-in" || pathname === "/sign-up" || pathname === "/Forget-pass";
+  const hideHeaderFooter = pathname === "/sign-in" || 
+   pathname === "/sign-up" ||
+    pathname === "/Forget-pass"
+  || pathname === "/Rest-pass"
+  || pathname === "/verify-code"
+  || pathname === "/Success-reg";
 
   return (
     <html lang="en">

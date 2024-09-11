@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 function Page() {
@@ -77,7 +78,7 @@ function Page() {
             Sign up
           </button>
         <div className='w-full flex justify-center my-6'>
-            <span className=''>Do You have an account?  <button className='font-bold border-b-2 border-black' >Sign in</button></span>
+            <span >Do You have an account?  <Link href={"/sign-in"} className='font-bold border-b-2 border-black' >Sign in</Link></span>
         </div>
         </div>
       </form>

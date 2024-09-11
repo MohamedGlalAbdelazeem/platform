@@ -8,7 +8,6 @@ import RegisterModel from "./RegisterModel";
 function Page() {
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Manage login state
   const [showModal, setShowModal] = useState(false);   // Manage modal visibility
-
   // Function to handle modal display based on login status
   const handleRegister = () => {
     if (!isLoggedIn) {
@@ -18,7 +17,6 @@ function Page() {
       console.log("User enrolled");
     }
   };
-
   // Function to close the modal
   const handleCloseModal = () => {
     setShowModal(false);

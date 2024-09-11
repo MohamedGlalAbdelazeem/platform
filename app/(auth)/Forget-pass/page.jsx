@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 function Page() {
@@ -19,7 +20,7 @@ function Page() {
        {/* email */}
        <div className="grid lg:grid-cols-1 my-6">
           <div>
-            <label className="text-gray-800 text-sm mb-2 block">Email *</label>
+            <label className="text-gray-800 text-sm mb-2 block">Email Address</label>
             <input name="name" type="text" className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Your Email here" />
           </div>
         </div>
@@ -34,7 +35,7 @@ function Page() {
           Send Reset Code
           </button>
         <div className='w-full flex justify-center my-6'>
-            <span className=''>Back</span>
+            <Link href='/sign-in'>Back</Link>
         </div>
         </div>
       </form>

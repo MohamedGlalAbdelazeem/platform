@@ -22,16 +22,20 @@ function page() {
       <div className="bg-gray-200 ">
         <div className="text-center max-w-3xl p-40  max-md:max-w-md mx-auto">
           <div>
-            <h2 className="text-gray-800 md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px]">My Courses</h2>
+            <h2 className="text-gray-800 md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px]">My Wish Lest</h2>
             <div className="mt-2 gap-8 flex items-center justify-center max-sm:flex-col">
               <button type="button"
               className="  bg-gray-300   border transition-all  font-bold text-lg rounded-3xl px-3 py-2">
-                My Joined Courses
+               Courses
                 </button>
                 <Link href={"/pages/Upload-courses"}
-              className=" bg-gray-300   border transition-all  font-bold text-lg rounded-3xl px-3 py-2">
-              My Uploaded Courses
+                className=" bg-gray-300   border transition-all  font-bold text-lg rounded-3xl px-3 py-2">
+                 Blogs
               </Link>
+              <button type="button"
+              className="  bg-gray-300   border transition-all  font-bold text-lg rounded-3xl px-3 py-2">
+                  Books
+                </button>
             </div>
           </div>
         </div>

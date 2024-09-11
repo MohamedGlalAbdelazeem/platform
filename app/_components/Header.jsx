@@ -39,7 +39,9 @@ const Header = () => {
           {/* User and Menu Icons */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-6">
-              <FaHeart className="text-white text-2xl cursor-pointer" />
+             <Link href={"/pages/Mywish-lest"}>
+                <FaHeart className="text-white text-2xl cursor-pointer" />
+             </Link> 
               <FaBell className="text-white text-2xl cursor-pointer" />
               {isLogin && (
                 <div className="relative group">
@@ -75,7 +77,9 @@ const Header = () => {
                 </Link>
               ))}
               <div className="flex gap-6">
-                <FaHeart className="text-white text-2xl cursor-pointer" />
+                <Link href={"/pages/Mywish-lest"}>
+                  <FaHeart className="text-white text-2xl cursor-pointer" />
+              </Link> 
                 <FaBell className="text-white text-2xl cursor-pointer" />
               </div>
               <div className="flex items-center gap-6">

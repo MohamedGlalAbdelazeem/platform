@@ -10,13 +10,12 @@
   /* Track */
   ::-webkit-scrollbar-track {
     background: #f1f1f1; 
-    
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #0d948970; 
-    border-radius: 50px;
+    background: black; 
+    border-radius: 5px;
   }
   
   /* Handle on hover */
@@ -29,7 +28,7 @@ html{
 }
 
 .cairo-font {
-  font-family: 'Cairo', sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 

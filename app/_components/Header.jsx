@@ -7,7 +7,7 @@ import { FaBarsStaggered, FaHeart, FaBell, FaCircleUser } from "react-icons/fa6"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -51,8 +51,11 @@ const Header = () => {
               <FaBell className="text-2xl cursor-pointer" />
               {isLogin && (
                 <div className="relative group">
-                  <FaCircleUser className="text-3xl cursor-pointer" />
-                  <div className="absolute -right-20 mt-5 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className='flex items-center gap-5'>
+                       <FaCircleUser className="text-3xl cursor-pointer" /> 
+                       <h3 className='text-lg'>mohamed glal</h3>
+                      </span> 
+                  <div className="absolute -right-8 mt-2 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
                     <a href="#" className="block px-4 py-2 text-gray-700 dark:text-white">Log out</a>
                   </div>
@@ -106,8 +109,11 @@ const Header = () => {
                 isLogin === true ?  
                 (
                    <div className="relative group">
-                  <FaCircleUser className="text-3xl cursor-pointer text-white" />
-                  <div className="absolute -right-20 mt-5 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className='flex items-center gap-5 text-white'>
+                       <FaCircleUser className="text-3xl cursor-pointer" /> 
+                       <h3 className='text-lg'>mohamed glal</h3>
+                      </span> 
+                  <div className="absolute -right-10 mt-1 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
                     <a href="#" className="block px-4 py-2 text-gray-700 dark:text-white">Log out</a>
                   </div>

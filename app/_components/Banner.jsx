@@ -1,6 +1,6 @@
 
 
-function Banner({title,body,btnTitle}) {
+function Banner({title,body}) {
   return (
     <div className="bg-gray-200 pt-20">
     <div className="text-center max-w-2xl max-md:max-w-md mx-auto py-8 px-2">
@@ -9,10 +9,6 @@ function Banner({title,body,btnTitle}) {
         <p className="text-gray-600 mt-6 text-sm leading-relaxed">
             {body}
         </p>
-        <div className="mt-12 flex gap-x-6 gap-y-4 mb-10 justify-center max-sm:flex-col">
-          <button type='button'
-            className="hover:bg-transparent  border  transition-all text-white font-bold text-sm rounded px-6 py-3">{btnTitle}</button>
-        </div>
       </div>
     </div>
   </div>

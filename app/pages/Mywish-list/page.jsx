@@ -9,8 +9,8 @@ function page() {
  
   return (
   <>
-      <div className="bg-gray-200 ">
-        <div className="text-center max-w-3xl p-40  max-md:max-w-md mx-auto">
+      <div className="bg-gray-200 h-[353px] ">
+        <div className="text-center max-w-3xl p-24  max-md:max-w-md mx-auto">
           <div>
             <h2 className="text-gray-800 md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px]">My Wish Lest</h2>
             <div className="mt-6 gap-8 flex items-center justify-center max-sm:flex-col">

@@ -45,7 +45,7 @@ const Header = () => {
           {/* Profile icon */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-6">
-              <Link href={"/pages/Mywish-lest"}>
+              <Link href={"/pages/Mywish-list"}>
                 <FaHeart className="text-2xl cursor-pointer" />
               </Link> 
               <FaBell className="text-2xl cursor-pointer" />
@@ -97,7 +97,7 @@ const Header = () => {
                 </div>
               ))}
               <div className="flex gap-6">
-                <Link href={"/pages/Mywish-lest"}>
+                <Link href={"/pages/Mywish-list"}>
                   <FaHeart className="text-white text-2xl cursor-pointer" />
                 </Link> 
                 <FaBell className="text-white text-2xl cursor-pointer" />

@@ -5,11 +5,11 @@ import RelatedBlogs from "./RelatedBlogs";
 function Page() {
  
   return (
-    <div className="container mx-auto px-16 py-8">
+    <div className="container mx-auto mt-20 px-16 py-8">
       <div className="flex flex-row-reverse justify-around flex-wrap mt-6">
         <h1 className='text-2xl font-bold'>Medical InsightThe Latest Advances in Cardiac Cares & Articles</h1>
-        <div className='my-6 bg-gray-200 w-full h-96 rounded-3xl'>
-        </div>
+       <div className='my-6 bg-gray-200 w-full h-96 rounded-3xl'>
+      </div>
         <div className="w-full flex gap-4 flex-wrap items-center justify-between">
             <div className="flex flex-wrap gap-6">
                <button className="bg-slate-600 text-white py-1 rounded-2xl w-[130px]">Category</button>    

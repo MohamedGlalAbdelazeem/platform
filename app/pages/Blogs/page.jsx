@@ -10,10 +10,12 @@ import { BsArrowDownRightCircleFill } from "react-icons/bs";
 function page() {
   return (
    <>
-   <Banner 
-   title={"Medical Insights & Articles"}
-   body={"Explore expert articles on a wide range of medical topics. Our blog is categorized by specialty, ensuring that you can easily find the information you're interested in. Whether you're a student or a healthcare professional, these articles provide in-depth knowledge to enhance your medical expertise."}
-   />
+   <div className="my-5">
+    <Banner 
+    title={"Medical Insights & Articles"}
+    body={"Explore expert articles on a wide range of medical topics. Our blog is categorized by specialty, ensuring that you can easily find the information you're interested in. Whether you're a student or a healthcare professional, these articles provide in-depth knowledge to enhance your medical expertise."}
+    />
+   </div>
      {/* filteration  */}
     <div className="-mt-9 w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
       <div className="w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">

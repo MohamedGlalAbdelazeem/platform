@@ -7,8 +7,8 @@ const headerItms = [
     item: "Exams (Q&A)",
     link: "",
     subItems: [
-      { item: "Mock Exams", link: "/pages/Mock-exams" },
-      { item: "Practice Tests", link: "/pages/Practice-tests" }
+      { item: "Exams", link: "/pages/ExamsQ&A" },
+      { item: "Our Exams", link: "/pages/Our-exams" }
     ]
   },
   {

@@ -1,6 +1,8 @@
 'use client';
 import { GoCheckCircleFill } from "react-icons/go";
 import { useState } from 'react';
+import { FaPlus } from "react-icons/fa";
+
 
 
 function Page() {
@@ -64,7 +66,7 @@ function Page() {
   };
 
   return (
-    <div className="container mx-auto px-4 my-20">
+    <div className="container mx-auto mt-36  px-4 my-20">
       {/* Main Course Details */}
       <div className="my-10 w-full flex items-center justify-between">
         <h2 className="text-xl font-bold mb-4">Advanced Cardiology: Diagnosis and Treatment</h2>
@@ -91,12 +93,10 @@ function Page() {
                   className={`w-full text-sm font-semibold text-left p-6 flex items-center transition-all ${expandedLesson === lessonIndex ? 'text-blue-600' : 'text-gray-800'}`}
                   onClick={() => toggleLesson(lessonIndex)}>
                   <span className="mr-2 text-lg"><GoCheckCircleFill /></span>
-                  <span className="mr-4">{lesson.title}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-[14px] fill-current ml-auto shrink-0" viewBox="0 0 42 42">
-                    <path
-                      d={expandedLesson === lessonIndex ? 'M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z' : 'M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z'}
-                      data-original="#000000"/>
-                  </svg>
+                  <span className="mr-4 flex items-center  justify-between w-full">
+                    {lesson.title}
+                     <FaPlus />
+                    </span>
                 </button>
 
                 {/* Sub-videos inside the expanded lesson */}
@@ -119,7 +119,7 @@ function Page() {
 
         {/* Main Video on the right */}
         <div className="flex flex-col w-full md:w-1/2 p-4">
-          <video width="100%" height="auto" controls className="rounded-2xl">
+          <video controls  controlsList="nodownload"  width="100%" height="auto"  className="rounded-2xl">
             <source
               src={lessons[currentLesson].videos[currentVideo].videoSrc} // Display the selected video
               type="video/mp4"

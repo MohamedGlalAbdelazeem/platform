@@ -8,6 +8,8 @@ function Page() {
   const [currentVideo, setCurrentVideo] = useState(0); // Current video index
   const [expandedLesson, setExpandedLesson] = useState(null); // To track which lesson is expanded
 
+  const score = "85%";
+
   const lessons = [
     {
       title: "Introduction",
@@ -56,7 +58,7 @@ function Page() {
   };
 
   return (
-    <div className="container mx-auto px-4 my-20">
+    <div className="container mx-auto mt-52 px-4 my-20">
       {/* Main Course Details */}
       <div className="my-10 w-full flex items-center justify-between">
         <h2 className="text-xl font-bold mb-4">Advanced Cardiology: Diagnosis and Treatment</h2>
@@ -109,12 +111,26 @@ function Page() {
           </div>
         </div>
 
+        {
+          score >= "90%" ? 
+        (
         <div className="flex flex-col w-full md:w-1/2 ">
-          <h2 className='my-2 font-bold text-2xl'>Congratulations on Completing the Course!</h2>
-          <p className='my-2 leading-7'>Well done! You’ve successfully completed the course [Course Name]. Your dedication and effort have paid off, and we’re thrilled to see your progress. Below is your exam score and a link to download your official certificate of completion.</p>
-          <span className='my-2'>You scored: 90 %</span>
-          <h3 className='font-bold'>download Your Certificate</h3>
+            <h2 className='my-2 font-bold text-2xl'>Congratulations on Completing the Course!</h2>
+            <p className='my-2 leading-7'>Well done! You’ve successfully completed the course [Course Name]. Your dedication and effort have paid off, and we’re thrilled to see your progress. Below is your exam score and a link to download your official certificate of completion.</p>
+            <span className='my-2'>You scored: 90 %</span>
+            <h3 className='font-bold'>download Your Certificate</h3>
+          </div>
+          ) : 
+          (
+        <div className="flex flex-col w-full md:w-1/2 ">
+          <h2 className='my-2 font-bold text-2xl'>Keep Going!</h2>
+          <p className='my-2 leading-7'>You’ve completed the course [Course Name], but don’t worry if you didn’t pass the final exam this time. Every learning journey comes with challenges, and this is just one step toward your success. Review the material and try again when you're ready — we believe in your ability to succeed!</p>
+          <span className='my-2'>You scored: 40 %</span>
+          <h3 className='font-bold'>Try Again</h3>
         </div>
+          )
+        }
+
       </div>
     </div>
   );

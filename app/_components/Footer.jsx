@@ -43,9 +43,6 @@ function Footer() {
               <li className="my-2">
                 <Link href="/pages/Privacy-Policy" className="hover:text-indigo-600">Privacy Policy</Link>
               </li>
-              <li className="my-2">
-                <a className="hover:text-indigo-600" href="#">Terms of Service</a>
-              </li>
               <li className="flex gap-6">
                <CiFacebook />
                <CiFacebook />

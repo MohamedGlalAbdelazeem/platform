@@ -3,27 +3,21 @@ import React, { useState } from 'react';
 import RelatedCoures from "./RelatedCoures";
 import CoursePreview from "./CoursePreview";
 import { FaResearchgate } from "react-icons/fa6";
-import RegisterModel from "./RegisterModel";
-
+import Link from 'next/link';
+import CourseDetails from './CourseDetails';
+import { useRouter } from 'next/navigation'
 function Page() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Manage login state
-  const [showModal, setShowModal] = useState(false);   // Manage modal visibility
-  // Function to handle modal display based on login status
-  const handleRegister = () => {
+  const router = useRouter();
+  const isLoggedIn = true;  
+
+  const handleEnroll = () => {
     if (!isLoggedIn) {
-      setShowModal(true); // Show modal if user is not logged in
-    } else {
-      // Handle enroll action for logged-in users
-      console.log("User enrolled");
+      router.push('/sign-in');
     }
   };
-  // Function to close the modal
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
+  
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto mt-20 px-4 py-8">
       <div className="flex flex-row-reverse justify-around flex-wrap mt-14">
         {/* course video */}
         <div className="w-[335px] px-4 mb-8">
@@ -55,87 +49,27 @@ function Page() {
               <span>Beginner level</span>
             </div>
             <div className="px-6 py-2 flex flex-col gap-3 items-center">
-              <button onClick={handleRegister} className="bg-gray-500 text-white p-3 w-full rounded-3xl">Enroll Now</button>
+              <button
+                onClick={handleEnroll}
+                  className="bg-gray-500 text-center text-white p-3 w-full rounded-3xl"
+                >
+                  {isLoggedIn ? (
+                    <Link href="/pages/Checkout">
+                      Enroll Now
+                    </Link>
+                  ) : (
+                    "Enroll Now"
+                  )}
+             </button>
               <button className="border-2 border-black p-3 w-full rounded-3xl"> Watch a trial lesson</button>
             </div>
           </div>
         </div>
         {/* Course video: */}
-
-        {/* Course Content: */}
-        <div className="w-full md:w-1/2">
-          <h2 className="text-2xl font-bold mb-2">Advanced Cardiology: Diagnosis and Treatment</h2>
-          <h3 className="font-bold mb-4">What You Will Learn:</h3>
-          <p className="text-sm leading-8">Experience premium sound quality and industry-leading noise cancellation
-            Gain in-depth knowledge of cardiovascular diseases, diagnostic techniques, and treatment methods. This course is designed for medical professionals looking to specialize in cardiology or enhance their understanding of heart-related conditions.
-          </p>
-
-          <div>
-            <ul className="list-disc list-inside text-gray-700">
-              <li>Understand the anatomy and physiology of the heart</li>
-              <li>Learn how to interpret ECGs and other diagnostic tools</li>
-              <li>Explore treatment options for common cardiovascular diseases</li>
-              <li>Speak-to-chat technology</li>
-            </ul>
-          </div>
-
-          <div className="mt-11">
-            <h2 className="leading-10 mt-5 font-bold text-2xl">Course Requirements:</h2>
-            <p>Basic knowledge of human anatomy and physiology
-              Familiarity with medical terminology
-              Access to ECG reading tools (recommended but not mandatory)
-            </p>
-          </div>
-
-          <div className="my-9">
-            <h1 className="font-bold text-2xl my-6">Course Content:</h1>
-            <ol className="list-decimal">
-              <li className="my-6">
-                Module 1: Introduction to Cardiovascular System
-                <ul className="list-disc list-inside text-gray-700">
-                  <li>Understand the anatomy and physiology of the heart</li>
-                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
-                  <li>Explore treatment options for common cardiovascular diseases</li>
-                  <li>Speak-to-chat technology</li>
-                </ul>
-              </li>
-
-              <li className="my-6">
-                Module 1: Introduction to Cardiovascular System
-                <ul className="list-disc list-inside text-gray-700">
-                  <li>Understand the anatomy and physiology of the heart</li>
-                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
-                  <li>Explore treatment options for common cardiovascular diseases</li>
-                  <li>Speak-to-chat technology</li>
-                </ul>
-              </li>
-
-              <li className="my-6">
-                Module 1: Introduction to Cardiovascular System
-                <ul className="list-disc list-inside text-gray-700">
-                  <li>Understand the anatomy and physiology of the heart</li>
-                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
-                  <li>Explore treatment options for common cardiovascular diseases</li>
-                  <li>Speak-to-chat technology</li>
-                </ul>
-              </li>
-              <li className="my-6">
-                Module 1: Introduction to Cardiovascular System
-                <ul className="list-disc list-inside text-gray-700">
-                  <li>Understand the anatomy and physiology of the heart</li>
-                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
-                  <li>Explore treatment options for common cardiovascular diseases</li>
-                  <li>Speak-to-chat technology</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
-        </div>
-        {/* Course Content: */}
+         <CourseDetails/>
         <CoursePreview />
         <RelatedCoures />
       </div>
-      <RegisterModel isLoggedIn={isLoggedIn} onClose={handleCloseModal} />
     </div>
   );
 }

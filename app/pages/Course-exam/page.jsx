@@ -64,21 +64,39 @@ function Page() {
       question: "What is the normal range for a healthy heart rate?",
       options: ["a) 20-40 bpm", "b) 60-100 bpm", "c) 120-160 bpm", "d) 180-220 bpm"],
     },
+    {
+      question: "What is the main function of the heart?",
+      options: ["a) Pump blood", "b) Produce oxygen", "c) Digest food", "d) Support bones"],
+    },
+    {
+      question: "What is the normal range for a healthy heart rate?",
+      options: ["a) 20-40 bpm", "b) 60-100 bpm", "c) 120-160 bpm", "d) 180-220 bpm"],
+    },
+    {
+      question: "What is the main function of the heart?",
+      options: ["a) Pump blood", "b) Produce oxygen", "c) Digest food", "d) Support bones"],
+    },
+    {
+      question: "What is the normal range for a healthy heart rate?",
+      options: ["a) 20-40 bpm", "b) 60-100 bpm", "c) 120-160 bpm", "d) 180-220 bpm"],
+    },
+    {
+      question: "What is the main function of the heart?",
+      options: ["a) Pump blood", "b) Produce oxygen", "c) Digest food", "d) Support bones"],
+    },
+    {
+      question: "What is the normal range for a healthy heart rate?",
+      options: ["a) 20-40 bpm", "b) 60-100 bpm", "c) 120-160 bpm", "d) 180-220 bpm"],
+    },
+    {
+      question: "What is the main function of the heart?",
+      options: ["a) Pump blood", "b) Produce oxygen", "c) Digest food", "d) Support bones"],
+    },
+    {
+      question: "What is the normal range for a healthy heart rate?",
+      options: ["a) 20-40 bpm", "b) 60-100 bpm", "c) 120-160 bpm", "d) 180-220 bpm"],
+    },
   ];
-
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
-
-  const handlePrevQuestion = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
 
   return (
     <div className="container mx-auto px-4 my-20">
@@ -139,27 +157,22 @@ function Page() {
         {/* Main Video and Questions Section */}
         <div className="flex flex-col w-full md:w-1/2 p-4">
           {/* Questions */}
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold mb-4">{questions[currentQuestion].question}</h3>
-            <ul className="space-y-2">
-              {questions[currentQuestion].options.map((option, index) => (
-                <li key={index} className="flex items-center space-x-2">
-                  <input type="radio" name={`q${currentQuestion}`} id={`option${index}`} />
-                  <label htmlFor={`option${index}`} className="text-sm">{option}</label>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-6 overflow-y-auto max-h-96">
+            {questions.map((question, index) => (
+              <div key={index} className="mb-6">
+                <h3 className="text-lg font-semibold mb-4">{question.question}</h3>
+                <ul className="space-y-2">
+                  {question.options.map((option, optIndex) => (
+                    <li key={optIndex} className="flex items-center space-x-2">
+                      <input type="radio" name={`q${index}`} id={`option${optIndex}`} />
+                      <label htmlFor={`option${optIndex}`} className="text-sm">{option}</label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-
-          {/* Prev/Next Buttons */}
-          <div className="flex justify-end mt-6 gap-6">
-            <button onClick={handlePrevQuestion} className="text-lg border-2 border-gray-400 p-1 w-28 rounded-3xl" disabled={currentQuestion === 0}>
-              Prev
-            </button>
-            <button onClick={handleNextQuestion} className="text-lg bg-slate-400 p-1 rounded-3xl w-28" disabled={currentQuestion === questions.length - 1}>
-              Next
-            </button>
-          </div>
+          <button className='my-6 bg-gray-300 p-2 w-fit rounded-lg'>Finish The Exam</button>
         </div>
       </div>
     </div>

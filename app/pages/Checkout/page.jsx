@@ -5,7 +5,7 @@ import { FaCcMastercard } from "react-icons/fa";
 
 function page() {
   return (
-    <div class="fixed inset-0 p-4 flex flex-wrap justify-center items-center  h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto ">
+    <div class="fixed inset-0 p-4 flex flex-wrap justify-center items-center  h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.84)] overflow-auto ">
             <div class="w-[500px] bg-red-300 shadow-lg rounded-lg p-8 relative">
                 <div class="flex items-center pb-3 border-gray-300">
                     <h3 class="text-xl text-center font-bold flex-1 text-gray-800">Choose payment Method</h3>

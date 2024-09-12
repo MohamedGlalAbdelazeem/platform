@@ -6,7 +6,7 @@ import { FaHeart } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsArrowDownRightCircleFill } from "react-icons/bs";
 import "./allCourses.css" 
-import RegisterModel from "../Course-details/RegisterModel";
+
  
 function page() {
   const [minValue, set_minValue] = useState(25);
@@ -26,7 +26,6 @@ function page() {
         </p>
         <div className="mt-2 flex items-center justify-center max-sm:flex-col">
           <button type="button"
-            onClick={<RegisterModel/>}
             className="hover:bg-transparent  border transition-all  font-bold text-lg rounded px-2 py-3">
               Upload Your Course
             </button>

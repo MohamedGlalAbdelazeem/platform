@@ -3,13 +3,13 @@ import { useState } from "react";
 import Banner from "../../_components/Banner";
 import { FaSearch } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-import { BsArrowDownRightCircleFill } from "react-icons/bs";
-
-
+import { Suspense } from "react";
+import Loading from "./loading";
 
 function page() {
   return (
    <>
+<Suspense fallback={<Loading />}>
    <div className="my-5">
     <Banner 
     title={"Medical Insights & Articles"}
@@ -82,6 +82,7 @@ function page() {
           </div>
         </div>
       {/* Blogs */}
+      </Suspense>
    </>
   )
 }

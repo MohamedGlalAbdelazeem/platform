@@ -1,7 +1,6 @@
 import { FaHeart } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-
 function Blogs() {
   return (
     <div className="w-10/12 sm:w-full mx-auto my-32">

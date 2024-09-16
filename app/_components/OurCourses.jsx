@@ -1,15 +1,13 @@
 import { FaHeart } from "react-icons/fa";
 import { BsArrowDownRightCircleFill } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
+import MainHeading from "./MainHeading";
 
 
 function OurCourses() {
   return (
 <div className="w-10/12 sm:w-full mx-auto my-32">
-    <div className="lg:w-[480px] max-w-md sm:max-w-full mx-auto my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-black after:mt-0.5 after:flex-1 after:border-t after:border-black">
-        <h3 className="mx-2 text-center capitalize text-2xl sm:text-xl font-normal">Our Courses</h3>
-    </div>
-    <h1 className='text-center text-3xl font-bold'>Explore Our Top Medical Courses</h1>
+    <MainHeading title={"Our Courses"} desc={"Explore Our Top Medical Courses"}/>
     <div className="max-w-screen-xl mx-auto sm:p-3 md:p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
             {["A", "v", "f", "A", "v", "f"].map((item, index) => (

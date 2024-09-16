@@ -1,4 +1,5 @@
 import { AiFillCarryOut } from "react-icons/ai";
+import MainHeading from "./MainHeading";
 
 function ChooseUs() {
     const chooseData = [
@@ -26,12 +27,7 @@ function ChooseUs() {
 
     return (
         <div className="w-10/12 sm:w-full mx-auto my-32">
-            <div className="lg:w-[480px] max-w-md sm:max-w-full mx-auto my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-black after:mt-0.5 after:flex-1 after:border-t after:border-black">
-                <h3 className="mx-2 text-center capitalize text-2xl sm:text-xl font-normal">Why Choose Us?</h3>
-            </div>
-            <div className="pb-11">
-                <h1 className="text-center text-3xl font-bold">What distinguishes MedLearn Hub</h1>
-            </div>
+          <MainHeading  title={"Why Choose Us?"} desc={"What distinguishes MedLearn Hub"}/>
             <div className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-20 lg:gap-10 sm:gap-20 my-16">
                 {chooseData.map((item, index) => (
                     <div key={index} className=" group w-64 h-[180px] bg-gray-100 rounded-l-[40px] rounded-r-[40px] shadow-lg relative hover:ring hover:ring-shadesOfBlue transform duration-500 hover:scale-105 hover:shadow-xl">

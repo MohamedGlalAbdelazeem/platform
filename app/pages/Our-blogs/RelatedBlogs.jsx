@@ -1,5 +1,8 @@
-'use client'
-import React, { useRef, useState } from 'react';
+'use client';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Image from "next/image";
+import React, { useRef } from 'react';
 import { FaHeart } from "react-icons/fa";
 import { BsArrowDownRightCircleFill } from "react-icons/bs";
 // Import Swiper React components
@@ -9,13 +12,40 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
 import './style.css';
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import Link from "next/link";
+export default function RelatedBlogs({categoryId}) {
+  const baseUrl = 'http://localhost:5000/';
+  const [blogCategory, setBlogCategory] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchblogCategory = async () => {
+      try {
+        const response = await axios.get(`${baseUrl}category/${categoryId}`);
+        setBlogCategory(response?.data?.data);
+        setLoading(false);
+      } catch (error) {
+        setError("Failed to fetch blogCategory");
+        setLoading(false);
+        console.log(error);
+      }
+    };
+    fetchblogCategory();
+  }, []);
 
-export default function RelatedBlogs() {
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-96 w-full bg-white">
+        <div className="w-20 h-20 border-[10px] border-blue-500 border-t-transparent border-dashed rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+  if (error) {
+    return <p>{error}</p>;
+  }
   return (
     <>
      <div className='w-full'>
@@ -49,25 +79,26 @@ export default function RelatedBlogs() {
           },
         }}
         className="mySwiper" >
-        {
-            ["a","f","f","a","f","f"].map((item,index)=>{
+        {blogCategory.map((item,index)=>{
+            console.log(item)
                 return(
                   <SwiperSlide key={index}>
                      <div key={index} className=" rounded-3xl  p-3 overflow-hidden shadow-lg">
                     <div className="relative ">
                             <img className="w-full rounded-b-[20px] rounded-t-[30px] "
-                                src="https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                alt="Sunset in the mountains" />
+                                src={`http://localhost:5000/${item?.imageURL}`}
+                                alt="blog image" />
                     </div>
                     <div className="px-2 py-4">
                         <div className="font-semibold text-lg  hover:text-indigo-600 transition duration-500 ease-in-out">
-                            <h2>Innovations in Medical Learning</h2>
+                            <h2> {item?.title}</h2>
                         </div>
                         <p className="leading-6 text-gray-500 my-1 text-sm">
-                        Stay ahead in the world of medicine with expert articles, the latest research updates, and insights into cutting-edge medical advancements...                        </p>
+                        {item?.content}
+                        </p>
                     </div>
                     <div className="px-6 gap-3 py-1 flex flex-row items-center">
-                        <button className="border-2 border-black  p-3 w-full rounded-3xl">See More</button>
+                        <Link  href={`/pages/Our-blogs/${item?.id}`}  className="border-2 border-black  p-3 w-full rounded-3xl">See More</Link>
                         <span className="bg-slate-500 p-3 rounded-full"> <FaHeart className="text-red-500 text-2xl" /> </span>
                     </div>
                 </div>

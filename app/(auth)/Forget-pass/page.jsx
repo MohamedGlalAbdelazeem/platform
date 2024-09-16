@@ -1,5 +1,6 @@
 "use client"
 import Link from 'next/link';
+import { FaAnglesLeft } from "react-icons/fa6";
 import { useState } from 'react';
 import {toast } from 'react-toastify';
 import axios from "axios";
@@ -38,8 +39,11 @@ function Page() {
           image
         </div>
         
-        {/* Form Submission */}
-        <form onSubmit={submitForm} className="sm:p-8 my-16 w-full px-6">
+        <form onSubmit={submitForm} className="sm:p-8 my-6 w-full px-6">
+        <Link href={"/"} className="font-bold flex items-center gap-2 hover:opacity-65">
+          <FaAnglesLeft />
+          Back to home
+        </Link>
           <div className="text-center my-10 w-full mx-auto ">
             <h3 className="text-blue-500 my-4 text-2xl font-extrabold max-md:text-center">Forget Password ?</h3>
             <span>Don’t Worry</span>

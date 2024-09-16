@@ -7,7 +7,7 @@ import { FaBarsStaggered, FaHeart, FaBell, FaCircleUser } from "react-icons/fa6"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);

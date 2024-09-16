@@ -1,10 +1,11 @@
 'use client';
-
+import 'react-toastify/dist/ReactToastify.css';
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { Cairo } from "next/font/google";
 import { usePathname } from "next/navigation"; // Import the usePathname hook
 import "./globals.css";
+import { ToastContainer } from 'react-toastify';
 
 const cairo = Cairo({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
       <body className={`cairo-font ${cairo.className}`}>
         {!hideHeaderFooter && <Header />} {/* Conditionally render Header */}
         {children} {/* Render the page content */}
+        <ToastContainer />
         {!hideHeaderFooter && <Footer />} {/* Conditionally render Footer */}
       </body>
     </html>

@@ -15,22 +15,21 @@ function BlogCards() {
         setBlogs(response?.data?.data); 
         setLoading(false);
       } catch (err) {
-        setError("Failed to fetch blogs");
+        setError("Not Blogs Found! Please Try again");
         setLoading(false);
       }
     };
     fetchBlogs();
   }, []);
-
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-96 w-full bg-white">
-        <div className="w-20 h-20 border-[10px] border-blue-500 border-t-transparent border-dashed rounded-full animate-spin"></div>
+      <div className="flex justify-center   mx-auto items-center h-96 w-full">
+        <div className=" w-20 h-20 border-[10px] border-blue-500 border-t-transparent border-dashed rounded-full animate-spin"></div>
       </div>
     );
   }
   if (error) {
-    return <p>{error}</p>;
+    return <p className="font-bold text-lg text-red-500">{error}</p>;
   }
   return (
    <>

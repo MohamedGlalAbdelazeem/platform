@@ -4,8 +4,8 @@ import { z } from "zod";
 import Link from 'next/link';
 import { useState } from 'react';
 import { FaAnglesLeft } from "react-icons/fa6";
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import axiosClient from "@/app/_utils/axiosClient";
 function Page() {
  
 
@@ -50,18 +50,15 @@ function Page() {
     setError('');
 
     try {
-      // Post data to your API
-      const response = await axios.post('http://localhost:5000/api/User/register', {
+      const response = await axiosClient.post('/User/register', {
         fullName,
         jobTitle,
         phoneNumber,
         email,
         password,
       });
-
-      // If successful, redirect or show success message
-      if (response.status === 200) {
-        router.push('/'); // Redirect to sign-in page
+      if (response.statusText === "OK") {
+        router.push("/"); 
         console.log(response);
       }
     } catch (err) {

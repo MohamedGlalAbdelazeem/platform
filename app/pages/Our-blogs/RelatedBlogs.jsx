@@ -2,9 +2,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
-import React, { useRef } from 'react';
-import { FaHeart } from "react-icons/fa";
-import { BsArrowDownRightCircleFill } from "react-icons/bs";
+import { AiFillLike } from "react-icons/ai";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -16,11 +15,14 @@ import './style.css';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Link from "next/link";
+
 export default function RelatedBlogs({categoryId}) {
+
   const baseUrl = 'http://localhost:5000/';
   const [blogCategory, setBlogCategory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchblogCategory = async () => {
       try {
@@ -80,16 +82,19 @@ export default function RelatedBlogs({categoryId}) {
         }}
         className="mySwiper" >
         {blogCategory.map((item,index)=>{
-            console.log(item)
                 return(
                   <SwiperSlide key={index}>
-                     <div key={index} className=" rounded-3xl  p-3 overflow-hidden shadow-lg">
+                     <div key={index} className="bg-slate-100 rounded-2xl p-1 overflow-hidden shadow-lg">
                     <div className="relative ">
-                            <img className="w-full rounded-b-[20px] rounded-t-[30px] "
-                                src={`http://localhost:5000/${item?.imageURL}`}
-                                alt="blog image" />
+                            <Image 
+                             className="w-full rounded-b-[20px] rounded-t-[30px] "
+                             width={"400"}
+                             height={"400"}
+                             src={`http://localhost:5000/${item?.imageURL}`}
+                             alt="blog image" 
+                             />
                     </div>
-                    <div className="px-2 py-4">
+                    <div className="px-1 py-4">
                         <div className="font-semibold text-lg  hover:text-indigo-600 transition duration-500 ease-in-out">
                             <h2> {item?.title}</h2>
                         </div>
@@ -97,9 +102,12 @@ export default function RelatedBlogs({categoryId}) {
                         {item?.content}
                         </p>
                     </div>
-                    <div className="px-6 gap-3 py-1 flex flex-row items-center">
+                    <div className="px-2 gap-3 py-1  flex flex-row items-center">
                         <Link  href={`/pages/Our-blogs/${item?.id}`}  className="border-2 border-black  p-3 w-full rounded-3xl">See More</Link>
-                        <span className="bg-slate-500 p-3 rounded-full"> <FaHeart className="text-red-500 text-2xl" /> </span>
+                        <span className="flex items-center gap-1 bg-slate-500 p-3 rounded-full"> 
+                          <AiFillLike  className="text-white text-2xl" />
+                          <p className="font-bold text-white">{item?.likesNumber}</p>
+                         </span>
                     </div>
                 </div>
                   </SwiperSlide>

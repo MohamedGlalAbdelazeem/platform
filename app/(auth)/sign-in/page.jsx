@@ -24,6 +24,8 @@ function Page() {
 
       if (response.statusText === "OK") {
         router.push("/");
+        console.log(response);
+        
         console.log("Login successful");
       }
     } catch (err) {

@@ -70,11 +70,11 @@ function page() {
                           Stay ahead in the world of medicine with expert articles, the latest ..                       
                           </p>
                       </div>
-                      <div className="px-1 gap-3 py-1 flex flex-row items-center">
-                          <a className="flex items-center justify-around border-2 border-black  p-2 w-full rounded-3xl">Download This Book
-                            <FaTelegramPlane className="text-xl" />
+                      <div className="px-1 gap-1 py-1 flex flex-row items-center">
+                          <a className= "cursor-pointer flex items-center justify-around border-2 border-black  p-2 w-full rounded-3xl">Download This Book
+                            <FaTelegramPlane className="text-blue-500 text-2xl" />
                           </a>
-                          <span className="bg-slate-500 p-2 rounded-full"> <FaHeart className="text-red-500 text-2xl" /> </span>
+                         
                       </div>
                   </div>
                   )

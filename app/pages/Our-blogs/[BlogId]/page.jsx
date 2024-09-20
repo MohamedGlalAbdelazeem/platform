@@ -38,7 +38,7 @@ function page({params}) {
   if (error) {
     return <p>{error}</p>;
   }
-console.log(blogId);
+ 
 
   return (
     <div className="container mx-auto mt-20 px-3 py-8">

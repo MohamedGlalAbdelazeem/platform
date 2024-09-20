@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import axiosClient from "@/app/_utils/axiosClient";
 import { toast } from "react-toastify";
 import { useState } from "react";
+ 
+ 
 
 // Define the validation schema using zod
 const schema = z.object({
@@ -54,13 +56,13 @@ function Page() {
       });
 
       if (response?.data?.isSuccess) {
-        toast.success("Registration successful!");
-        //router.push("/");
+        toast.success("Student Account Created and Confiramtion mail has been sent successfully");
+        router.push("/");
         console.log("success",response?.data);
         
       } else {
-        toast.error("Something went wrong, please try again.");
-        console.log("error",response?.data);
+        toast.error(response?.data);
+        console.log("error",response?.data?.data);
       }
     } catch (err) {
       toast.error(err.response?.data?.message || "Registration failed.");

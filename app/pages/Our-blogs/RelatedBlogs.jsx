@@ -18,7 +18,7 @@ import Link from "next/link";
 
 export default function RelatedBlogs({categoryId}) {
 
-  const baseUrl = 'http://localhost:5000/';
+  const baseUrl = 'http://localhost:5000/api/';
   const [blogCategory, setBlogCategory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -26,7 +26,7 @@ export default function RelatedBlogs({categoryId}) {
   useEffect(() => {
     const fetchblogCategory = async () => {
       try {
-        const response = await axios.get(`${baseUrl}category/${categoryId}`);
+        const response = await axios.get(`${baseUrl}Blog/category/${categoryId}`);
         setBlogCategory(response?.data?.data);
         setLoading(false);
       } catch (error) {
@@ -84,7 +84,7 @@ export default function RelatedBlogs({categoryId}) {
         {blogCategory.map((item,index)=>{
                 return(
                   <SwiperSlide key={index}>
-                     <div key={index} className="bg-slate-100 rounded-2xl p-1 overflow-hidden shadow-lg">
+                     <div key={index} className="bg-slate-100 text-left rounded-2xl p-1 overflow-hidden shadow-lg">
                     <div className="relative ">
                             <Image 
                              className="w-full rounded-b-[20px] rounded-t-[30px] "
@@ -103,7 +103,7 @@ export default function RelatedBlogs({categoryId}) {
                         </p>
                     </div>
                     <div className="px-2 gap-3 py-1  flex flex-row items-center">
-                        <Link  href={`/pages/Our-blogs/${item?.id}`}  className="border-2 border-black  p-3 w-full rounded-3xl">See More</Link>
+                        <Link  href={`/pages/Our-blogs/${item?.id}`}  className="border-2 border-black text-center  p-3 w-full rounded-3xl">See More</Link>
                         <span className="flex items-center gap-1 bg-slate-500 p-3 rounded-full"> 
                           <AiFillLike  className="text-white text-2xl" />
                           <p className="font-bold text-white">{item?.likesNumber}</p>

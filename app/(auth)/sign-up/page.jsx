@@ -1,4 +1,4 @@
- "use client";
+"use client";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,16 +24,14 @@ const schema = z.object({
     .regex(/\W/, "Password must have at least one non-alphanumeric character"), // Non-alphanumeric character rule
   confirmPassword: z.string().min(8, "Confirm password is required"),
 }).superRefine((data, ctx) => {
-  // Custom validation to check if password and confirmPassword match
   if (data.password !== data.confirmPassword) {
     ctx.addIssue({
       code: "custom",
       message: "Passwords must match",
-      path: ["confirmPassword"], // Target confirmPassword field for error
+      path: ["confirmPassword"], 
     });
   }
 });
-
 
 function Page() {
   const [isLoading, setIsLoading] = useState(false);
@@ -185,6 +183,17 @@ function Page() {
               {isLoading ? "Signing up..." : "Sign up"}
             </button>
           </div>
+          <div className="w-full flex justify-center mt-4">
+              <span>
+                Do you have an account? 
+                <Link
+                  href={"/sign-in"}
+                  className="ml-2 font-bold border-b-2 border-black"
+                >
+                  Login Now
+                </Link>
+              </span>
+            </div>
         </form>
       </div>
     </div>

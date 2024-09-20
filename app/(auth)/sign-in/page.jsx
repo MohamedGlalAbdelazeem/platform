@@ -9,26 +9,17 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-// Define the validation schema using zod
 const schema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string()
     .min(8, "Password must be at least 8 characters")
-    // .regex(/[a-z]/, "Password must have at least one lowercase letter")
-    // .regex(/[A-Z]/, "Password must have at least one uppercase letter")
-    // .regex(/\W/, "Password must have at least one non-alphanumeric character")
 });
 
 function Page() {
-
   const router = useRouter();
-
-  // Initialize the react-hook-form using the zodResolver
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: zodResolver(schema),
   });
-
-  // Form submit handler
   const onSubmit = async (formData) => {
     try {
       const response = await axiosClient.post("/User/login", formData);
@@ -44,7 +35,6 @@ function Page() {
       console.error("Error:", err);
     }
   };
-
 return (
     <div className="flex flex-col justify-center items-center bg-gradient-to-r from-blue-800 to-blue-500 lg:h-screen p-6">
       <div className="grid md:grid-cols-2 items-center gap-y-8 bg-white max-w-7xl w-full shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl overflow-hidden">
@@ -84,7 +74,6 @@ return (
               )}
             </div>
           </div>
-
           {/* Password Input */}
           <div className="grid lg:grid-cols-1 gap-6">
             <div>
@@ -106,8 +95,6 @@ return (
               )}
             </div>
           </div>
-
-
           <div className="flex items-center mt-6">
             <Link href={"/Forget-pass"} className="font-bold">
               Forget Password?
@@ -135,5 +122,4 @@ return (
     </div>
   );
 }
-
 export default Page;

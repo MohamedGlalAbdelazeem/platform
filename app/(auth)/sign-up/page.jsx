@@ -8,10 +8,7 @@ import { useRouter } from "next/navigation";
 import axiosClient from "@/app/_utils/axiosClient";
 import { toast } from "react-toastify";
 import { useState } from "react";
- 
- 
 
-// Define the validation schema using zod
 const schema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
@@ -32,12 +29,9 @@ const schema = z.object({
     });
   }
 });
-
 function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-
-  // Initialize the react-hook-form with validation schema
   const {
     register,
     handleSubmit,
@@ -52,7 +46,6 @@ function Page() {
       const response = await axiosClient.post("/User/register", {
         ...data,
       });
-
       if (response?.data?.isSuccess) {
         toast.success("Student Account Created and Confiramtion mail has been sent successfully");
         router.push("/");
@@ -73,7 +66,6 @@ function Page() {
     <div className="flex flex-col justify-center items-center font-[sans-serif] bg-gradient-to-r from-blue-800 to-blue-500 lg:h-screen p-6">
       <div className="grid md:grid-cols-2 items-center gap-y-8 p-6 bg-white max-w-7xl w-full shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl overflow-hidden">
         <div className="max-md:order-1 flex flex-col justify-center sm:p-8 p-4 bg-gradient-to-r from-blue-600 to-blue-700 w-full h-full">
-          {/* Replace with actual image */}
           image
         </div>
         <form className="sm:p-8 w-full" onSubmit={handleSubmit(onSubmit)}>
@@ -172,7 +164,6 @@ function Page() {
               By creating an account on MedLearn Hub, you agree to our Privacy Policy. Please read these terms carefully.
             </label>
           </div>
-
           {/* Submit Button */}
           <div className="mt-6">
             <button
@@ -188,8 +179,7 @@ function Page() {
                 Do you have an account? 
                 <Link
                   href={"/sign-in"}
-                  className="ml-2 font-bold border-b-2 border-black"
-                >
+                  className="ml-2 font-bold border-b-2 border-black" >
                   Login Now
                 </Link>
               </span>
@@ -199,5 +189,4 @@ function Page() {
     </div>
   );
 }
-
 export default Page;

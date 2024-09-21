@@ -1,6 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import swal from 'sweetalert';
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { FaAnglesLeft } from "react-icons/fa6";
@@ -8,27 +8,8 @@ import { useRouter } from "next/navigation";
 import axiosClient from "@/app/_utils/axiosClient";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { signupValidation } from "./SingupValidation";
 
-const schema = z.object({
-  firstName: z.string().min(1, "First name is required"),
-  lastName: z.string().min(1, "Last name is required"),
-  phoneNumber: z.string().min(10, "Phone number must be at least 10 digits"),
-  email: z.string().email("Invalid email address"),
-  password: z.string()
-    .min(8, "Password must be at least 8 characters")
-    .regex(/[a-z]/, "Password must have at least one lowercase letter")
-    .regex(/[A-Z]/, "Password must have at least one uppercase letter")
-    .regex(/\W/, "Password must have at least one non-alphanumeric character"), // Non-alphanumeric character rule
-  confirmPassword: z.string().min(8, "Confirm password is required"),
-}).superRefine((data, ctx) => {
-  if (data.password !== data.confirmPassword) {
-    ctx.addIssue({
-      code: "custom",
-      message: "Passwords must match",
-      path: ["confirmPassword"], 
-    });
-  }
-});
 function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -37,7 +18,7 @@ function Page() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(signupValidation),
   });
 
   const onSubmit = async (data) => {
@@ -47,16 +28,18 @@ function Page() {
         ...data,
       });
       if (response?.data?.isSuccess) {
+        swal("Good job!", "You clicked the button!", "success");
         toast.success("Student Account Created and Confiramtion mail has been sent successfully");
-        router.push("/");
+       // router.push("/");
         console.log("success",response?.data);
-        
       } else {
-        toast.error(response?.data);
-        console.log("error",response?.data?.data);
+        toast.error(response?.data?.message);
+        console.log("error",response?.data?.message);
       }
     } catch (err) {
-      toast.error(err.response?.data?.message || "Registration failed.");
+      toast.error(err.response?.data?.message || "Registration failed Please Try again or contact with support.");
+      console.log(err);
+      
     } finally {
       setIsLoading(false);
     }

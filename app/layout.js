@@ -6,7 +6,7 @@ import { Cairo } from "next/font/google";
 import { usePathname } from "next/navigation"; // Import the usePathname hook
 import "./globals.css";
 import { ToastContainer } from 'react-toastify';
- 
+
 
 const cairo = Cairo({ subsets: ["latin"] });
 

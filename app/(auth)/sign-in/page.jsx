@@ -25,8 +25,10 @@ function Page() {
       const response = await axiosClient.post("/User/login", formData);
       if (response.data.isSuccess) {
         toast.success("Login successfully");
+       // router.push("/"); 
         console.log("success", response);
-       //router.push("/"); 
+        const token =  response?.data?.token
+        localStorage.setItem('token' , token );
       } else {
         toast.error(response?.data?.message)
         console.log("error", response?.data);

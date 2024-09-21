@@ -27,11 +27,8 @@ function Page() {
       const response = await axiosClient.post("/User/register", {
         ...data,
       });
-      if (response?.data?.isSuccess) {
-       
-        swal("Good job!", "Student Account Created and Confiramtion mail has been sent successfully", "success");
-
-       // router.push("/");
+      if (response?.data?.isSuccess) { 
+        swal("Congratulations!", "Student Account Created and Confiramtion mail has been sent successfully", "success");
         console.log("success",response?.data);
       } else {
         toast.error(response?.data?.message);

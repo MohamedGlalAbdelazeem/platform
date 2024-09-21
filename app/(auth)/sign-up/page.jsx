@@ -28,8 +28,9 @@ function Page() {
         ...data,
       });
       if (response?.data?.isSuccess) {
-        swal("Good job!", "You clicked the button!", "success");
-        toast.success("Student Account Created and Confiramtion mail has been sent successfully");
+       
+        swal("Good job!", "Student Account Created and Confiramtion mail has been sent successfully", "success");
+
        // router.push("/");
         console.log("success",response?.data);
       } else {

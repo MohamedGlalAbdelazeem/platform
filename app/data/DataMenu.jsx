@@ -4,6 +4,14 @@ const headerItms = [
     link: "/",
   },
   {
+    item: "Courses",
+    link: "",
+    subItems: [
+      { item: "All Courses", link: "/pages/All-courses" },
+      { item: "Our Courses", link: "/pages/Our-courses" }
+    ]
+  },
+  {
     item: "Exams (Q&A)",
     link: "",
     subItems: [
@@ -19,14 +27,6 @@ const headerItms = [
     item: "Medical Books",
     link: "/pages/Medical-books",
   },
-  {
-    item: "Courses",
-    link: "",
-    subItems: [
-      { item: "All Courses", link: "/pages/All-courses" },
-      { item: "Our Courses", link: "/pages/Our-courses" }
-    ]
-  }
 ];
 
 export default headerItms

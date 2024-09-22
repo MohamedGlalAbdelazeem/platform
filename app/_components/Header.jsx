@@ -29,8 +29,7 @@ const Header = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="text-xl font-bold">MedLearn Hub</Link>
-
-{/* start Desktop Nav */}
+          {/* start Desktop Nav */}
           <nav className="hidden md:flex gap-6 text-sm">
             {headerItms.map((item, index) => (
               <div key={index} className="relative group">
@@ -82,9 +81,9 @@ const Header = () => {
             </button>
           </div>
         </div>
-{/* end Desktop Nav */}
+        {/* end Desktop Nav */}
 
-{/* start Mobile Menu */}
+       {/* start Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-16 left-0 w-full p-5 dark:bg-gray-900 shadow-lg">
             <nav className="flex flex-col items-center gap-4 py-4 text-sm">
@@ -133,7 +132,7 @@ const Header = () => {
             </nav>
           </div>
         )}
-{/* end Mobile Menu */}
+       {/* end Mobile Menu */}
       </div>
     </header>
   );

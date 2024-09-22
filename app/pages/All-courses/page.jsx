@@ -1,8 +1,9 @@
 'use client';
-import { useState } from "react";
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation'; 
+import { useState , useEffect} from "react";
 import MultiRangeSlider from "multi-range-slider-react";
-import { FaSearch } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
+import { FaSearch ,FaHeart} from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsArrowDownRightCircleFill } from "react-icons/bs";
 import "./allCourses.css" 
@@ -15,6 +16,32 @@ function page() {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
   };
+
+  const router = useRouter(); 
+  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null; // Safely access localStorage
+  const handleClicked = () => {
+    if (!token) {
+      Swal.fire({
+        title: 'Please Log In or Sign Up to Upload Courses',
+        text: 'You need to be logged in to upload your courses. If you don’t have an account yet, creating one is quick and easy!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Log In',
+        cancelButtonText: 'Sign Up',
+        reverseButtons: true, 
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.push('/sign-in');
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          router.push('/sign-up');
+        }
+      });
+    } else {
+      router.push('/pages/Upload-courses');
+    }
+  };
+  
+
   return (
   <>
   <div className="bg-gray-200 ">
@@ -26,6 +53,7 @@ function page() {
         </p>
         <div className="mt-2 flex items-center justify-center max-sm:flex-col">
           <button type="button"
+           onClick={handleClicked}
             className="hover:bg-transparent  border transition-all  font-bold text-lg rounded px-2 py-3">
               Upload Your Course
             </button>
@@ -36,11 +64,9 @@ function page() {
   </div>
 
      {/* filteration  */}
-    <div className="-mt-9 w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
+      <div className="-mt-9 w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
       <div className="w-max mx-auto bg-gray-300 border divide-x divide-white flex rounded overflow-hidden">
-      
-       {/*  Category */}
-        <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
+       <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
             <label htmlFor="countries" className="block  text-sm font-medium text-gray-900">Category</label>
             <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl  block w-full p-2  ">
               <option defaultValue>All (225)</option>
@@ -49,9 +75,6 @@ function page() {
               <option value="test">test</option>
             </select>
         </div>
-         {/* Category */}
-
-        {/* Sub Category */}
         <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
             <label htmlFor="countries" className="block text-sm font-medium text-gray-900">SubCategory</label>
             <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl  block w-full p-2  ">
@@ -61,21 +84,6 @@ function page() {
               <option value="test">test</option>
             </select>
         </div>
-   {/* Sub Category */}
-
-     {/* Ratings   */}
-     <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
-            <label htmlFor="countries" className="block  text-sm font-medium text-gray-900"> Ratings</label>
-            <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl  block w-full p-2  ">
-              <option defaultValue>5.00</option>
-              <option value="test">test</option>
-              <option value="test">test</option>
-              <option value="test">test</option>
-            </select>
-        </div>
-   {/*  Ratings */}
-
-     {/* Pricing   */}
      <div className="w-[350px] gap-3 px-5 py-5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
             <label htmlFor="countries" className="block  text-sm font-medium text-gray-900"> Pricing</label>
             <MultiRangeSlider
@@ -90,14 +98,12 @@ function page() {
               }}
             />
         </div>
-    {/*  Pricing */}
-     {/* search   */}
+   
      <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
         <FaSearch  className="text-2xl"/>
         </div>
-    {/*  search */}
       </div>
-    </div>
+     </div>
      {/* filteration  */}
       
       {/* courses */}

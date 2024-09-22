@@ -1,15 +1,14 @@
 'use client';
-import Swal from 'sweetalert2';
-import { useRouter } from 'next/navigation'; 
-import { useState , useEffect} from "react";
+
+import { useState } from "react";
 import MultiRangeSlider from "multi-range-slider-react";
-import { FaSearch ,FaHeart} from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsArrowDownRightCircleFill } from "react-icons/bs";
 import "./allCourses.css" 
-
- 
+import useCheckUser from "@/app/(auth)/ChekUser";
 function page() {
+  const handleClicked = useCheckUser();  
   const [minValue, set_minValue] = useState(25);
   const [maxValue, set_maxValue] = useState(75);
   const handleInput = (e) => {
@@ -17,30 +16,6 @@ function page() {
     set_maxValue(e.maxValue);
   };
 
-  const router = useRouter(); 
-  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null; // Safely access localStorage
-  const handleClicked = () => {
-    if (!token) {
-      Swal.fire({
-        title: 'Please Log In or Sign Up to Upload Courses',
-        text: 'You need to be logged in to upload your courses. If you don’t have an account yet, creating one is quick and easy!',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Log In',
-        cancelButtonText: 'Sign Up',
-        reverseButtons: true, 
-      }).then((result) => {
-        if (result.isConfirmed) {
-          router.push('/sign-in');
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          router.push('/sign-up');
-        }
-      });
-    } else {
-      router.push('/pages/Upload-courses');
-    }
-  };
-  
 
   return (
   <>
@@ -53,7 +28,7 @@ function page() {
         </p>
         <div className="mt-2 flex items-center justify-center max-sm:flex-col">
           <button type="button"
-           onClick={handleClicked}
+            onClick={handleClicked}  // Ensure this is a function
             className="hover:bg-transparent  border transition-all  font-bold text-lg rounded px-2 py-3">
               Upload Your Course
             </button>
@@ -141,9 +116,7 @@ function page() {
                       </div>
                       <div className="px-6 gap-3 py-2 flex flex-row items-center">
                           <button className="border-2 border-black p-3 w-full rounded-3xl">See More</button>
-                          <span className="bg-slate-500 p-3 rounded-full">
-                              <FaHeart className="text-red-500 text-2xl" />
-                          </span>
+                          
                       </div>
                   </div>
               ))}

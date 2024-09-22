@@ -1,20 +1,17 @@
 'use client'
-import React, { useState } from 'react';
 import RelatedCoures from "./RelatedCoures";
 import CoursePreview from "./CoursePreview";
 import { FaResearchgate } from "react-icons/fa6";
-import Link from 'next/link';
 import CourseDetails from './CourseDetails';
-import { useRouter } from 'next/navigation'
+import useCheckUser from '@/app/(auth)/ChekUser';
 function Page() {
-  const router = useRouter();
-  const isLoggedIn = true;  
-
-  const handleEnroll = () => {
-    if (!isLoggedIn) {
-      router.push('/sign-in');
-    }
-  };
+  const handleAction = useCheckUser({
+    alertTitle: 'Please Log In or Sign Up to Enroll',
+    alertText: 'You need to be logged in to enroll in this course. If you don’t have an account yet, creating one is quick and easy!',
+    confirmButtonText: 'Log In',
+    cancelButtonText: 'Sign Up',
+    redirectToUpload: '/pages/Checkout'
+  });
   
   return (
     <div className="container mx-auto mt-20 px-4 py-8">
@@ -49,17 +46,8 @@ function Page() {
               <span>Beginner level</span>
             </div>
             <div className="px-6 py-2 flex flex-col gap-3 items-center">
-              <button
-                onClick={handleEnroll}
-                  className="bg-gray-500 text-center text-white p-3 w-full rounded-3xl"
-                >
-                  {isLoggedIn ? (
-                    <Link href="/pages/Checkout">
-                      Enroll Now
-                    </Link>
-                  ) : (
-                    "Enroll Now"
-                  )}
+              <button type="button" onClick={handleAction} className="bg-gray-500 text-center text-white p-3 w-full rounded-3xl" >
+                    Enroll Now
              </button>
               <button className="border-2 border-black p-3 w-full rounded-3xl"> Watch a trial lesson</button>
             </div>

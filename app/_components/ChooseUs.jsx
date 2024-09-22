@@ -1,29 +1,8 @@
-import { AiFillCarryOut } from "react-icons/ai";
-import MainHeading from "./MainHeading";
 
+import MainHeading from "./MainHeading";
+import { chooseData } from "../data/DataMenu";
 function ChooseUs() {
-    const chooseData = [
-        {
-            icon: <AiFillCarryOut />,
-            title: "Expert-Led Courses",
-            body: "Learn from industry-leading professionals and academic experts."
-        },
-        {
-            icon: <AiFillCarryOut />,
-            title: "Up-to-Date Research",
-            body: "Stay ahead with the latest medical studies and reports."
-        },
-        {
-            icon: <AiFillCarryOut />,
-            title: "Career Growth",
-            body: "Gain skills and certifications to advance your career in the medical field."
-        },
-        {
-            icon: <AiFillCarryOut />,
-            title: "Flexible Learning",
-            body: "Study at your own pace with access to online materials anytime, anywhere."
-        },
-    ];
+  
 
     return (
         <div className="w-10/12 sm:w-full mx-auto my-32">

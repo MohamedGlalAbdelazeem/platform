@@ -123,7 +123,7 @@ const Header = () => {
                 )}
                 {!token && (
                   <>
-                    <Link href="/sign-in" className="px-5 py-3 text-xl">Sign in</Link>
+                    <Link href="/sign-in" className="px-5 py-3 text-white text-xl">Sign in</Link>
                     <Link href="/sign-up" className="rounded-md border-2 bg-gray-300 px-5 py-2 text-xl">Get Started</Link>
                   </>
                 )}

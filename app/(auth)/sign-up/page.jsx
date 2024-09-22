@@ -4,7 +4,6 @@ import swal from 'sweetalert';
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { FaAnglesLeft } from "react-icons/fa6";
-import { useRouter } from "next/navigation";
 import axiosClient from "@/app/_utils/axiosClient";
 import { toast } from "react-toastify";
 import { useState } from "react";
@@ -12,7 +11,6 @@ import { signupValidation } from "./SingupValidation";
 
 function Page() {
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -28,11 +26,11 @@ function Page() {
         ...data,
       });
       if (response?.data?.isSuccess) { 
-        swal("Congratulations!", "Student Account Created and Confiramtion mail has been sent successfully", "success");
+        swal("Congratulations!", "Account Created and Confiramtion mail has been sent successfully", "success");
         console.log("success",response?.data);
       } else {
         toast.error(response?.data?.message);
-        console.log("error",response?.data?.message);
+        console.log("error",response?.data);
       }
     } catch (err) {
       toast.error(err.response?.data?.message || "Registration failed Please Try again or contact with support.");
@@ -161,7 +159,7 @@ function Page() {
                 <Link
                   href={"/sign-in"}
                   className="ml-2 font-bold border-b-2 border-black" >
-                  Login Now
+                 Sign in
                 </Link>
               </span>
             </div>

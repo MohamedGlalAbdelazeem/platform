@@ -1,28 +1,36 @@
 "use client";
 import headerItms from '../data/DataMenu';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
-import { FaBarsStaggered, FaHeart, FaBell, FaCircleUser } from "react-icons/fa6";
+import { FaBarsStaggered, FaBell, FaCircleUser } from "react-icons/fa6";
 
 const Header = () => {
+  const [token, setToken] = useState(null); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+    setToken(savedToken);
+  }, []);
 
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
-
+  const handleLogout = () => {
+    localStorage.clear();
+    setToken(null); 
+  };
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-slate-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="text-xl font-bold">MedLearn Hub</Link>
-          {/* Desktop Navigation */}
+
+{/* start Desktop Nav */}
           <nav className="hidden md:flex gap-6 text-sm">
             {headerItms.map((item, index) => (
               <div key={index} className="relative group">
@@ -41,27 +49,26 @@ const Header = () => {
               </div>
             ))}
           </nav>
-          
-          {/* Profile icon */}
+          {/* Profile and Bell icons */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-6">
-              <Link href={"/pages/Mywish-list"}>
-                <FaHeart className="text-2xl cursor-pointer" />
-              </Link> 
-              <FaBell className="text-2xl cursor-pointer" />
-              {isLogin && (
-                <div className="relative group">
-                    <span className='flex items-center gap-5'>
-                       <FaCircleUser className="text-3xl cursor-pointer" /> 
-                       <h3 className='text-lg'>mohamed glal</h3>
-                      </span> 
-                  <div className="absolute -right-8 mt-2 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
-                    <a href="#" className="block px-4 py-2 text-gray-700 dark:text-white">Log out</a>
+              {token && (
+                <>
+                  <FaBell className="text-2xl cursor-pointer" />
+                  <div className="relative group">
+                    <span className='cursor-pointer flex items-center gap-2'>
+                      <FaCircleUser className="text-3xl" /> 
+                      <h3 className='text-lg'>mohamed glal</h3>
+                    </span>
+                    <div className="absolute -right-8 mt-2 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
+                      <button type='button' onClick={handleLogout} className="block px-4 py-2 text-gray-700 dark:text-white">Log out</button>
+                    </div>
                   </div>
-                </div>
+                </>
               )}
-              {!isLogin && (
+
+              {!token && (
                 <>
                   <Link href="/sign-in" className="px-5 py-3 text-xl">Sign in</Link>
                   <Link href="/sign-up" className="rounded-md border-2 bg-gray-300 px-5 py-2 text-xl">Get Started</Link>
@@ -75,10 +82,11 @@ const Header = () => {
             </button>
           </div>
         </div>
+{/* end Desktop Nav */}
 
-        {/* Mobile Menu */}
+{/* start Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-white dark:bg-gray-900 shadow-lg">
+          <div className="md:hidden absolute top-16 left-0 w-full p-5 dark:bg-gray-900 shadow-lg">
             <nav className="flex flex-col items-center gap-4 py-4 text-sm">
               {headerItms.map((item, index) => (
                 <div key={index} className="w-full">
@@ -99,41 +107,36 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <div className="flex gap-6">
-                <Link href={"/pages/Mywish-list"}>
-                  <FaHeart className="text-white text-2xl cursor-pointer" />
-                </Link> 
-                <FaBell className="text-white text-2xl cursor-pointer" />
-              </div>
-               {
-                isLogin === true ?  
-                (
-                   <div className="relative group">
-                    <span className='flex items-center gap-5 text-white'>
-                       <FaCircleUser className="text-3xl cursor-pointer" /> 
-                       <h3 className='text-lg'>mohamed glal</h3>
+              <div className="flex mt-7 w-full justify-between items-center">
+                {token && (
+                  <>
+                    <FaBell className="text-white text-2xl cursor-pointer" />
+                    <div className="relative group">
+                      <span className='flex items-center gap-1 text-white'>
+                        <FaCircleUser className="text-3xl cursor-pointer" /> 
+                        <h3 className='text-lg'>mohamed glal</h3>
                       </span> 
-                  <div className="absolute -right-10 mt-1 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
-                    <a href="#" className="block px-4 py-2 text-gray-700 dark:text-white">Log out</a>
-                  </div>
-                </div>
-                ) : 
-                (
-                  <div className="flex items-center gap-6">
-                  <Link href="/sign-in" className="rounded-md bg-teal-600 px-5 py-3 text-sm text-white dark:hover:bg-teal-500">Sign in</Link>
-                  <Link href="/sign-up" className="rounded-md border-2 bg-gray-100 px-5 py-2 text-sm text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">Get Started</Link>
-                </div>
-                )
-               }
+                      <div className="absolute -right-10 mt-1 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
+                        <button type='button' onClick={handleLogout} className="block px-4 py-2 text-gray-700 dark:text-white">Log out</button>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {!token && (
+                  <>
+                    <Link href="/sign-in" className="px-5 py-3 text-xl">Sign in</Link>
+                    <Link href="/sign-up" className="rounded-md border-2 bg-gray-300 px-5 py-2 text-xl">Get Started</Link>
+                  </>
+                )}
+              </div>
             </nav>
           </div>
         )}
+{/* end Mobile Menu */}
       </div>
     </header>
   );
 };
+
 export default Header;
-
-
- 

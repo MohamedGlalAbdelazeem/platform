@@ -12,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const schema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string()
-    .min(8, "Password must be at least 8 characters")
+    .min(5, "Password must be at least 5 characters")
 });
 
 function Page() {
@@ -25,7 +25,7 @@ function Page() {
       const response = await axiosClient.post("/User/login", formData);
       if (response.data.isSuccess) {
         toast.success("Login successfully");
-       // router.push("/"); 
+        router.push("/"); 
         console.log("success", response);
         const token =  response?.data?.token
         localStorage.setItem('token' , token );
@@ -43,7 +43,7 @@ return (
         <div className="max-md:order-1 flex flex-col justify-center sm:p-8 p-4 bg-gradient-to-r from-blue-600 to-blue-700 w-full h-full">
           image
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="sm:p-8 my-6 w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="p-8 my-6 w-full">
           <Link
             href={"/"}
             className="font-bold flex items-center gap-2 hover:opacity-65"

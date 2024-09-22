@@ -42,9 +42,7 @@ function OurCourses() {
                     </div>
                     <div className="px-6 gap-3 py-2 flex flex-row items-center">
                         <button className="border-2 border-black p-3 w-full rounded-3xl">See More</button>
-                        <span className="bg-slate-500 p-3 rounded-full">
-                            <FaHeart className="text-red-500 text-2xl" />
-                        </span>
+    
                     </div>
                 </div>
             ))}

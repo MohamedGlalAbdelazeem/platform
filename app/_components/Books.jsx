@@ -14,13 +14,13 @@ import { Pagination, Navigation } from 'swiper/modules';
 function Books() {
   return (
     <section className="mt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-gray-300 p-8 sm:p-12 md:p-16 rounded-2xl my-10 flex flex-col lg:flex-row items-center lg:gap-6">
+      <div className="bg-[#97355E] p-8 sm:p-12 md:p-16 rounded-2xl my-10 flex flex-col lg:flex-row items-center lg:gap-6">
         {/* Left side - Text, Swiper, and Button */}
         <div className="text-center lg:text-left lg:w-1/2">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-xl font-extrabold text-gray-800">
+          <h1 className="text-[24px] font-extrabold text-[#F799C0]">
             Explore Essential Medical Books!
           </h1>
-          <p className="mt-3 text-base sm:text-lg md:text-xl text-gray-500">
+          <p className="mt-3 text-[20px] font-normal sm:text-lg md:text-xl text-white">
             Discover a curated selection of medical books to support your learning and professional growth. Browse through detailed descriptions and download resources directly from our Telegram channel.
           </p>
           
@@ -73,7 +73,7 @@ function Books() {
 
           {/* Button */}
           <div className="mt-5 flex justify-center lg:justify-start">
-            <Link href="/pages/Medical-books" className="flex items-center px-4 py-2 border border-transparent text-sm font-bold text-gray-800 bg-indigo-100 hover:bg-indigo-200 rounded-md">
+            <Link href="/pages/Medical-books" className="flex items-center px-4 text-lg py-2 border border-transparent   font-bold text-white  rounded-md">
               Show All Books
               <FaArrowRight className="ml-2" />
             </Link>

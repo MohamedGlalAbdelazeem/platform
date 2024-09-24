@@ -37,10 +37,10 @@ function BlogCards() {
    <>
       {blogs.length > 0 ? 
       (blogs.map((blog, index) => (
-              <div  key={index} className="hover:opacity-50 rounded-2xl p-1  shadow-lg">
+              <div  key={index} className="hover:opacity-50 rounded-2xl p-1  shadow-lg w-[320px]">
                 <div className="relative">
                   <img 
-                    className="w-full rounded-b-[20px] rounded-t-[30px]" 
+                    className="w-[315px] h-[198px] rounded-b-[20px] rounded-t-[30px]" 
                     src={`${imageUrl}${blog?.imageURL}`}
                     alt={blog.title || "Blog Image"} 
                   />
@@ -54,7 +54,7 @@ function BlogCards() {
                   </p>
                 </div>
                 <div className="px-6 gap-3 py-1 flex flex-row  items-center">
-                  <Link href={`/pages/Our-blogs/${blog?.id}`} className="text-center border-2 border-black p-3 w-full rounded-3xl">
+                  <Link href={`/pages/Our-blogs/${blog?.id}`} className="text-center border-2 border-textColor text-textColor p-3 w-full rounded-3xl">
                     See More
                   </Link>
                 </div>

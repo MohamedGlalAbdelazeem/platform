@@ -8,8 +8,8 @@ function Blogs() {
   return (
     <div className="w-10/12 sm:w-full mx-auto my-32  ">
     <MainHeading title={"Our Blogs"} desc={"Explore Our Top Blogs"}/>
-    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-6">
-        <div className="  grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+    <div className="max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 ">
            <BlogCards/>
         </div>
     </div>

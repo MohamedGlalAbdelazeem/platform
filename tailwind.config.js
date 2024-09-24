@@ -17,7 +17,8 @@ module.exports = {
         fontColor:"#EC8AB3",
         secondary:"#CC775D",
         textColor:"#E2508D",
-        bgFontColor:"#59248E"
+        bgFontColor:"#59248E",
+        bgColor:"#842ABC"
       }
     },
   },

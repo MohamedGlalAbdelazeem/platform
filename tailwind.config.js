@@ -16,6 +16,8 @@ module.exports = {
         primary:"#1E0C2F",
         fontColor:"#EC8AB3",
         secondary:"#CC775D",
+        textColor:"#E2508D",
+        bgFontColor:"#59248E"
       }
     },
   },

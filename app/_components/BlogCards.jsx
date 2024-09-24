@@ -57,10 +57,6 @@ function BlogCards() {
                   <Link href={`/pages/Our-blogs/${blog?.id}`} className="text-center border-2 border-black p-3 w-full rounded-3xl">
                     See More
                   </Link>
-                  <span className="flex gap-1 text-white bg-slate-500 p-3 rounded-full">
-                    <AiFillLike  className="text-white text-2xl"/>
-                    <p className="font-bold">{blog?.likesNumber}</p>
-                  </span>
                 </div>
               </div>
             ))

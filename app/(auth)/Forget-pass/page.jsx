@@ -54,7 +54,7 @@ function Page() {
             </h3>
             <span>Don’t Worry</span>
           </div>
-          <p>Please enter the email address associated with your account, and we will send you a code to your email to reset your password.</p>
+          <p>Please enter the email address associated with your account, and you will receive a request to reset your password.</p>
           
           <div className="grid lg:grid-cols-1 my-6">
             <div>
@@ -89,7 +89,7 @@ function Page() {
               type="submit"
               className="w-full py-3 px-6 text-sm tracking-wide font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition-all"
             >
-              Send Reset Code
+              Send 
             </button>
           </div>
         </form>

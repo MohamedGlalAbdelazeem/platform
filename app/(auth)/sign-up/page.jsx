@@ -7,7 +7,7 @@ import { FaAnglesLeft } from "react-icons/fa6";
 import axiosClient from "@/app/_utils/axiosClient";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { signupValidation } from "./SingupValidation";
+import { SignupValidation } from "../Validation";
 
 function Page() {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +16,7 @@ function Page() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(signupValidation),
+    resolver: zodResolver(SignupValidation),
   });
 
   const onSubmit = async (data) => {
@@ -28,9 +28,10 @@ function Page() {
       if (response?.data?.isSuccess) { 
         swal("Congratulations!", "Account Created and Confiramtion mail has been sent successfully", "success");
         console.log("success",response?.data);
+        reset();
       } else {
         toast.error(response?.data?.message);
-        console.log("error",response?.data);
+        console.log("error",response);
       }
     } catch (err) {
       toast.error(err.response?.data?.message || "Registration failed Please Try again or contact with support.");
@@ -159,7 +160,7 @@ function Page() {
                 <Link
                   href={"/sign-in"}
                   className="ml-2 font-bold border-b-2 border-black" >
-                 Sign in
+                  Login Now
                 </Link>
               </span>
             </div>

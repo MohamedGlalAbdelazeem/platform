@@ -30,7 +30,12 @@ function Page() {
         const token =  response?.data?.token
         localStorage.setItem('token' , token );
       } else {
-        toast.error(response?.data?.message)
+        if (response?.data?.message === "can't find this user name") {
+          toast.error("Please enter the email you registered with")
+        }
+        else{
+          toast.error("Wrong Password")
+        }
         console.log("error", response?.data);
       }
     } catch (err) {

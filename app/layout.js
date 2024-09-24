@@ -15,7 +15,6 @@ const cairo = Cairo({ subsets: ["latin"] });
 // };
 export default function RootLayout({ children }) {
   const pathname = usePathname(); 
-
   const hideHeaderFooter = [
     "/sign-in", 
     "/sign-up", 

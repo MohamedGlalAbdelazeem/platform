@@ -6,13 +6,13 @@ import Blogs from "./_components/Blogs";
 import Books from "./_components/Books";
 export default function Home() {
   return (
-   <>
+   <div className="bg-[#F9F9F9]">
      <Hero/>
      <ChooseUs/>
      <OurCourses/>
      <Quizzes/>
      <Blogs/>
      <Books/>
-   </> 
+   </div> 
   );
 }

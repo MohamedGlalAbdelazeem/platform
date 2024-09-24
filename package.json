@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "axios": "^1.7.4",
+    "iconify": "^1.4.0",
     "multi-range-slider-react": "^2.0.7",
     "next": "14.2.5",
     "react": "^18",

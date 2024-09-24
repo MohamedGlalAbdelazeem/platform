@@ -23,11 +23,11 @@ const Header = () => {
     setToken(null); 
   };
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-200">
+    <header className="fixed top-0 left-0 right-0 z-50 text-white bg-primary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold">MedLearn Hub</Link>
+          <Link href="/" className="text-xl text-[#A971E0]  font-bold">Naser‘s  academy </Link>
           {/* start Desktop Nav */}
           <nav className="hidden md:flex gap-6 text-sm">
             {headerItms.map((item, index) => (
@@ -69,7 +69,7 @@ const Header = () => {
               {!token && (
                 <>
                   <Link href="/sign-in" className="px-5 py-3 text-xl">Sign in</Link>
-                  <Link href="/sign-up" className="rounded-md border-2 bg-gray-300 px-5 py-2 text-xl">Get Started</Link>
+                  <Link href="/sign-up" className="rounded-md border-2 border-fontColor text-fontColor px-5 py-2 text-xl">Get Started</Link>
                 </>
               )}
             </div>
@@ -84,7 +84,7 @@ const Header = () => {
 
        {/* start Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full p-5 dark:bg-gray-900 shadow-lg">
+          <div className="md:hidden absolute top-16 left-0 w-full p-5  bg-primary shadow-lg">
             <nav className="flex flex-col items-center gap-4 py-4 text-sm">
               {headerItms.map((item, index) => (
                 <div key={index} className="w-full">
@@ -124,7 +124,7 @@ const Header = () => {
                 {!token && (
                   <>
                     <Link href="/sign-in" className="px-5 py-3 text-white text-xl">Sign in</Link>
-                    <Link href="/sign-up" className="rounded-md border-2 bg-gray-300 px-5 py-2 text-xl">Get Started</Link>
+                    <Link href="/sign-up" className="rounded-md border-2 border-fontColor text-fontColor px-5 py-2 text-xl">Get Started</Link>
                   </>
                 )}
               </div>

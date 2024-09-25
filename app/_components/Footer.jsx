@@ -35,7 +35,7 @@ function Footer() {
               <a href="#" className="mx-2 border-2 border-white text-white p-2 rounded-lg">Browse Courses</a>
             </div>
           </div>
-          <div className="p-5 sm:w-3/12 mt-20">
+          <div className="p-5 sm:w-3/12 mt-20 ">
             <ul>
               <li className="my-2">
                 <a className="text-white" href="#">About Us</a>

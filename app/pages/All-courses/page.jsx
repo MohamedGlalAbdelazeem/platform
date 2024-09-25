@@ -1,7 +1,8 @@
-
 import { BsArrowDownRightCircleFill } from "react-icons/bs";
 import FilterComponent from "./FilterComponent";
 import AllCoursesBanner from "./AllCoursesBanner";
+import ScrollTop from "../../_components/ScrollTop";
+import AskOnlineCourse from "./AskOnlineCourse";
 function page() {
    
 return (
@@ -51,7 +52,8 @@ return (
               ))}
           </div>
         </div>
-   
+    <AskOnlineCourse/>
+    <ScrollTop/>
    </>
   )
 }

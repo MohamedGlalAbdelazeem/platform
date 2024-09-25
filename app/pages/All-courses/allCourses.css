@@ -52,9 +52,11 @@
 .multi-range-slider .bar-inner-left , 
 .multi-range-slider .bar-inner-right{
   background-color:#984D9F;
+ 
 }
 
  
 .multi-range-slider .thumb::before {
   background-color:#984D9F;
+  z-index: -1 !important;
 }

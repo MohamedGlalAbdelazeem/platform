@@ -4,6 +4,7 @@ import { FaAnglesLeft } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import axios from "axios";
+import Image from 'next/image';
 
 function Page() {
   const baseUrl = "http://localhost:5000/api/";
@@ -38,8 +39,23 @@ function Page() {
   return (
     <div className="flex flex-col justify-center items-center lg:h-screen p-6">
       <div className="grid md:grid-cols-2 items-center gap-y-8 bg-white max-w-7xl w-full shadow-[0_2px_10px_-3px_rgba(6,81,237,0.5)] rounded-3xl overflow-hidden">
-        <div className="max-md:order-1 flex flex-col justify-center sm:p-8 p-4 bg-gradient-to-r from-blue-600 to-blue-700 w-full h-full">
-          image
+        <div className="rounded-3xl max-md:order-1 flex flex-col justify-center items-center sm:p-8 p-4 bg-gradient-to-b from-bgFontColor to-[#AC59FF] w-full h-full">
+        <Image
+              src="/forgetpass1.svg"
+              alt="hero image" 
+              srcSet="/forgetpass2-2x.png 2x, /forgetpass2-3x.png 3x" 
+              width={"300"}
+              height={"300"}
+              className='absolute top-[160px] hidden lg:block'
+             /> 
+        <Image
+              src="/forgetpass2.svg"
+              alt="hero image" 
+              srcSet="/forgetpass2-2x.png 2x, /forgetpass2-3x.png 3x" 
+              width={"300"}
+              height={"300"}
+              className='relative'
+             />  
         </div>
         
         {/* Form with react-hook-form */}
@@ -49,16 +65,16 @@ function Page() {
             Back to home
           </Link>
           <div className="text-center my-10 w-full mx-auto ">
-            <h3 className="text-blue-500 my-4 text-2xl font-extrabold max-md:text-center">
+            <h3 className="text-bgFontColor my-4 text-2xl font-extrabold max-md:text-center">
               Forget Password?
             </h3>
-            <span>Don’t Worry</span>
+            <span className='text-secondary'>Don’t Worry</span>
           </div>
           <p>Please enter the email address associated with your account, and you will receive a request to reset your password.</p>
           
           <div className="grid lg:grid-cols-1 my-6">
             <div>
-              <label className="text-gray-800 text-base mb-4 block">Email Address</label>
+              <label className="text-base font-normal mb-2 block text-bgFontColor">Email Address</label>
               <input
                 {...register("email", {
                   required: "Email is required",
@@ -69,7 +85,7 @@ function Page() {
                 })}
                 name="email"
                 type="email"
-                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
                 placeholder="user@example.com"
               />
               {/* Show validation errors */}
@@ -87,7 +103,7 @@ function Page() {
           <div className="mt-6">
             <button
               type="submit"
-              className="w-full py-3 px-6 text-sm tracking-wide font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition-all"
+              className="w-full py-3 px-6 tracking-wide rounded-md text-white font-bold text-lg bg-[#984D9F] focus:outline-none transition-all"
             >
               Send 
             </button>

@@ -8,6 +8,7 @@ import axiosClient from "@/app/_utils/axiosClient";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { SignupValidation } from "../Validation";
+import Image  from "next/image";
 
 function Page() {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +29,6 @@ function Page() {
       if (response?.data?.isSuccess) { 
         swal("Congratulations!", "Account Created and Confiramtion mail has been sent successfully", "success");
         console.log("success",response?.data);
-        reset();
       } else {
         toast.error(response?.data?.message);
         console.log("error",response);
@@ -43,37 +43,43 @@ function Page() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center font-[sans-serif] bg-gradient-to-r from-blue-800 to-blue-500 lg:h-screen p-6">
-      <div className="grid md:grid-cols-2 items-center gap-y-8 p-6 bg-white max-w-7xl w-full shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl overflow-hidden">
-        <div className="max-md:order-1 flex flex-col justify-center sm:p-8 p-4 bg-gradient-to-r from-blue-600 to-blue-700 w-full h-full">
-          image
+    <div className="flex flex-col justify-center items-center bg-slate-100 p-3 ">
+      <div className="rounded-3xl grid md:grid-cols-2 items-center p-5 bg-white max-w-7xl w-full">
+        <div className="rounded-3xl  max-md:order-1 flex flex-col justify-center items-center sm:p-8 p-4 bg-gradient-to-b from-bgFontColor to-[#AC59FF] w-full h-full">
+        <Image
+              src="/signup.svg"
+              alt="hero image" 
+              srcSet="/signup-2x.png 2x, /signup-3x.png 3x" 
+              width={"400"}
+              height={"400"}
+             />  
         </div>
         <form className="sm:p-8 w-full" onSubmit={handleSubmit(onSubmit)}>
           <Link href={"/"} className="font-bold text-sm flex items-center gap-2 hover:opacity-65">
             <FaAnglesLeft />
             Back to home
           </Link>
-          <div className="text-center my-4 w-full mx-auto">
-            <span>Welcome to</span>
-            <h3 className="text-blue-500 text-xl font-extrabold max-md:text-center">MedLearn Hub</h3>
+          <div className="text-center w-full mx-auto">
+            <span className="text-secondary">Welcome to</span>
+            <h3 className="text-bgFontColor text-[24px] font-bold max-md:text-center">MedLearn Hub</h3>
           </div>
 
           {/* First Name and Last Name */}
-          <div className="grid lg:grid-cols-2 my-6">
+          <div className="grid lg:grid-cols-2 gap-5 mt-5">
             <div className="mb-5">
-              <label className="text-gray-800 text-sm mb-2 block">First Name *</label>
+              <label className="text-base font-normal mb-2 block text-bgFontColor">First Name *</label>
               <input
                 {...register("firstName")}
-                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
                 placeholder="First Name"
               />
               {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName.message}</p>}
             </div>
             <div>
-              <label className="text-gray-800 text-sm mb-2 my-2 block">Last Name *</label>
+              <label className="text-base font-normal mb-2 block text-bgFontColor">Last Name *</label>
               <input
                 {...register("lastName")}
-                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
                 placeholder="Last Name"
               />
               {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName.message}</p>}
@@ -83,31 +89,31 @@ function Page() {
           {/* Job Title & Phone Number */}
           <div className="grid lg:grid-cols-2 gap-6">
             <div>
-              <label className="text-gray-800 text-sm mb-2 block">Job Title</label>
+              <label className="text-base font-normal mb-2 block text-bgFontColor">Job Title *</label>
               <input
                 {...register("role")}
-                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
                 placeholder="Ex: Instructor"
               />
             </div>
             <div>
-              <label className="text-gray-800 text-sm mb-2 block">Phone Number *</label>
+              <label className="text-base font-normal mb-2 block text-bgFontColor">Phone Number *</label>
               <input
                 {...register("phoneNumber")}
-                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500"
-                placeholder="Ex: 010 15 800 24 8"
+                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
+                placeholder=""
               />
               {errors.phoneNumber && <p className="text-red-500 text-sm">{errors.phoneNumber.message}</p>}
             </div>
           </div>
 
           {/* Email */}
-          <div className="my-6">
-            <label className="text-gray-800 text-sm mb-2 block">Email *</label>
+          <div className="my-5">
+            <label className="text-base font-normal mb-2 block text-bgFontColor">Email *</label>
             <input
               {...register("email")}
               type="email"
-              className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-blue-500"
+              className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
               placeholder="Your Email here"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
@@ -116,21 +122,21 @@ function Page() {
           {/* Password & Confirm Password */}
           <div className="grid lg:grid-cols-2 gap-6">
             <div>
-              <label className="text-gray-800 text-sm mb-2 block">Password *</label>
+              <label className="text-base font-normal mb-2 block text-bgFontColor">Password *</label>
               <input
                 {...register("password")}
                 type="password"
-                className="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
                 placeholder="***************"
               />
               {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
             </div>
             <div>
-              <label className="text-gray-800 text-sm mb-2 block">Confirm Password *</label>
+              <label className="text-base font-normal mb-2 block text-bgFontColor">Confirm Password *</label>
               <input
                 {...register("confirmPassword")}
                 type="password"
-                className="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-blue-500"
+                className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
                 placeholder="***************"
               />
               {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword.message}</p>}
@@ -138,10 +144,10 @@ function Page() {
           </div>
 
           {/* Privacy & Submit */}
-          <div className="flex items-center mt-6">
+          <div className="flex items-center mt-4">
             <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 shrink-0 rounded" />
             <label htmlFor="remember-me" className="ml-3 block text-sm">
-              By creating an account on MedLearn Hub, you agree to our Privacy Policy. Please read these terms carefully.
+              By creating an account on MedLearn Hub, you agree to our <span className="font-bold text-bgColor underline">Privacy Policy</span>. Please read these terms carefully.
             </label>
           </div>
           {/* Submit Button */}
@@ -149,18 +155,18 @@ function Page() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 px-6 text-sm tracking-wide font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition-all"
+              className="w-full py-2 px-6 text-lg tracking-wide font-bold rounded-md text-white bg-[#984D9F]"
             >
-              {isLoading ? "Signing up..." : "Sign up"}
+              {isLoading ? "Signing up..." : "Join Now"}
             </button>
           </div>
-          <div className="w-full flex justify-center mt-4">
-              <span>
+          <div className="w-full flex justify-center mt-2">
+              <span className="font-bold">
                 Do you have an account? 
                 <Link
                   href={"/sign-in"}
-                  className="ml-2 font-bold border-b-2 border-black" >
-                  Login Now
+                  className="ml-2 font-bold underline text-bgColor" >
+                     Sign in
                 </Link>
               </span>
             </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CiFacebook } from "react-icons/ci";
+import { FaTelegramPlane } from "react-icons/fa";
 
 function Footer() {
     return (
@@ -38,21 +39,19 @@ function Footer() {
           <div className="p-5 sm:w-3/12">
             <ul>
               <li className="my-2">
-                <a className="hover:text-indigo-600" href="#">About Us</a>
+                <a className="text-white" href="#">About Us</a>
               </li>
               <li className="my-2">
-                <Link href="/pages/Privacy-Policy" className="hover:text-indigo-600">Privacy Policy</Link>
+                <Link href="/pages/Privacy-Policy" className="text-white">Privacy Policy</Link>
               </li>
-              <li className="flex gap-6">
-               <CiFacebook />
-               <CiFacebook />
-               <CiFacebook />
-               <CiFacebook />
+              <li className="flex gap-4">
+               <CiFacebook className="text-white text-2xl bg-blue-500 rounded-full" />
+               <FaTelegramPlane className="text-white text-xl bg-blue-500 rounded-full" />
               </li>
             </ul>
           </div>
         </div>
-        <div className="flex py-5 m-auto text-gray-800 text-sm flex-col items-center border-t max-w-screen-xl">
+        <div className="flex py-5 m-auto text-white text-sm flex-col items-center border-t border-[#E2508D] max-w-screen-xl">
           <div className="my-1">© 2024 Medlearnhub. All Rights Reserved</div>
         </div>
       </div>

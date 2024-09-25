@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 
 const schema = z.object({
   email: z.string().email("Invalid email address"),
@@ -45,8 +46,14 @@ function Page() {
 return (
     <div className="flex flex-col justify-center items-center  lg:h-screen p-6">
       <div className="grid md:grid-cols-2 items-center gap-y-8 bg-white max-w-7xl w-full shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl overflow-hidden">
-        <div className="max-md:order-1 flex flex-col justify-center sm:p-8 p-4 bg-gradient-to-b from-bgFontColor to-[#AC59FF] w-full h-full">
-          image
+        <div className="max-md:order-1 flex flex-col justify-center items-center sm:p-8 p-4 bg-gradient-to-b from-bgFontColor to-[#AC59FF] w-full h-full">
+        <Image
+              src="/login.png"
+              alt="hero image" 
+              srcSet="/signup-2x.png 2x, /signup-3x.png 3x" 
+              width={"350"}
+              height={"300"}
+             />  
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="p-8 my-6 w-full">
           <Link

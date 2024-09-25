@@ -13,8 +13,7 @@ function OurCourses() {
                         <img
                             className="w-[315px] h-[198px] rounded-b-[36px] rounded-t-[15px]"
                             src="https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            alt="Sunset in the mountains"
-                        />
+                            alt="Sunset in the mountains"/>
                         <div className="w-full h-10 flex justify-center items-center">
                             <div className="flex w-[260px]  justify-between items-center rounded-[35px] p-3 border-[8px] border-white absolute bottom-4  bg-secondary text-white text-[12px]  duration-500 ease-in-out">
                                 <span className="flex items-center gap-2">
@@ -27,7 +26,6 @@ function OurCourses() {
                                 </span>
                             </div>
                         </div>
-                    
                     </div>
                     <div className="px-6">
                         <div className="flex justify-between font-semibold text-lg hover:text-indigo-600 transition duration-500 ease-in-out">

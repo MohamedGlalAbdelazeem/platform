@@ -32,13 +32,13 @@ const Header = () => {
           <nav className="hidden md:flex gap-6 text-sm">
             {headerItms.map((item, index) => (
               <div key={index} className="relative group">
-                <Link href={item.link || "#"} className="flex items-center gap-2 text-xl">
-                  {item.item} {item.subItems && <IoIosArrowDown />}
+                <Link href={item.link || "#"} className="flex items-center gap-1 text-xl">
+                  {item.item} {item.subItems && <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 50 50"><path fill="currentColor" d="m22.7 34.7l-1.4-1.4l8.3-8.3l-8.3-8.3l1.4-1.4l9.7 9.7z"/></svg>}
                 </Link>
                 {item.subItems && (
-                  <div className="absolute mt-1 w-32 rounded-lg bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute mt-1 w-32 rounded-lg bg-bgColor shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {item.subItems.map((subItem, subIndex) => (
-                      <Link key={subIndex} href={subItem.link} className="block px-4 py-2 text-gray-700 dark:text-white">
+                      <Link key={subIndex} href={subItem.link} className="block px-4 py-2 text-white">
                         {subItem.item}
                       </Link>
                     ))}

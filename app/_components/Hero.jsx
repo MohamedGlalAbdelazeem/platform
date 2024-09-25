@@ -11,7 +11,7 @@ function Hero() {
       backgroundColor: "#1E0C2F",
     }}
   >
-      <div className="h-[700px] mt-11 flex-col-reverse px-3  items-center w-full lg:w-10/12 grid grid-cols-1 lg:grid-cols-2 mx-auto  py-10 md:py-14">
+      <div className="h-[700px]  flex-col-reverse px-3  items-center w-full lg:w-10/12 grid grid-cols-1 lg:grid-cols-2 mx-auto  py-10 md:py-14">
           <div className=" pr-2 mb-8 lg:mb-0 py-10 md:py-0">
             <p className="text-[16px] text-white mb-3">
               Boost Your Medical Career with Expert-Led Courses and Insights!

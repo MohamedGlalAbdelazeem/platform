@@ -5,7 +5,7 @@ function CourseDetails() {
     <>
       {/* Course Content: */}
       <div className="w-full md:w-1/2">
-          <h2 className="text-2xl font-bold mb-2">Advanced Cardiology: Diagnosis and Treatment</h2>
+          <h2 className="text-2xl font-bold mb-16 text-white">Advanced Cardiology: Diagnosis and Treatment</h2>
           <h3 className="font-bold mb-4">What You Will Learn:</h3>
           <p className="text-sm leading-8">Experience premium sound quality and industry-leading noise cancellation
             Gain in-depth knowledge of cardiovascular diseases, diagnostic techniques, and treatment methods. This course is designed for medical professionals looking to specialize in cardiology or enhance their understanding of heart-related conditions.

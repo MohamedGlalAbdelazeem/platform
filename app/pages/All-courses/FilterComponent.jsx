@@ -120,7 +120,7 @@ const FilterComponent = () => {
 
          {/* search icon */}
         <div  onClick={handleSearchClicked} className="cursor-pointer gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all w-full sm:w-auto justify-center sm:justify-start">
-          <FaSearch  className="text-2xl " />
+          <FaSearch  className="text-2xl text-bgColor " />
         </div>
         {search && (
             <div class="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto">

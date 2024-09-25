@@ -1,6 +1,5 @@
 'use client'
 import RelatedCoures from "./RelatedCoures";
-import CoursePreview from "./CoursePreview";
 import { FaResearchgate } from "react-icons/fa6";
 import CourseDetails from './CourseDetails';
 import useCheckUser from '@/app/(auth)/ChekUser';
@@ -14,8 +13,10 @@ function Page() {
   });
   
   return (
-    <div className="container mx-auto mt-20 px-4 py-8">
-      <div className="flex flex-row-reverse justify-around flex-wrap mt-14">
+    <>
+    <div className="bg-[#1F0C30E5] w-full h-[221px]"></div>
+      <div className="container mx-auto px-4 -mt-[50px]">
+      <div className="flex flex-row-reverse justify-around flex-wrap">
         {/* course video */}
         <div className="w-[335px] px-4 mb-8">
           <div className="rounded-2xl bg-gray-300 overflow-hidden shadow-lg p-3">
@@ -55,10 +56,11 @@ function Page() {
         </div>
         {/* Course video: */}
          <CourseDetails/>
-        <CoursePreview />
         <RelatedCoures />
       </div>
     </div>
+    </>
+  
   );
 }
 

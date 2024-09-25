@@ -35,7 +35,7 @@ function useCheckUser({
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           router.push('/sign-up');
         }
-      });
+      }); 
     } else {
       router.push(redirectToUpload);
     }

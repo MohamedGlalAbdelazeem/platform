@@ -7,27 +7,20 @@ import Link from "next/link";
 
 
 function AllCoursesBanner() {
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [token, setToken] = useState(null);
-
   useEffect(() => {
-    // Get token from localStorage if available
     const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   }, []);
 
   const handleUploadClick = () => {
-    // Check if token exists
     if (!token) {
-      // If no token, show modal
       setIsModalVisible(true);
     } else {
-      // Proceed with course upload functionality
       console.log("Proceed to course upload...");
-      // You can add further upload logic here (e.g., navigation)
     }
   };
-
   const closeModal = () => {
     setIsModalVisible(false);
   };
@@ -63,9 +56,8 @@ function AllCoursesBanner() {
           </div>
         </div>
       </div>
-
       {isModalVisible && (
-        <div className="fixed inset-0 p-5 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
+        <div className= " fixed inset-0 p-5 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.89)] overflow-auto">
           <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-6 relative">
           <IoCloseCircleSharp  onClick={closeModal} className="text-secondary cursor-pointer  text-3xl float-right" />
             <div className="my-8 flex items-center justify-center flex-col text-center">
@@ -91,7 +83,10 @@ function AllCoursesBanner() {
                 </div>
               </Link>
               <div>
-                
+                <span className="flex justify-center items-center text-center mt-5">
+                Don’t have an account?
+                 <Link href={'/sign-up'} className="font-bold ml-1 underline"> Join Now</Link>
+                </span>
               </div>
           </div>
         </div>

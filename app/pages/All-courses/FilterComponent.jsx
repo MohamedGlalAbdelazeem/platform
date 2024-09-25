@@ -2,13 +2,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MultiRangeSlider from "multi-range-slider-react";
-import { FaSearch } from "react-icons/fa";
 import "./allCourses.css" 
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { FaSearch } from "react-icons/fa";
 
 const FilterComponent = () => {
   const baseUrl = 'http://localhost:5000/api/';
   const [minValue, set_minValue] = useState(25);
   const [maxValue, set_maxValue] = useState(75);
+  const [search , setSearch]  = useState(false);
+
+  function handleSearchClicked() {
+    setSearch(!search);
+  }
+  function handleSearchClose() {
+    setSearch(false);
+  }
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
@@ -107,9 +116,26 @@ const FilterComponent = () => {
             }}
           />
         </div>
-        <div className="gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all w-full sm:w-auto justify-center sm:justify-start">
-          <FaSearch className="text-2xl" />
+
+        <div  onClick={handleSearchClicked} className="cursor-pointer gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all w-full sm:w-auto justify-center sm:justify-start">
+          <FaSearch  className="text-2xl " />
         </div>
+        {
+          search && (
+            <div class="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto">
+            <div class="w-full max-w-lg bg-white shadow-lg rounded-3xl px-8 py-6 relative">
+                <IoMdCloseCircleOutline  onClick={handleSearchClose} className='cursor-pointer float-right text-2xl mb-6 text-red-500' />
+                <div class="flex flex-wrap gap-4 mt-10">
+                    <div class="flex flex-1 px-4 py-2.5 items-center gap-3 rounded-lg border border-gray-300 focus-within:border-blue-600 min-w-[220px]">
+                       <FaSearch className='text-lg ' />
+                        <input type="email" placeholder="search By Using Title here" class="w-full outline-none bg-transparent text-gray-500 text-base" />
+                    </div>
+                    <button type="button" class="px-5 py-2.5 rounded-lg text-white text-base font-normal    bg-[#E2508D]">Search</button>
+                </div>
+            </div>
+        </div>
+          )
+        }
       </div>
     </div>
   );

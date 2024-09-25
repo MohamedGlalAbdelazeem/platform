@@ -9,10 +9,10 @@ return (
   <>
   <AllCoursesBanner/>
     <FilterComponent/>
-        <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+        <div className="max-w-screen-xl mx-auto p-2 sm:p-5 md:p-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-10">
               {["A", "v", "f","A", "v", "f", "A", "v", "f"].map((item, index) => (
-                 <div key={index} className="rounded-3xl p-3 overflow-hidden shadow-lg w-[337px]">
+                 <div key={index} className="rounded-3xl p-1 overflow-hidden shadow-xl w-[337px]">
                       <div className="relative">
                           <img
                               className="w-[315px] h-[198px] rounded-b-[36px] rounded-t-[15px]"

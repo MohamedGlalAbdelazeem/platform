@@ -26,7 +26,7 @@ function AllCoursesBanner() {
   };
 
   return (
-    <div className="relative bg-gray-300 flex items-center justify-center h-[406px]">
+    <div className="relative bg-gray-300 p-2 flex items-center justify-center h-[406px]">
       <div className="absolute inset-0 bg-[#1f0c30f4] opacity-90 z-10"></div>
       <Image
         src="/privacyBanner.jpg"
@@ -38,10 +38,10 @@ function AllCoursesBanner() {
       />
       <div className="z-10 text-center max-w-5xl mt-10 max-md:max-w-md mx-auto">
         <div>
-          <h2 className="md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px] text-fontColor">
+          <h2 className="lg:text-4xl mt-5 font-bold sm:text-lg  text-fontColor">
             Explore Our Medical Courses
           </h2>
-          <p className="text-white mt-6 text-lg leading-relaxed">
+          <p className="text-white mt-3 lg:text-lg sm:text-base leading-relaxed">
             Enhance your medical expertise with courses designed for healthcare professionals and students. Dive deeper into specific fields or explore new topics with expert-led learning experiences. Plus, you can upload your own courses to share your knowledge with others
           </p>
           <div className="mt-2 flex items-center justify-center max-sm:flex-col">

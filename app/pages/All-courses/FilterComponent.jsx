@@ -63,11 +63,10 @@ const FilterComponent = () => {
   }, [selectedCategory, subCategories]);
 
   return (
-    <div className="z-50 mt-1 rounded-xl w-full sm:w-max mx-auto bg-gray-200 divide-x divide-white flex flex-wrap sm:flex-nowrap">
-      <div className="w-full sm:w-max mx-auto bg-gray-200 border divide-x divide-white flex flex-wrap sm:flex-nowrap rounded-xl overflow-hidden">
-        
+    <div className="z-50 mt-1 rounded-xl w-full  mx-auto bg-white divide-x divide-black flex flex-wrap ">
+      <div className=" w-max mx-auto bg-white shadow-xl border divide-x divide-blacke flex flex-wrap  rounded-xl overflow-hidden">
         {/* Category Section */}
-        <div className="w-[250px]  gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
+        <div className="w-[250px]  gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-100 transition-all">
           <label htmlFor="categories" className="block text-base font-normal text-black w-1/3 sm:w-auto">Category</label>
           <select
             id="categories"
@@ -84,7 +83,7 @@ const FilterComponent = () => {
         </div>
 
         {/* Sub Category Section */}
-        <div className="w-[300px] gap-2 px-2 py-2 flex items-center text-sm outline-none hover:bg-gray-300 transition-all">
+        <div className="w-[300px] gap-2 px-2 py-2 flex items-center text-sm outline-none hover:bg-gray-100 transition-all">
           <label htmlFor="subCategory" className="w-[105px] block text-base font-normal text-black">Sub Category</label>
           <select
             id="subCategory"
@@ -99,7 +98,7 @@ const FilterComponent = () => {
         </div>
 
         {/* Pricing Section */}
-        <div className="w-full sm:w-[350px] gap-3 px-5 py-5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all">
+        <div className="w-full sm:w-[350px] gap-3 px-5 py-5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-100 transition-all">
           <label htmlFor="pricing" className="block text-sm font-medium text-gray-900 w-1/3 sm:w-auto">Pricing</label>
          
           <MultiRangeSlider
@@ -120,11 +119,11 @@ const FilterComponent = () => {
         <div  onClick={handleSearchClicked} className="cursor-pointer gap-3 px-5 py-2.5 flex items-center text-[#333] text-sm outline-none hover:bg-gray-300 transition-all w-full sm:w-auto justify-center sm:justify-start">
           <FaSearch  className="text-2xl " />
         </div>
-        {
-          search && (
+        {search && (
             <div class="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto">
             <div class="w-full max-w-lg bg-white shadow-lg rounded-3xl px-8 py-6 relative">
                 <IoMdCloseCircleOutline  onClick={handleSearchClose} className='cursor-pointer float-right text-2xl mb-6 text-red-500' />
+                 <h1 className='font-bold text-[#E2508D]'>You can search any course by title</h1>
                 <div class="flex flex-wrap gap-4 mt-10">
                     <div class="flex flex-1 px-4 py-2.5 items-center gap-3 rounded-lg border border-gray-300 focus-within:border-blue-600 min-w-[220px]">
                        <FaSearch className='text-lg ' />

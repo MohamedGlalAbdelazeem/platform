@@ -33,9 +33,10 @@ function Page() {
       } else {
         if (response?.data?.status === 106) {
           toast.error("Invalid Phone Number. Format: +[country code][number] (e.g., +1234567890)");
-        } else {
-          toast.error(response?.data?.message || "An error occurred, please try again.");
+        } else if (response?.data?.status === 101) {
+          toast.error("Username 'mohamed_galal' is already taken.");
         }
+        //toast.error(response?.data?.message || "An error occurred, please try again.");
         console.log("Error:", response?.data);
       }
     } catch (err) {

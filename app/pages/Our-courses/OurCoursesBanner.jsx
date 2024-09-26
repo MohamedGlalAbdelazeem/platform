@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function OurCoursesBanner({ bg1, bg2 }) {
   return (
-    <div className="relative bg-gray-300 p-2 flex items-center justify-center h-[350px] ">
+    <div className="relative bg-gray-300 p-2 flex items-center justify-center h-[330px] ">
       <div className="absolute inset-0 bg-[#1f0c30f4] opacity-90 z-10"></div>
       <Image
         src="/Banner.jpg"

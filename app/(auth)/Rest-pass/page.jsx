@@ -5,12 +5,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 function Page() {
   const [email, setEmail] = useState(null);
   const [token, setToken] = useState(null);
   const [success, setSuccess] = useState("");
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -19,30 +21,27 @@ function Page() {
     resolver: zodResolver(RestPassValidation),
   });
 
-  // You can use useEffect to fetch email and token or set them manually.
   useEffect(() => {
-    // Example: fetching email and token from query parameters or local storage
     const urlParams = new URLSearchParams(window.location.search);
     const emailFromParams = urlParams.get("email");
     const tokenFromParams = urlParams.get("token");
-
-    setEmail(emailFromParams || "user@example.com"); // Replace with actual logic
-    setToken(tokenFromParams || "12345"); // Replace with actual logic
+    console.log(emailFromParams);
+    console.log(tokenFromParams);
+    setEmail(emailFromParams); 
+    setToken(tokenFromParams); 
   }, []);
 
   const onSubmit = async (data) => {
     try {
-      // Ensure email and token are available
       if (email && token) {
-        // Send POST request to reset password
         await axios.post("http://localhost:5000/api/User/reset-password", {
           password: data.password,
           confirmPassword: data.confirmPassword,
           email,
           token,
         });
-
-        setSuccess("Your password has been reset successfully!");
+        toast.success("Your password has been reset successfully!");
+        router.push("/sign-in")
       } else {
         console.error("Email or token is missing");
       }

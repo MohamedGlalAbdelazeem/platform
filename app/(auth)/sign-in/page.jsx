@@ -28,7 +28,8 @@ function Page() {
         toast.success("Login successfully");
         router.push("/"); 
         console.log("success", response);
-        const token =  response?.data?.token
+        const token =  response?.data?.token;
+        const user = response?.data?.data
         localStorage.setItem('token' , token );
       } else {
         if (response?.data?.message === "can't find this user name") {

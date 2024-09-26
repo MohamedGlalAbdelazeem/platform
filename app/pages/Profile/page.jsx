@@ -1,10 +1,11 @@
 import Link from 'next/link'
  
-import { FaRegEyeSlash } from "react-icons/fa6";
-
+ 
 function Page() {
   return (
-    <section className="mt-28 flex flex-col items-center">
+   <>
+    <div className="bg-[#1f0c30f4] w-full h-20"></div>
+    <section className="mt-16 flex flex-col items-center ">
       {/* User Info Section */}
       <div className="w-full md:w-1/2 flex flex-col md:flex-row items-center text-center">
         <img
@@ -22,7 +23,7 @@ function Page() {
         </div>
       </div>
       {/* Wallet Section */}
-      <div className="bg-slate-300 w-full md:w-[750px] p-6 mt-8 rounded-lg flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+      <div className="bg-white shadow-xl w-full md:w-[750px] p-6 mt-8 rounded-lg flex flex-col md:flex-row justify-between items-center text-center md:text-left">
         <div className="flex flex-col md:flex-row items-center gap-3 mb-4 md:mb-0">
           <h2 className="text-3xl font-bold">$250</h2>
           <span className="text-sm text-gray-600">Available Balance</span>
@@ -38,11 +39,11 @@ function Page() {
       </div>
       {/* Personal Information Section */}
       <div className="flex flex-col items-start w-full md:w-[660px] my-11">
-        <h2 className="font-bold mb-6 ml-3 text-xl">Personal Information</h2>
-        <div className="w-full bg-white p-6 rounded-lg shadow-md">
+        <h2 className="font-bold mb-6 ml-3 text-xl text-bgColor">Personal Information</h2>
+        <div className="w-full bg-white p-6 rounded-lg ">
           <form>
-            <div className="mb-5">
-              <label htmlFor="name" className="mb-3 block text-base font-medium text-[#07074D]">
+            <div className="mb-3">
+              <label htmlFor="name" className="mb-3 block text-base font-medium text-bgColor">
                 Full Name
               </label>
               <input
@@ -53,8 +54,8 @@ function Page() {
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
             </div>
-            <div className="mb-5">
-              <label htmlFor="phone" className="mb-3 block text-base font-medium text-[#07074D]">
+            <div className="mb-3">
+              <label htmlFor="phone" className="mb-3 block text-base font-medium text-bgColor">
                 Phone Number
               </label>
               <input
@@ -64,8 +65,8 @@ function Page() {
                 placeholder="Enter your phone number"
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
             </div>
-            <div className="mb-5">
-              <label htmlFor="email" className="mb-3 block text-base font-medium text-[#07074D]">
+            <div className="mb-3">
+              <label htmlFor="email" className="mb-3 block text-base font-medium text-bgColor">
                 Job Title
               </label>
               <input
@@ -76,41 +77,41 @@ function Page() {
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
             </div>
             <div>
-              <button className="w-full md:w-[175px] hover:shadow-form rounded-3xl bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+              <button className="w-full md:w-[175px] hover:shadow-form rounded-3xl bg-[#984D9F] py-3 px-8 text-center text-base font-semibold text-white outline-none">
                 Save Changes
               </button>
             </div>
           </form>
         </div>
       </div>
-      <div className="flex flex-col items-start w-full md:w-[650px] my-11">
-        <h2 className="font-bold mb-6  ml-3 text-xl">Change Password</h2>
-        <div className="w-full bg-white p-6 rounded-lg shadow-md">
+      <div className="flex flex-col items-start w-full md:w-[650px] my-5">
+        <h2 className="font-bold mb-6  ml-3 text-xl text-bgColor">Change Password</h2>
+        <div className="w-full bg-white p-6 rounded-lg ">
           <form>
             <div className="mb-6">
-              <label className="text-gray-800 text-sm mb-2 block">Password *</label>
+              <label className="text-bgColor text-sm mb-2 block">Password *</label>
               <div className="relative flex items-center">
                 <input
                   name="password"
                   type="password"
                   required
-                  className="bg-transparent border border-gray-400 w-full text-gray-800 text-sm pl-4 pr-10 py-3 rounded-xl outline-blue-600"
+                  className="bg-transparent border border-gray-400 w-full text-bgColor text-sm pl-4 pr-10 py-3 rounded-xl outline-blue-600"
                     placeholder="***************" />
               </div>
             </div>
             <div className="mb-6">
-              <label className="text-gray-800 text-sm mb-2 block">New Password *</label>
+              <label className="text-bgColor text-sm mb-2 block">New Password *</label>
               <div className="relative flex items-center">
                 <input
                   name="password"
                   type="password"
                   required
-                  className="bg-transparent border border-gray-400 w-full text-gray-800 text-sm pl-4 pr-10 py-3 rounded-xl outline-blue-600"
+                  className="bg-transparent border border-gray-400 w-full text-bgColor text-sm pl-4 pr-10 py-3 rounded-xl outline-blue-600"
                   placeholder="***************"/>
               </div>
             </div>
             <div className="mb-6">
-              <label className="text-gray-800 text-sm mb-2 block">Confirm New Password *</label>
+              <label className="text-bgColor text-sm mb-2 block">Confirm New Password *</label>
               <div className="relative flex items-center">
                 <input
                   name="password"
@@ -121,7 +122,7 @@ function Page() {
               </div>
             </div>
             <div>
-              <button className="w-full md:w-[175px] hover:shadow-form rounded-3xl bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+              <button className="w-full md:w-[175px] hover:shadow-form rounded-3xl bg-[#984D9F] py-3 px-8 text-center text-base font-semibold text-white outline-none">
               Save Changes
               </button>
             </div>
@@ -129,6 +130,7 @@ function Page() {
         </div>
       </div>
     </section>
+   </>
   )
 }
 export default Page;

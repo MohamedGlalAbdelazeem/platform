@@ -1,5 +1,5 @@
 'use client';
-
+import ProgressBar from "@ramonak/react-progress-bar";
 import { useState } from 'react';
 
 function Page() {
@@ -99,17 +99,16 @@ function Page() {
   ];
 
   return (
-    <div className="container mx-auto px-4 my-20">
+    <>
+     <div className="h-[80px] bg-[#1f0c30f4]">
+     </div>
+     <div className="container mx-auto px-4 my-20">
       {/* Main Course Details */}
       <div className="my-10 w-full flex items-center justify-between">
         <h2 className="text-xl font-bold mb-4">Advanced Cardiology: Diagnosis and Treatment</h2>
         {/* Dynamic Progress */}
         <div className="relative w-[250px] h-2 bg-gray-200 rounded-lg mb-6">
-          <div className="w-[100%] h-full rounded-full bg-blue-500 relative" style={{ width: `${progress}%` }}>
-            <div className="absolute text-xs -right-4 bg-blue-600 text-white font-bold px-1.5 min-w-[40px] min-h-[24px] -top-8 rounded flex items-center justify-center">
-              {Math.round(progress)}%
-            </div>
-          </div>
+          <ProgressBar completed={95} />
         </div>
       </div>
 
@@ -172,10 +171,12 @@ function Page() {
               </div>
             ))}
           </div>
-          <button className='my-6 bg-gray-300 p-2 w-fit rounded-lg'>Finish The Exam</button>
+          <button className='my-6 bg-bgFontColor text-white p-2 w-fit rounded-lg'>Finish The Exam</button>
         </div>
       </div>
     </div>
+    </>
+  
   );
 }
 

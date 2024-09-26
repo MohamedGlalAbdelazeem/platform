@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@ramonak/react-progress-bar": "^5.3.0",
     "axios": "^1.7.4",
     "iconify": "^1.4.0",
     "multi-range-slider-react": "^2.0.7",

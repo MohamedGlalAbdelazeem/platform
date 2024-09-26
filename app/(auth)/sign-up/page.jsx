@@ -21,27 +21,31 @@ function Page() {
   });
 
   const onSubmit = async (data) => {
-    setIsLoading(true);
+    setIsLoading(true);  
     try {
       const response = await axiosClient.post("/User/register", {
-        ...data,
+        ...data,  
       });
-      if (response?.data?.isSuccess) { 
-        swal("Congratulations!", "Account Created and Confiramtion mail has been sent successfully", "success");
-        console.log("success",response?.data);
+  
+      if (response?.data?.isSuccess) {
+        swal("Congratulations!", "Account created and a confirmation email has been sent successfully", "success");
+        console.log("Success:", response?.data);
       } else {
-        toast.error(response?.data?.message);
-        console.log("error",response);
+        if (response?.data?.status === 106) {
+          toast.error("Invalid Phone Number. Format: +[country code][number] (e.g., +1234567890)");
+        } else {
+          toast.error(response?.data?.message || "An error occurred, please try again.");
+        }
+        console.log("Error:", response?.data);
       }
     } catch (err) {
-      toast.error(err.response?.data?.message || "Registration failed Please Try again or contact with support.");
-      console.log(err);
-      
+      const errorMessage = err.response?.data?.message || "Registration failed. Please try again or contact support.";
+      toast.error(errorMessage);
+      console.log("Error:", err);
     } finally {
-      setIsLoading(false);
+      setIsLoading(false);  
     }
   };
-
   return (
     <div className="flex flex-col justify-center items-center bg-slate-100 p-3 ">
       <div className="rounded-3xl grid md:grid-cols-2 items-center p-5 bg-white max-w-7xl w-full">
@@ -66,7 +70,7 @@ function Page() {
 
           {/* First Name and Last Name */}
           <div className="grid lg:grid-cols-2 gap-5 mt-5">
-            <div className="mb-5">
+            <div>
               <label className="text-base font-normal mb-2 block text-bgFontColor">First Name *</label>
               <input
                 {...register("firstName")}
@@ -75,7 +79,7 @@ function Page() {
               />
               {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName.message}</p>}
             </div>
-            <div>
+            <div className="mb-6">
               <label className="text-base font-normal mb-2 block text-bgFontColor">Last Name *</label>
               <input
                 {...register("lastName")}
@@ -101,7 +105,7 @@ function Page() {
               <input
                 {...register("phoneNumber")}
                 className="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3 rounded-md outline-bgColor"
-                placeholder=""
+                placeholder=" +[country code][number] (e.g.,+1234567890)"
               />
               {errors.phoneNumber && <p className="text-red-500 text-sm">{errors.phoneNumber.message}</p>}
             </div>

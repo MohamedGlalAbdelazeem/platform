@@ -1,15 +1,11 @@
 'use client';
-import { FaHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import RelatedBlogs from "../RelatedBlogs";
-import { AiFillLike } from "react-icons/ai";
-
-
 function page({params}) {
   const baseUrl = 'http://localhost:5000/api/';
-  const imageUrl= 'http://localhost:5000/';
+  const imageUrl= 'http://localhost:5000';
   const [blogId, setBlogId] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,7 +23,6 @@ function page({params}) {
     };
     fetchblogId();
   }, []);
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-96 w-full bg-white">
@@ -38,35 +33,40 @@ function page({params}) {
   if (error) {
     return <p>{error}</p>;
   }
- 
-
   return (
-    <div className="container mx-auto mt-20 px-3 py-8">
-    <div className="flex flex-row-reverse justify-around flex-wrap mt-6">
-      <h1 className='text-2xl font-bold'>{blogId?.title}</h1>
-     <div className='my-6 bg-gray-200 w-full h-96 rounded-3xl'>
+    <>
+    <div className="relative bg-gray-300 p-2 flex items-center justify-center -z-10 h-[406px]">
+      <div className="absolute inset-0 bg-[#1f0c30f4] opacity-90 z-10"></div>
       <Image
-      src={`${imageUrl}${blogId?.imageURL}`}
-      width={"400"}
-      height={"400"}
-      alt="blog image"
-      className="mx-auto"
+        src="/Banner.jpg"
+        alt="Banner image"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="top left"
+        className="z-0"/>
+    </div>
+    <div className="w-[1030px]  mx-auto  px-3 py-8 -mt-52 z-50">
+      <h1 className='text-3xl font-bold text-center text-[#EC8AB3]'>{blogId?.title}</h1>
+    <div className="flex flex-row-reverse justify-end flex-wrap ">
+     <div className='my-6 bg-gray-200 w-[1030px] h-[423px] rounded-3xl'>
+      <Image
+        src={`${imageUrl}${blogId?.imageURL}`}
+        width={"400"}
+        height={"400"}
+        alt="blog image"
+        className="w-[1030px] h-[423px] rounded-3xl"
       />
     </div>
-      <div className="w-full flex gap-4 flex-wrap items-center justify-between">
-          <div className="flex flex-wrap gap-6">
-             <button className="bg-slate-600 text-white py-1 rounded-2xl w-[130px]">Category</button>    
-             <button className="bg-slate-600 text-white  px-1 py-1 rounded-2xl w-[150px]">Sub Category</button>    
+      <div className="flex  gap-4  flex-wrap ">
+          <div className="flex flex-wrap  gap-6">
+             <button className="bg-[#FFF4F8] text-black py-1 rounded-lg w-[130px] font-normal ">Category</button>    
+             <button className="bg-[#FFF4F8] text-black  px-1 py-1 rounded-lg font-normal w-[150px]">Sub Category</button>    
           </div> 
           <div>
-        <span className="flex items-center gap-2 font-bold">
-         <AiFillLike  className="bg-slate-300 p-2 text-4xl rounded-full " />
-         <p>{blogId?.likesNumber}</p>
-        </span>
           </div>
       </div>
       <div className="w-full">
-          <div className="mt-20">
+          <div className="mt-10">
               <h1 className="font-bold text-lg my-2">Introduction:</h1>
               <p>{blogId?.intro}</p>
           </div>
@@ -85,6 +85,8 @@ function page({params}) {
       </div>
     </div> 
     <RelatedBlogs categoryId={blogId?.categoryId}/>
-  </div>
+    </div>
+    </>
+    
 )}
 export default page

@@ -2,17 +2,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
-import { AiFillLike } from "react-icons/ai";
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './style.css';
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Link from "next/link";
 
@@ -33,8 +27,7 @@ export default function RelatedBlogs({categoryId}) {
         setError("Failed to fetch blogCategory");
         setLoading(false);
         console.log(error);
-      }
-    };
+      }};
     fetchblogCategory();
   }, []);
 
@@ -51,7 +44,7 @@ export default function RelatedBlogs({categoryId}) {
   return (
     <>
      <div className='w-full'>
-      <h1 className='text-left text-2xl font-bold mb-2 mt-20 '>Related Blogs</h1>
+      <h1 className='text-left text-2xl font-bold mb-2 mt-20 text-textColor'>Related Blogs</h1>
      </div>
       <Swiper
         spaceBetween={20}
@@ -65,7 +58,6 @@ export default function RelatedBlogs({categoryId}) {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        // Responsive breakpoints
         breakpoints={{
           640: {
             slidesPerView: 1,
@@ -88,8 +80,8 @@ export default function RelatedBlogs({categoryId}) {
                     <div className="relative ">
                             <Image 
                              className="w-full rounded-b-[20px] rounded-t-[30px] "
-                             width={"400"}
-                             height={"400"}
+                             width={"500"}
+                             height={"500"}
                              src={`http://localhost:5000/${item?.imageURL}`}
                              alt="blog image" 
                              />
@@ -98,16 +90,12 @@ export default function RelatedBlogs({categoryId}) {
                         <div className="font-semibold text-lg  hover:text-indigo-600 transition duration-500 ease-in-out">
                             <h2> {item?.title}</h2>
                         </div>
-                        <p className="leading-6 text-gray-500 my-1 text-sm">
+                        <p className="leading-6 text-black my-1 text-sm">
                         {item?.content}
                         </p>
                     </div>
                     <div className="px-2 gap-3 py-1  flex flex-row items-center">
-                        <Link  href={`/pages/Our-blogs/${item?.id}`}  className="border-2 border-black text-center  p-3 w-full rounded-3xl">See More</Link>
-                        <span className="flex items-center gap-1 bg-slate-500 p-3 rounded-full"> 
-                          <AiFillLike  className="text-white text-2xl" />
-                          <p className="font-bold text-white">{item?.likesNumber}</p>
-                         </span>
+                        <Link  href={`/pages/Our-blogs/${item?.id}`}  className="text-textColor border-2 border-textColor text-center  p-3 w-full rounded-3xl">See More</Link>
                     </div>
                 </div>
                   </SwiperSlide>

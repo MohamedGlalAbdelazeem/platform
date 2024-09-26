@@ -6,8 +6,8 @@ function page() {
 
   return (
   <>
-        <OurCoursesBanner/>
-        <div className="-mt-36 max-w-screen-xl mx-auto sm:p-10 z-50">
+        <OurCoursesBanner bg2="#984D9F" bg1="#301a45"/> 
+        <div className="max-w-screen-xl mx-auto sm:p-10 z-[1000]">
           <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10 -pt-64">
               {["A", "v", "f", "A", "v", "f"].map((item, index) => (
                  <div key={index} className="rounded-3xl p-1 overflow-hidden shadow-xl w-[337px]">

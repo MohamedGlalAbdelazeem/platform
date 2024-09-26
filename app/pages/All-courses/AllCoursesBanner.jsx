@@ -29,8 +29,8 @@ function AllCoursesBanner() {
     <div className="relative bg-gray-300 p-2 flex items-center justify-center h-[406px]">
       <div className="absolute inset-0 bg-[#1f0c30f4] opacity-90 z-10"></div>
       <Image
-        src="/privacyBanner.jpg"
-        alt="privacyBanner image"
+        src="/Banner.jpg"
+        alt="Banner image"
         layout="fill"
         objectFit="cover"
         objectPosition="top left"
@@ -63,7 +63,7 @@ function AllCoursesBanner() {
             <div className="my-8 flex items-center justify-center flex-col text-center">
               <Image
                     src="/login.png"
-                    alt="privacyBanner image"
+                    alt="Banner image"
                     width={"140"}
                     height={"140"}
                     className="rounded-full bg-[#EC8AB3] p-5"

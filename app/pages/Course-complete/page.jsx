@@ -1,9 +1,9 @@
 'use client';
-
 import { useState } from 'react';
+import ProgressBar from "@ramonak/react-progress-bar";
+import { FaArrowRight } from "react-icons/fa6";
 
 function Page() {
-  const [progress, setProgress] = useState(30); // Example progress percentage
   const [currentLesson, setCurrentLesson] = useState(0); // Current lesson index
   const [currentVideo, setCurrentVideo] = useState(0); // Current video index
   const [expandedLesson, setExpandedLesson] = useState(null); // To track which lesson is expanded
@@ -58,17 +58,16 @@ function Page() {
   };
 
   return (
-    <div className="container mx-auto mt-52 px-4 my-20">
+    <>
+    <div className="h-[80px] bg-[#1f0c30f4]">
+    </div>
+     <div className="container mx-auto px-4 my-20">
       {/* Main Course Details */}
       <div className="my-10 w-full flex items-center justify-between">
-        <h2 className="text-xl font-bold mb-4">Advanced Cardiology: Diagnosis and Treatment</h2>
+        <h2 className="text-xl font-bold mb-4 text-bgFontColor">Advanced Cardiology: Diagnosis and Treatment</h2>
         {/* Dynamic Progress */}
-        <div className="relative w-[250px] h-2 bg-gray-200 rounded-lg mb-6">
-          <div className="w-[100%] h-full rounded-full bg-blue-500 relative" style={{ width: `${progress}%` }}>
-            <div className="absolute text-xs -right-4 bg-blue-600 text-white font-bold px-1.5 min-w-[40px] min-h-[24px] -top-8 rounded flex items-center justify-center">
-              {Math.round(progress)}%
-            </div>
-          </div>
+        <div className="relative w-[400px] h-1 bg-gray-200 rounded-lg mb-6">
+          <ProgressBar completed={100}  />
         </div>
       </div>
 
@@ -112,13 +111,16 @@ function Page() {
         </div>
 
         {
-          score >= "90%" ? 
+          score >= "80%" ? 
         (
-        <div className="flex flex-col w-full md:w-1/2 ">
-            <h2 className='my-2 font-bold text-2xl'>Congratulations on Completing the Course!</h2>
+        <div className="flex flex-col w-full md:w-1/2 items-start ">
+            <h2 className='my-2 font-bold text-2xl text-textColor'>Congratulations on Completing the Course!</h2>
             <p className='my-2 leading-7'>Well done! You’ve successfully completed the course [Course Name]. Your dedication and effort have paid off, and we’re thrilled to see your progress. Below is your exam score and a link to download your official certificate of completion.</p>
             <span className='my-2'>You scored: 90 %</span>
-            <h3 className='font-bold'>download Your Certificate</h3>
+            <button className='font-bold text-bgFontColor my-3 flex items-center gap-1'>
+              download Your Certificate
+            <FaArrowRight />
+            </button>
           </div>
           ) : 
           (
@@ -133,6 +135,8 @@ function Page() {
 
       </div>
     </div>
+    </>
+   
   );
 }
 

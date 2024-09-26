@@ -8,8 +8,8 @@ const page = () => {
 
             {/* Image as banner */}
             <Image
-                src="/privacyBanner.jpg"
-                alt="privacyBanner image"
+                src="/Banner.jpg"
+                alt="Banner image"
                 layout="fill"
                 objectFit="cover"  
                 objectPosition="top left" 

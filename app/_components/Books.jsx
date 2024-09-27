@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import './books.css';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
-
+import Image from "next/image";
 function Books() {
   return (
     <section className="mt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +20,7 @@ function Books() {
           <h1 className="text-[24px] font-extrabold text-[#F799C0]">
             Explore Essential Medical Books!
           </h1>
-          <p className="mt-3 text-[20px] font-normal sm:text-lg md:text-xl text-white">
+          <p className="mt-3 text-base font-normal sm:text-lg md:text-lg text-white">
             Discover a curated selection of medical books to support your learning and professional growth. Browse through detailed descriptions and download resources directly from our Telegram channel.
           </p>
           
@@ -48,7 +48,10 @@ function Books() {
                 },
               }}
               modules={[Pagination, Navigation]}
-              className="mySwiper"
+              className="mySwiper relative "
+              style={{
+                background: "z-10 linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1))"
+              }}
             >
               <SwiperSlide>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCp4WM0yFsxwkNRMrMvv2Gbl0BqN0zfOLulA&s" alt="Book 1" className="rounded-lg shadow-md" />
@@ -80,9 +83,13 @@ function Books() {
           </div>
         </div>
 
-        {/* Right side - Big Image */}
-        <div className="mt-8 lg:mt-0 lg:w-1/2">
-          <img className="rounded-3xl h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://i.pinimg.com/originals/ac/ee/6b/acee6bad92436f7c7ca99f9c6fe8fb32.png" alt="Main book image"/>
+        <div className="mt-8 lg:mt-0 w-full ml-32">
+          <Image
+           src="/book.svg"
+           width={"382"}
+           height={"404"}
+           className="rounded-3xl h-[404px] w-[382px] object-cover "  
+           alt="Main book image"/>
         </div>
       </div>
     </section>

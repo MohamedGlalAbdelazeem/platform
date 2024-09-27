@@ -88,7 +88,7 @@ function Books() {
            src="/book.svg"
            width={"382"}
            height={"404"}
-           className="rounded-3xl h-[404px] w-[382px] object-cover "  
+           className="hidden lg:flex rounded-3xl h-[404px] w-[382px] object-cover "  
            alt="Main book image"/>
         </div>
       </div>

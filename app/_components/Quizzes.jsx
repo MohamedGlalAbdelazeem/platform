@@ -22,7 +22,7 @@ function Quizzes() {
                 srcSet="/quize-2x.png 2x, /quize-3x.png 3x" 
                 width={"347" }
                 height={"429"}
-                className="absolute bottom-16"
+                className="absolute bottom-16 hidden lg:flex "
              />  
          </div>
         </div>

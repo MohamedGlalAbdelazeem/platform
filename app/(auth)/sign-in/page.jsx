@@ -9,11 +9,9 @@ import { useForm } from "react-hook-form";
 import { signinValidation } from "../Validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-import { usercontext } from "@/app/_context/UserContext";
 
 function Page() {
   const router = useRouter();
-  const {user , setUser} = useContext(usercontext);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: zodResolver(signinValidation),
   });
@@ -26,7 +24,6 @@ function Page() {
         const user = response?.data?.data;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
-        setUser([user]);
         router.push("/"); 
       } else {
         if (response?.data?.message === "can't find this user name") {

@@ -4,14 +4,23 @@ import { useState, useEffect } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import { FaBarsStaggered, FaBell, FaCircleUser } from "react-icons/fa6";
 import { headerItms } from '../data/DataMenu';
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [token, setToken] = useState(null); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const userName = localStorage.getItem("userName");
-
+  const [user, setUser] = useState(null);
+  
+  const userName = user?.firstName+" "+user?.lastName;
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {

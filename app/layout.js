@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";

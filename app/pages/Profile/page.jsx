@@ -1,41 +1,30 @@
-import Link from 'next/link';
-import { useForm } from 'react-hook-form';
+"use client";
 import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-
-const schema = z.object({
-  firstName: z.string().min(1, 'First Name is required'),
-  lastName: z.string().min(1, 'Last Name is required'),
-  phone: z.string().min(10, 'Phone number must be at least 10 characters long'),
-  email: z.string().email('Invalid email address'),
-  currentPassword: z.string().min(8, 'Password must be at least 8 characters long'),
-  newPassword: z
-    .string()
-    .min(5, "Password must be at least 5 characters")
-    .regex(/[a-z]/, "Password must have at least one lowercase letter")
-    .regex(/[A-Z]/, "Password must have at least one uppercase letter")
-    .regex(/\W/, "Password must have at least one non-alphanumeric character"),
-  confirmNewPassword: z
-    .string()
-    .min(5, "Confirm password is required")
-    .refine((val, ctx) => val === ctx.parent.newPassword, {
-      message: 'Passwords do not match',
-    }),
-});
+import { toast } from "react-toastify";
+import { useContext, useState } from "react";
+import Link from "next/link";
+import { FaAnglesLeft } from "react-icons/fa6";
+import axiosClient from "@/app/_utils/axiosClient";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
+import { profilValidation } from '@/app/(auth)/Validation';
 
 function Page({ userId }) {
+  const baseUrl = 'http://localhost:5000/api/'
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(profilValidation),
   });
 
   const onSubmit = async (data) => {
     const { firstName, lastName, phone, email, newPassword, currentPassword } = data;
     try {
-      const response = await fetch(`http://localhost:5000/api/User/update/${userId}`, {
+      const response = await fetch(`${baseUrl}User/update/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

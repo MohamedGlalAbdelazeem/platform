@@ -70,7 +70,7 @@ function Page() {
       );
       if (res.status === 200) {
         console.log(res);
-        //router.push("/sign-in");
+        router.push("/sign-in");
         toast.success("Your password has been reset successfully!");
       }
     } catch (error) {

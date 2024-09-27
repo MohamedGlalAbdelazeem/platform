@@ -1,49 +1,46 @@
 "use client";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Link from "next/link";
 import { FaAnglesLeft } from "react-icons/fa6";
 import axiosClient from "@/app/_utils/axiosClient";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { signinValidation } from "../Validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-
-const schema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string()
-    .min(5, "Password must be at least 5 characters")
-});
+import { usercontext } from "@/app/_context/UserContext";
 
 function Page() {
   const router = useRouter();
+  const {user , setUser} = useContext(usercontext);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(signinValidation),
   });
   const onSubmit = async (formData) => {
     try {
       const response = await axiosClient.post("/User/login", formData);
       if (response.data.isSuccess) {
         toast.success("Login successfully");
+        const token = response?.data?.token;
+        const user = response?.data?.data;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+        setUser([user]);
         router.push("/"); 
-        console.log("success", response);
-        const token =  response?.data?.token;
-        const user = response?.data?.data
-        localStorage.setItem('token' , token );
       } else {
         if (response?.data?.message === "can't find this user name") {
-          toast.error("Please enter the email you registered with")
+          toast.error("Please enter the email you registered with");
+        } else {
+          toast.error("Wrong Password");
         }
-        else{
-          toast.error("Wrong Password")
-        }
-        console.log("error", response?.data);
+        console.log("error", response?.data?.data);
       }
     } catch (err) {
       console.error("Error:", err);
     }
   };
+  
 return (
     <div className="flex flex-col justify-center items-center  lg:h-screen p-6">
       <div className="grid md:grid-cols-2 items-center gap-y-8 bg-white max-w-7xl w-full shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl overflow-hidden">

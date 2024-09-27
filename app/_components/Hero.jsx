@@ -52,7 +52,7 @@ function Hero() {
                   srcSet="/hero1-2x.png 2x, /hero1-3x.png 3x" 
                   width={"293" }
                   height={"247"}
-                  className="absolute z-10 bottom-[150px] right-[200px] rounded-3xl"
+                  className="absolute z-10 bottom-[120px] right-[200px] rounded-3xl"
               />  
             </div>
       </div>

@@ -26,7 +26,6 @@ function Page() {
       const response = await axiosClient.post("/User/register", {
         ...data,  
       });
-  
       if (response?.data?.isSuccess) {
         swal("Congratulations!", "Account created and a confirmation email has been sent successfully", "success");
         console.log("Success:", response?.data);
@@ -36,7 +35,7 @@ function Page() {
         } else if (response?.data?.status === 101) {
           toast.error("Username 'mohamed_galal' is already taken.");
         }
-        //toast.error(response?.data?.message || "An error occurred, please try again.");
+        toast.error(response?.data?.message || "An error occurred, please try again.");
         console.log("Error:", response?.data);
       }
     } catch (err) {

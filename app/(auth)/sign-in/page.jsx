@@ -21,10 +21,12 @@ function Page() {
       if (response.data.isSuccess) {
         toast.success("Login successfully");
         const token = response?.data?.token;
-        const user = response?.data?.data;
+        const userName = response?.data?.data?.userName;
         localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('userName',userName);
         router.push("/"); 
+       console.log(response?.data?.data);
+       
       } else {
         if (response?.data?.message === "can't find this user name") {
           toast.error("Please enter the email you registered with");

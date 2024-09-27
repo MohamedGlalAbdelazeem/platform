@@ -9,6 +9,7 @@ const Header = () => {
   const [token, setToken] = useState(null); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const userName = localStorage.getItem("userName");
 
  
   useEffect(() => {
@@ -70,7 +71,7 @@ const Header = () => {
                   <div className="relative group">
                     <span className='cursor-pointer flex items-center gap-2'>
                       <FaCircleUser className="text-3xl" /> 
-                      <h3 className='text-lg'>mohamed glal</h3>
+                      <h3 className='text-lg'>{userName}</h3>
                     </span>
                     <div className="absolute -right-8 mt-2 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>
@@ -126,7 +127,7 @@ const Header = () => {
                     <div className="relative group">
                       <span className='flex items-center gap-1 text-white'>
                         <FaCircleUser className="text-3xl cursor-pointer" /> 
-                        <h3 className='text-lg'>mohamed glal</h3>
+                        <h3 className='text-lg'>{userName}</h3>
                       </span> 
                       <div className="absolute -right-10 mt-1 w-28 rounded-xl bg-white dark:bg-gray-800 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <Link href="/pages/Profile" className="block px-4 py-2 text-gray-700 dark:text-white">My Profile</Link>

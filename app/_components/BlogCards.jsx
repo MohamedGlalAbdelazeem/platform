@@ -37,7 +37,7 @@ function BlogCards() {
    <>
       {blogs.length > 0 ? 
       (blogs.map((blog, index) => (
-              <div  key={index} className="hover:opacity-50 rounded-2xl p-1  shadow-lg w-[320px]">
+              <div  key={index} className="hover:opacity-50 mx-2 my-1 rounded-2xl p-1  shadow-lg w-[320px]">
                 <div className="relative">
                   <img 
                     className="w-[315px] h-[198px] rounded-b-[20px] rounded-t-[30px]" 

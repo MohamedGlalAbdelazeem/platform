@@ -5,10 +5,10 @@ function OurCourses() {
   return (
 <div className="w-10/12 sm:w-full mx-auto my-32">
     <MainHeading title={"Our Courses"} desc={"Explore Our Top Medical Courses"}/>
-    <div className="max-w-screen-xl mx-auto sm:p-3 md:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+    <div className="max-w-screen-lg mx-auto my-6">
+        <div className="flex flex-wrap gap-1 justify-center items-center ">
             {["A", "v", "f", "A", "v", "f"].map((item, index) => (
-                <div key={index} className="rounded-3xl p-3 overflow-hidden shadow-lg w-[337px]">
+                <div key={index} className="rounded-3xl p-2 my-5 mx-1 overflow-hidden shadow-lg w-[330px] bg-slate-50">
                     <div className="relative">
                         <img
                             className="w-[315px] h-[198px] rounded-b-[36px] rounded-t-[15px]"

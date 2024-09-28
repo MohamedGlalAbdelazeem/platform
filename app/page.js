@@ -4,6 +4,7 @@ import OurCourses from "./_components/OurCourses";
 import Quizzes from "./_components/Quizzes";
 import Blogs from "./_components/Blogs";
 import Books from "./_components/Books";
+import ScrollTop from "./_components/ScrollTop";
 export default function Home() {
   return (
    <div className="bg-[#F9F9F9]">
@@ -13,6 +14,7 @@ export default function Home() {
      <Quizzes/>
      <Blogs/>
      <Books/>
+     <ScrollTop/>
    </div> 
   );
 }

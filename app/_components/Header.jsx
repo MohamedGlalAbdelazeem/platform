@@ -19,7 +19,7 @@ const Header = () => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
-  }, [user]);
+  }, []);
  
   useEffect(() => {
     const handleScroll = () => {

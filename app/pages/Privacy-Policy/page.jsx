@@ -1,3 +1,4 @@
+import ScrollTop from "@/app/_components/ScrollTop";
 import Image from "next/image";
 const page = () => {
     return (
@@ -113,6 +114,7 @@ const page = () => {
             </ul>
           
         </div>
+        <ScrollTop/>
     </>
     );
   };

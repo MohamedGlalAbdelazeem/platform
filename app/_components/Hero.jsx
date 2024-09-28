@@ -9,8 +9,8 @@ function Hero() {
           radial-gradient(circle at center bottom, #AC59FF4D 10%, transparent 20%)`,
         backgroundColor: "#1E0C2F",
       }}>
-      <div class="h-[750px] grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-          <div class="mr-auto place-self-center lg:col-span-7">
+      <div className="h-[750px] grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+          <div className="mr-auto place-self-center lg:col-span-7">
               
           <div className=" pr-2 mb-8 lg:mb-0 py-10 md:py-0">
               <p className="text-[16px] text-white mb-3">
@@ -35,7 +35,7 @@ function Hero() {
               </div>
             </div>
           </div>
-          <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
           <Image
                   src="/hero3.svg"
                   alt="hero image" 

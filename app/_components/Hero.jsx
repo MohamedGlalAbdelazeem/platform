@@ -36,6 +36,13 @@ function Hero() {
             </div>
           </div>
           <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <Image
+                  src="/hero3.svg"
+                  alt="hero image" 
+                  srcSet="/hero1-2x.png 2x, /hero1-3x.png 3x" 
+                  width={"130" }
+                  height={"130"}
+                  className="absolute z-10 bottom-[150px] right-[510px] rounded-3xl"/> 
                 <Image
                   src="/hero1.svg"
                   alt="hero image" 
@@ -50,6 +57,7 @@ function Hero() {
                   width={"293" }
                   height={"247"}
                   className="absolute z-10 bottom-[120px] right-[200px] rounded-3xl"/>  
+
             </div>
       </div>
   </section>

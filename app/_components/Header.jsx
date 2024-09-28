@@ -2,12 +2,13 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
-import { FaBarsStaggered, FaBell, FaCircleUser } from "react-icons/fa6";
+import { FaBarsStaggered, FaCircleUser } from "react-icons/fa6";
 import { headerItms } from '../data/DataMenu';
+import { CiBellOn } from "react-icons/ci";
+import { LuChevronRight } from "react-icons/lu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [token, setToken] = useState(null); 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [user, setUser] = useState(null);
@@ -18,9 +19,8 @@ const Header = () => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
-  }, []);
+  }, [user]);
  
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -29,13 +29,8 @@ const Header = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  useEffect(() => {
-    const savedToken = localStorage.getItem("token");
-    setToken(savedToken);
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -43,8 +38,8 @@ const Header = () => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
   const handleLogout = () => {
-    localStorage.clear();
-    setToken(null); 
+    localStorage.clear(); 
+    setUser(null);
   };
   return (
     <header className={` fixed   top-0  left-0 right-0 z-50 text-white transition-colors duration-100 ${isScrolled ? 'bg-[#1F0C30E5]' : 'bg-transparent'}`}>
@@ -57,7 +52,7 @@ const Header = () => {
             {headerItms.map((item, index) => (
               <div key={index} className="relative group">
                 <Link href={item.link || "#"} className="flex items-center gap-1 text-xl">
-                  {item.item} {item.subItems && <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 50 50"><path fill="currentColor" d="m22.7 34.7l-1.4-1.4l8.3-8.3l-8.3-8.3l1.4-1.4l9.7 9.7z"/></svg>}
+                  {item.item} {item.subItems && <LuChevronRight className='mt-1 text-base' /> }
                 </Link>
                 {item.subItems && (
                   <div className="absolute mt-1 w-32 rounded-lg bg-bgColor shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -74,9 +69,9 @@ const Header = () => {
           {/* Profile and Bell icons */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-6">
-              {token && (
+              {user && (
                 <>
-                  <FaBell className="text-2xl cursor-pointer" />
+                  <CiBellOn  className="text-3xl font-bold text-textColor cursor-pointer" />
                   <div className="relative group">
                     <span className='cursor-pointer flex items-center gap-2'>
                       <FaCircleUser className="text-3xl" /> 
@@ -90,7 +85,7 @@ const Header = () => {
                 </>
               )}
 
-              {!token && (
+              {!user && (
                 <>
                   <Link href="/sign-in" className="px-5 py-3 text-xl">Sign in</Link>
                   <Link href="/sign-up" className="rounded-md border-2 border-fontColor text-fontColor px-5 py-2 text-xl">Get Started</Link>
@@ -130,9 +125,9 @@ const Header = () => {
                 </div>
               ))}
               <div className="flex mt-7 w-full justify-between items-center">
-                {token && (
+                {user && (
                   <>
-                    <FaBell className="text-white text-2xl cursor-pointer" />
+                    <CiBellOn  className="text-textColor text-3xl cursor-pointer" />
                     <div className="relative group">
                       <span className='flex items-center gap-1 text-white'>
                         <FaCircleUser className="text-3xl cursor-pointer" /> 
@@ -145,7 +140,7 @@ const Header = () => {
                     </div>
                   </>
                 )}
-                {!token && (
+                {!user && (
                   <>
                     <Link href="/sign-in" className="px-5 py-3 text-white text-xl">Sign in</Link>
                     <Link href="/sign-up" className="rounded-md border-2 border-fontColor text-fontColor px-5 py-2 text-xl">Get Started</Link>

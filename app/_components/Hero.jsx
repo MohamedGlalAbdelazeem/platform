@@ -22,9 +22,8 @@ function Hero() {
                     medical <br /> courses, research materials, and <br /> industry
                   insights
                 </span>
-                to help you excel in your career.
+                to help you <br /> excel in your career.
               </h1>
-
               <div className="flex flex-wrap items-center gap-3 mt-4">
                 <a  href="#contact"  className="px-5 py-3 mx-1 text-sm md:text-[20px]  text-white bg-[#7548A1] rounded-lg md:px-8group"   >
                 Join Our Community
@@ -36,7 +35,6 @@ function Hero() {
               </div>
             </div>
           </div>
-
           <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 <Image
                   src="/hero1.svg"
@@ -45,15 +43,13 @@ function Hero() {
                   width={"337" }
                   height={"464"}
                   className="relative bottom-2 z-40"/>  
-
                 <Image
                   src="/hero2.svg"
                   alt="hero image" 
                   srcSet="/hero1-2x.png 2x, /hero1-3x.png 3x" 
                   width={"293" }
                   height={"247"}
-                  className="absolute z-10 bottom-[120px] right-[200px] rounded-3xl"
-              />  
+                  className="absolute z-10 bottom-[120px] right-[200px] rounded-3xl"/>  
             </div>
       </div>
   </section>

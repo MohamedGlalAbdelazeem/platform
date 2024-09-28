@@ -63,7 +63,7 @@ const FilterComponent = () => {
   }, [selectedCategory, subCategories]);
 
   return (
-    <div className="z-50 mt-1 rounded-xl w-full  mx-auto bg-white divide-x divide-black flex flex-wrap ">
+    <div className="z-50 mt-1 rounded-xl justify-center w-full  mx-auto bg-white divide-x divide-black flex flex-wrap ">
       <div className=" w-max mx-auto bg-white shadow-xl border divide-x divide-blacke flex flex-wrap  rounded-xl overflow-hidden">
         
         {/* Category Section */}
@@ -123,16 +123,16 @@ const FilterComponent = () => {
           <FaSearch  className="text-2xl text-bgColor " />
         </div>
         {search && (
-            <div class="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto">
-            <div class="w-full max-w-lg bg-white shadow-lg rounded-3xl px-8 py-6 relative">
+            <div className="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto">
+            <div className="w-full max-w-lg bg-white shadow-lg rounded-3xl px-8 py-6 relative">
                 <IoMdCloseCircleOutline  onClick={handleSearchClose} className='cursor-pointer float-right text-2xl mb-6 text-red-500' />
                  <h1 className='font-bold text-[#E2508D]'>You can search any course by title</h1>
-                <div class="flex flex-wrap gap-4 mt-10">
-                    <div class="flex flex-1 px-4 py-2.5 items-center gap-3 rounded-lg border border-gray-300 focus-within:border-blue-600 min-w-[220px]">
+                <div className="flex flex-wrap gap-4 mt-10">
+                    <div className="flex flex-1 px-4 py-2.5 items-center gap-3 rounded-lg border border-gray-300 focus-within:border-blue-600 min-w-[220px]">
                        <FaSearch className='text-lg ' />
-                        <input type="email" placeholder="search By Using Title here" class="w-full outline-none bg-transparent text-gray-500 text-base" />
+                        <input type="email" placeholder="search By Using Title here" className="w-full outline-none bg-transparent text-gray-500 text-base" />
                     </div>
-                    <button type="button" class="px-5 py-2.5 rounded-lg text-white text-base font-normal    bg-[#E2508D]">Search</button>
+                    <button type="button" className="px-5 py-2.5 rounded-lg text-white text-base font-normal    bg-[#E2508D]">Search</button>
                 </div>
             </div>
         </div>

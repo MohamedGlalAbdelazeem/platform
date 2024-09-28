@@ -4,7 +4,7 @@ function ChooseUs() {
     return (
         <div className="w-10/12 sm:w-full mx-auto my-32">
           <MainHeading  title={"Why Choose Us?"} desc={"What distinguishes MedLearn Hub"}/>
-            <div className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-20 lg:gap-10 sm:gap-20 my-16">
+            <div className="w-fit mx-auto gap-20 grid grid-cols-1 xl:grid-cols-4  xl:gap-6   lg:gap-20  md:grid-cols-2   md:gap-20  sm:grid-cols-2  sm:gap-28 my-16">
                 {chooseData.map((item, index) => (
                     <div key={index} className=" group w-64 h-[210px] bg-white  rounded-l-[40px] rounded-r-[40px] shadow-xl relative hover:ring hover:ring-shadesOfBlue transform duration-500 hover:scale-105 hover:shadow-xl">
                         <div style={{backgroundColor:item.iconColor}} className="flex justify-center items-center w-[125px] h-[125px] rounded-full absolute mx-auto right-0 left-0 -top-16  border-[13px] border-gray-100 group-hover:shadow-md transform duration-300">

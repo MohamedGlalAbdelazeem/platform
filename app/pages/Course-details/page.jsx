@@ -1,7 +1,33 @@
 'use client'
 import RelatedCoures from "./RelatedCoures";
 import CourseDetails from "./CourseDetails";
+import { useEffect, useState } from "react";
+import { IoCloseCircleSharp } from "react-icons/io5";
+import Link from "next/link";
+import Image from "next/image";
+
 function Page() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalEnrollVisible , setIsModalEnrollVisible ] = useState(true);
+  const [token, setToken] = useState(null);
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
+  }, []);
+  const handleClicked = () => {
+    if (!token) {
+      setIsModalVisible(true);
+    } else {
+      setIsModalEnrollVisible(true);
+    }
+  };
+  const closeEnrollModal = () => {
+    setIsModalEnrollVisible(false);
+  };
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+  
   return (
     <>
     <div className="bg-[#1F0C30E5] w-full h-[221px]"></div>
@@ -39,7 +65,7 @@ function Page() {
               </span>
             </div>
             <div className="px-1 py-2 flex flex-col gap-3 items-center">
-              <button type="button" className="bg-bgFontColor text-center text-white p-3 w-full rounded-3xl" >
+              <button onClick={handleClicked} type="button" className="bg-bgFontColor text-center text-white p-3 w-full rounded-3xl" >
                     Enroll Now
              </button>
               <button className="border-2 border-textColor text-textColor p-3 w-full rounded-3xl"> Watch a trial lesson</button>
@@ -51,9 +77,89 @@ function Page() {
         <RelatedCoures />
       </div>
     </div>
+    {/* Enroll model */}
+      {isModalEnrollVisible && (
+          <div class="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto ">
+            <div class="w-[600px] bg-white shadow-lg rounded-lg p-8 relative">
+                <div class="flex items-center pb-3 ">
+                    <h3 class="text-2xl text-center font-bold flex-1 text-textColor ">Choose payment Method</h3>
+                </div>
+                <div class="my-8">
+                    <div class="flex flex-wrap gap-8 items-center mt-4 ">
+                      <Link href={"/"} className="bg-[#FFF4F8] py-2 rounded-lg  px-3">
+                        <Image
+                            src="/paypal.svg"
+                            alt="Banner image"
+                            width={"100"}
+                            height={"100"}/>
+                      </Link>
+                      <Link href={"/"} className="py-5 flex flex-col items-center justify-center bg-[#FFF4F8] px-3 rounded-lg">
+                        <Image
+                            src="/card.svg"
+                            alt="Banner image"
+                            width={"100"}
+                            height={"100"} />
+                            <h1 className="font-normal text-xl">Cards</h1>
+                      </Link>
+                      <Link href={"/"} className="py-8 flex flex-col items-center justify-center bg-[#FFF4F8]  rounded-lg">
+                        <Image
+                            src="/wallet.svg"
+                            alt="Banner image"
+                            width={"150"}
+                            height={"200"}/>
+                            <h1 className="font-normal text-xl mt-">Wallet</h1>
+                      </Link>
+                    </div>
+                    <div className="my-8 mx-auto text-center">
+                      <span className="text-secondary text-lg text-center">Pay with
+                        <button   className="font-bold px-2 underline">
+                          Vodafone cash or Instapay
+                        </button>?</span>
+                    </div>
+                    <div className=" flex justify-center items-center gap-2">
+                      <button className="font-normal bg-bgColor text-white py-2 px-6 rounded-3xl">Pay 25 $</button>
+                      <button onClick={closeEnrollModal} className="font-normal bg-[#FFF4F8]  py-3 px-6 rounded-3xl ">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        )}
+      {isModalVisible && (
+        <div className= " fixed inset-0 p-5 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.89)] overflow-auto">
+          <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-6 relative">
+          <IoCloseCircleSharp  onClick={closeModal} className="text-secondary cursor-pointer  text-3xl float-right" />
+            <div className="my-8 flex items-center justify-center flex-col text-center">
+              <Image
+                    src="/login.png"
+                    alt="Banner image"
+                    width={"140"}
+                    height={"140"}
+                    className="rounded-full bg-[#EC8AB3] p-5"
+                />
+              <h4 className="text-[20px] text-textColor font-bold mt-4">
+              Please Log In or Sign Up to Enroll
+              </h4>
+              <p className="text-sm text-gray-900 leading-relaxed mt-4">
+           You need to be logged in to enroll in this course. If you don’t have an account yet, creating one is quick and easy!
+              </p>
+            </div>
+              <Link
+                href={"/sign-in"}
+                className="py-2  rounded-xl text-white text-sm border-none outline-none bg-[#984D9F]">
+                 <div className="w-full bg-[#984D9F] text-center py-2 text-base font-normal rounded-xl">
+                  Login 
+                </div>
+              </Link>
+              <div>
+                <span className="flex justify-center items-center text-center mt-5">
+                Don’t have an account?
+                 <Link href={'/sign-up'} className="font-bold ml-1 underline"> Join Now</Link>
+                </span>
+              </div>
+          </div>
+        </div>
+      )}
     </>
-  
   );
 }
-
 export default Page;

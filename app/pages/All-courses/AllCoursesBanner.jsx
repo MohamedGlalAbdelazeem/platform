@@ -4,21 +4,21 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
 import { IoCloseCircleSharp } from "react-icons/io5";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 
 function AllCoursesBanner() {
+  const router = useRouter();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [token, setToken] = useState(null);
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   }, []);
-
   const handleUploadClick = () => {
     if (!token) {
       setIsModalVisible(true);
     } else {
-      console.log("Proceed to course upload...");
+      router.push("/pags/Upload-courses")
     }
   };
   const closeModal = () => {

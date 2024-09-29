@@ -4,11 +4,25 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
 import { FaMoneyBills } from "react-icons/fa6";
 import DeleteModel from "./DeleteModel";
+import EditModal from "./EditModal";
 
 function MyUploadedCourses() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1); // Track the current step of the modal
+
+  const openDeleteModal = () => setIsDeleteModalOpen(true);
+  const closeDeleteModal = () => setIsDeleteModalOpen(false);
+
+  const openEditModal = () => {
+    setIsEditModalOpen(true);
+    setCurrentStep(1); // Start from the first step
+  };
+  const closeEditModal = () => setIsEditModalOpen(false);
+
+  // Navigation for Edit Modal
+  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 4)); // Max step 4
+  const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1)); // Min step 1
 
   return (
     <div className="max-w-screen-xl mx-auto p-2 sm:p-5 md:p-8 lg:p-16">
@@ -19,7 +33,7 @@ function MyUploadedCourses() {
               <img
                 className="w-full h-[200px] sm:h-[250px] md:h-[198px] object-cover rounded-b-[15px] rounded-t-[15px]"
                 src="https://instructor-academy.onlinecoursehost.com/content/images/2023/05/101_-What-Online-Courses-Are-Most-In-Demand-In-2023_.jpg"
-                alt="Sunset in the mountains"
+                alt="Course thumbnail"
               />
             </div>
             <div className="flex items-center justify-between px-4 sm:px-6 my-2">
@@ -43,13 +57,16 @@ function MyUploadedCourses() {
               <span className="text-sm">Dr. Ahmed El-Sharif</span>
             </div>
             <div className="px-4 sm:px-6 py-2 flex flex-col sm:flex-row items-center gap-3">
-              <button className="flex items-center justify-center gap-2 text-[13px] border-2 border-bgFontColor text-bgFontColor p-2 sm:p-3 w-full rounded-xl">
+              <button
+                className="flex items-center justify-center gap-2 text-[13px] border-2 border-bgFontColor text-bgFontColor p-2 sm:p-3 w-full rounded-xl"
+                onClick={openEditModal}
+              >
                 <TbEdit />
                 Edit
               </button>
               <button
                 className="flex items-center justify-center gap-2 text-[13px] border-2 border-red-600 text-red-600 p-2 sm:p-3 w-full rounded-xl"
-                onClick={openModal}
+                onClick={openDeleteModal}
               >
                 <RiDeleteBin6Line />
                 Delete
@@ -57,9 +74,18 @@ function MyUploadedCourses() {
             </div>
           </div>
         ))}
-        {isModalOpen && <DeleteModel closeModal={closeModal} />}
+        {isDeleteModalOpen && <DeleteModel closeModal={closeDeleteModal} />}
+        {isEditModalOpen && (
+          <EditModal
+            closeModal={closeEditModal}
+            currentStep={currentStep}
+            nextStep={nextStep}
+            prevStep={prevStep}
+          />
+        )}
       </div>
     </div>
   );
 }
+
 export default MyUploadedCourses;

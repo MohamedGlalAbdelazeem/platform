@@ -1,68 +1,17 @@
 'use client';
-import { useState } from 'react';
+import { IoArrowForwardSharp } from "react-icons/io5";
+
 import ProgressBar from "@ramonak/react-progress-bar";
 import { FaArrowRight } from "react-icons/fa6";
+import Link from "next/link";
 
 function Page() {
-  const [currentLesson, setCurrentLesson] = useState(0); // Current lesson index
-  const [currentVideo, setCurrentVideo] = useState(0); // Current video index
-  const [expandedLesson, setExpandedLesson] = useState(null); // To track which lesson is expanded
-
-  const score = "85%";
-
-  const lessons = [
-    {
-      title: "Introduction",
-      videos: [
-        {
-          title: "Welcome to the Course",
-          videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        },
-      ],
-    },
-    {
-      title: "Lesson One: Cardiovascular System",
-      videos: [
-        {
-          title: "Overview of the Cardiovascular System",
-          videoSrc: "https://www.youtube.com/watch?v=3X-V8y3aRHg&ab_channel=ElWadyMusicRecords",
-        },
-        {
-          title: "Heart Anatomy",
-          videoSrc: "https://www.youtube.com/watch?v=uF96R_jjn8k&ab_channel=Doctor.EG.",
-        },
-      ],
-    },
-    {
-      title: "Lesson Two: ECG Interpretation",
-      videos: [
-        {
-          title: "Basics of ECG Interpretation",
-          videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        },
-        {
-          title: "Advanced ECG Techniques",
-          videoSrc: "https://www.youtube.com/watch?v=fhkyOGDbs0Q&ab_channel=%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86%D9%8A%D9%8F%D8%B1%D8%B4%D8%AF%D9%86%D8%A7",
-        },
-      ],
-    },
-  ];
-
-  const toggleLesson = (index) => {
-    setExpandedLesson(expandedLesson === index ? null : index); // Toggle expand/collapse
-  };
-
-  const handleVideoSelect = (lessonIndex, videoIndex) => {
-    setCurrentLesson(lessonIndex);
-    setCurrentVideo(videoIndex);
-  };
-
+  const score = "70%";
   return (
     <>
     <div className="h-[80px] bg-[#1f0c30f4]">
     </div>
      <div className="container mx-auto px-4 my-20">
-      {/* Main Course Details */}
       <div className="my-10 w-full flex items-center justify-between">
         <h2 className="text-xl font-bold mb-4 text-bgFontColor">Advanced Cardiology: Diagnosis and Treatment</h2>
         {/* Dynamic Progress */}
@@ -71,44 +20,48 @@ function Page() {
         </div>
       </div>
 
-      {/* Video Section */}
-      <div className="flex flex-col justify-around md:flex-row gap-8">
-        {/* Accordion for Related Lessons */}
-        <div className="w-full md:w-1/3 bg-gray-100 rounded-lg p-4">
-          <h3 className="text-xl font-semibold mb-4">Course Lessons</h3>
-          <div className="space-y-4">
-            {lessons.map((lesson, lessonIndex) => (
-              <div className="bg-white shadow-md rounded-lg transition-all" key={lessonIndex}>
-                <button
-                  type="button"
-                  className={`w-full text-sm font-semibold text-left p-6 flex items-center transition-all ${expandedLesson === lessonIndex ? 'text-blue-600' : 'text-gray-800'}`}
-                  onClick={() => toggleLesson(lessonIndex)}
-                >
-                  <span className="mr-4">{lesson.title}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-[14px] fill-current ml-auto shrink-0" viewBox="0 0 42 42">
-                    <path
-                      d={expandedLesson === lessonIndex ? 'M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z' : 'M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z'}
-                      data-original="#000000"
-                    />
-                  </svg>
-                </button>
 
-                {/* Sub-videos inside the expanded lesson */}
-                <div className={`overflow-hidden transition-all ${expandedLesson === lessonIndex ? 'max-h-screen' : 'max-h-0'}`}>
-                  <div className="pb-6 px-6">
-                    {lesson.videos.map((video, videoIndex) => (
-                      <p key={videoIndex}
-                        className="text-sm text-gray-600 leading-relaxed cursor-pointer hover:text-blue-600"
-                        onClick={() => handleVideoSelect(lessonIndex, videoIndex)}>
-                        {video.title}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+      <div className="flex flex-col justify-around md:flex-row gap-5">
+        {/* Left Section: Course Lessons and Exam */}
+        <div className="w-full md:w-1/2 ">
+            {/* Course lessons */}
+            <div className="mb-1">
+              <ul className="mt-5 p-6 w-full md:w-[440px] space-y-3 font-medium bg-gray-50">
+                {["a", "f", "e", "e", "f", "a", "f", "e", "e", "f"].map((item, index) => {
+                  return (
+                    <li key={index} className="flex items-start lg:col-span-1">
+                      <div className="flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path fill="#fd3fc1" d="M20.79 5.72a4.1 4.1 0 0 0-2.92-1.21H8.66a4.12 4.12 0 0 0-2.92 1.22a.3.3 0 0 0-.07.08l-3.08 4.21a3.66 3.66 0 0 0-.59 2a3.74 3.74 0 0 0 .61 2l3.06 4.17l.07.09a4.1 4.1 0 0 0 2.92 1.21h9.21A4.13 4.13 0 0 0 22 15.36V8.59a4.1 4.1 0 0 0-1.21-2.87m-3.56 4.94l-3.92 3.92c-.16.161-.35.29-.56.38a1.67 1.67 0 0 1-1.34 0a1.8 1.8 0 0 1-.57-.38L8.9 12.64a1.004 1.004 0 0 1 1.42-1.42l1.76 1.77l3.74-3.74a1 1 0 1 1 1.41 1.41" />
+                        </svg>
+                      </div>
+                      <p className="ml-3 leading-5 text-lg">Lesson one</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            {/* Course exam */}
+            <div className="mb-6">
+              <ul className="p-3 w-full md:w-[440px] space-y-3 font-medium bg-gray-100">
+                {["a"].map((item, index) => {
+                  return (
+                    <li key={index} className="flex items-start lg:col-span-1">
+                      <div className="flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <g fill="none" stroke="#fd3fc1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25">
+                            <path d="M21.25 12v3.38a3.38 3.38 0 0 1-3.38 3.382H8.661a3.38 3.38 0 0 1-2.389-.992L3.22 13.6a2.96 2.96 0 0 1 0-3.2l3.054-4.17a3.38 3.38 0 0 1 2.39-.992h9.206a3.38 3.38 0 0 1 3.38 3.382z" />
+                            <path d="m9.61 11.905l1.946 1.946a.735.735 0 0 0 1.047 0l3.922-3.921" />
+                          </g>
+                        </svg>
+                      </div>
+                      <p className="ml-3 leading-5 text-lg">Course Exam</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-        </div>
 
         {
           score >= "80%" ? 
@@ -127,17 +80,16 @@ function Page() {
         <div className="flex flex-col w-full md:w-1/2 ">
           <h2 className='my-2 font-bold text-2xl'>Keep Going!</h2>
           <p className='my-2 leading-7'>You’ve completed the course [Course Name], but don’t worry if you didn’t pass the final exam this time. Every learning journey comes with challenges, and this is just one step toward your success. Review the material and try again when you're ready — we believe in your ability to succeed!</p>
-          <span className='my-2'>You scored: 40 %</span>
-          <h3 className='font-bold'>Try Again</h3>
+          <span className='my-2 font-bold'>You scored: 40 %</span>
+          <Link href={""} className='font-bold text-[#984D9F] flex items-center gap-2'>
+              Try Again
+              <IoArrowForwardSharp />
+            </Link>
         </div>
-          )
-        }
-
+          )}
       </div>
     </div>
-    </>
-   
+    </>  
   );
 }
-
 export default Page;

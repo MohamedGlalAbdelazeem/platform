@@ -1,10 +1,7 @@
 import { CgAddR } from "react-icons/cg";
 import { GoArrowDown } from "react-icons/go";
-import { IoMdArrowRoundDown } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { GoArrowUp } from "react-icons/go";
-
-
 function CourseLessons() {
   return (
     <div>

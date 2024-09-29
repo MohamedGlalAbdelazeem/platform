@@ -8,22 +8,20 @@ import EditModal from "./EditModal";
 
 function MyUploadedCourses() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [currentStep, setCurrentStep] = useState(1); // Track the current step of the modal
+  const [currentStep, setCurrentStep] = useState(1); 
 
   const openDeleteModal = () => setIsDeleteModalOpen(true);
   const closeDeleteModal = () => setIsDeleteModalOpen(false);
 
   const openEditModal = () => {
     setIsEditModalOpen(true);
-    setCurrentStep(1); // Start from the first step
+    setCurrentStep(1); 
   };
   const closeEditModal = () => setIsEditModalOpen(false);
-
-  // Navigation for Edit Modal
   const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 4)); // Max step 4
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1)); // Min step 1
-
   return (
     <div className="max-w-screen-xl mx-auto p-2 sm:p-5 md:p-8 lg:p-16">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">

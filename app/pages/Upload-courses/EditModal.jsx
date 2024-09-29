@@ -1,24 +1,24 @@
+import CourseContent from "./CourseContent";
 import CourseLessons from "./CourseLessons";
+import CourseQues from "./CourseQues";
 
  
 
 function EditModal({ closeModal, currentStep, nextStep, prevStep }) {
-  // Render different content based on the current step
   const renderContent = () => {
     switch (currentStep) {
       case 1:
         return <CourseLessons/>;
       case 2:
-        return <div>Course Questions Content</div>;
+        return <CourseQues/>;
       case 3:
-        return <div>Course Content</div>;
+        return <CourseContent/>;
       case 4:
         return <div>Course Price Content</div>;
       default:
         return null;
     }
   };
-
   return (
     <div className="fixed inset-0 flex  justify-center bg-gray-900 bg-opacity-50 z-50">
       <div className="bg-white p-6 rounded-xl my-8 shadow-2xl w-[1100px] overflow-y-scroll">

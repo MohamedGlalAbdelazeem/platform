@@ -1,6 +1,22 @@
 'use client';
 import ProgressBar from "@ramonak/react-progress-bar";
+import CheckModel from "@/app/_components/CheckModel";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 function Page() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const router = useRouter();
+  const getToken = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+        router.push("/pages/Payment-methods")
+    } else {
+        setIsModalVisible(true);
+    }
+  }
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
   return (
     <>
       <div className="h-[80px] bg-[#1f0c30f4]"></div>
@@ -67,7 +83,10 @@ function Page() {
             </video>
           <div className='w-full flex justify-between my-10 gap-6'>
             <div>
-                <button className='text-lg bg-secondary text-white p-1 rounded-lg w-28'>Enroll Now</button>
+                <button  onClick={getToken}  className='text-lg bg-secondary text-white p-1 rounded-lg w-28'>Enroll Now</button>
+                {isModalVisible && (
+                    <CheckModel mainMess={"Please Log In or Sign Up to Enroll"} closeModal={closeModal} />
+                  )}
             </div>
               <div>
                 <button className='text-lg mx-1 border-2 border-gray-40 p-1 w-28 rounded-lg'>Prev</button>

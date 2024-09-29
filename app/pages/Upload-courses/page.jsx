@@ -11,8 +11,7 @@ return (
       <OurCoursesBanner  bg2="#301a45" bg1="#984D9F"/> 
   </div>
 
- {
-  showUploadCourses === true ? 
+ {showUploadCourses === false ? 
   (
     <MyUploadedCourses/>
   ):
@@ -27,9 +26,8 @@ return (
      <span className="font-normal text-secondary">Nothing here yet</span>
     <button className="bg-[#984D9F] text-white p-2 rounded-2xl">Upload Your Course Now</button>
   </div>
-)
- }
-   </>
+)}
+</>
   )
 }
 export default page;

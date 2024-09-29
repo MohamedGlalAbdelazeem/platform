@@ -1,34 +1,26 @@
 'use client'
-import RelatedCoures from "./RelatedCoures";
-import CourseDetails from "./CourseDetails";
-import { useEffect, useState } from "react";
-import { IoCloseCircleSharp } from "react-icons/io5";
-import Link from "next/link";
-import Image from "next/image";
+import RelatedCoures from "../RelatedCoures";
+import {  useState } from "react";
 import { useRouter } from "next/navigation";
+import CheckModel from "@/app/_components/CheckModel";
+
 
 function Page() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const router = useRouter();
-  const [token, setToken] = useState(null);
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    setToken(storedToken);
-  }, []);
-  const handleClicked = () => {
-    if (!token) {
-      setIsModalVisible(true);
+  const getToken = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+        router.push("/pages/Payment-methods")
     } else {
-      router.push("/pags/Payment-methods");
+        setIsModalVisible(true);
     }
-  };
-
+  }
   const closeModal = () => {
     setIsModalVisible(false);
   };
-  
   return (
-    <>
+   <>
     <div className="bg-[#1F0C30E5] w-full h-[221px]"></div>
       <div className="container mx-auto px-5 -mt-[50px]">
       <div className="flex flex-wrap flex-row-reverse justify-around ">
@@ -64,7 +56,7 @@ function Page() {
               </span>
             </div>
             <div className="px-1 py-2 flex flex-col gap-3 items-center">
-              <button onClick={handleClicked} type="button" className="bg-bgFontColor text-center text-white p-3 w-full rounded-3xl" >
+              <button  onClick={getToken}  type="button" className="bg-bgFontColor text-center text-white p-3 w-full rounded-3xl" >
                     Enroll Now
              </button>
               <button className="border-2 border-textColor text-textColor p-3 w-full rounded-3xl"> Watch a trial lesson</button>
@@ -72,46 +64,82 @@ function Page() {
           </div>
         </div>
         {/* Course video: */}
-         <CourseDetails/>
-        <RelatedCoures />
-      </div>
-    </div>
-      {isModalVisible && (
-        <div className= " fixed inset-0 p-5 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.89)] overflow-auto">
-          <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-6 relative">
-          <IoCloseCircleSharp  onClick={closeModal} className="text-secondary cursor-pointer  text-3xl float-right" />
-            <div className="my-8 flex items-center justify-center flex-col text-center">
-              <Image
-                    src="/login.png"
-                    alt="Banner image"
-                    width={"140"}
-                    height={"140"}
-                    className="rounded-full bg-[#EC8AB3] p-5"
-                />
-              <h4 className="text-[20px] text-textColor font-bold mt-4">
-              Please Log In or Sign Up to Enroll
-              </h4>
-              <p className="text-sm text-gray-900 leading-relaxed mt-4">
-           You need to be logged in to enroll in this course. If you don’t have an account yet, creating one is quick and easy!
-              </p>
-            </div>
-              <Link
-                href={"/sign-in"}
-                className="py-2  rounded-xl text-white text-sm border-none outline-none bg-[#984D9F]">
-                 <div className="w-full bg-[#984D9F] text-center py-2 text-base font-normal rounded-xl">
-                  Login 
-                </div>
-              </Link>
-              <div>
-                <span className="flex justify-center items-center text-center mt-5">
-                Don’t have an account?
-                 <Link href={'/sign-up'} className="font-bold ml-1 underline"> Join Now</Link>
-                </span>
-              </div>
+        {/* Course Content: */}
+      <div className="w-full md:w-1/2 px-2">
+          <h2 className="text-2xl font-bold mb-10 text-white">Advanced Cardiology: Diagnosis and Treatment</h2>
+          <h3 className="font-bold mb-3 text-2xl text-bgFontColor">What You Will Learn:</h3>
+          <p className="text-lg font-normal mb-3 leading-8">Experience premium sound quality and industry-leading noise cancellation
+            Gain in-depth knowledge of cardiovascular diseases, diagnostic techniques, and treatment methods. This course is designed for medical professionals looking to specialize in cardiology or enhance their understanding of heart-related conditions.
+          </p>
+          <div>
+            <ul className="list-disc list-inside text-lg font-normal">
+              <li>Understand the anatomy and physiology of the heart</li>
+              <li>Learn how to interpret ECGs and other diagnostic tools</li>
+              <li>Explore treatment options for common cardiovascular diseases</li>
+              <li>Speak-to-chat technology</li>
+            </ul>
+          </div>
+
+          <div className="mt-11">
+            <h2 className="leading-10 mt-5 font-bold text-2xl text-bgFontColor">Course Requirements:</h2>
+            <p className='font-normal text-lg'>Basic knowledge of human anatomy and physiology
+              Familiarity with medical terminology
+              Access to ECG reading tools (recommended but not mandatory)
+            </p>
+          </div>
+
+          <div className="my-9">
+            <h1 className="font-bold text-2xl my-6 text-bgFontColor">Course Content:</h1>
+            <ol className="list-decimal">
+              <li className="my-6 font-normal text-lg">
+                Module 1: Introduction to Cardiovascular System
+                <ul className="list-disc list-inside ">
+                  <li>Understand the anatomy and physiology of the heart</li>
+                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
+                  <li>Explore treatment options for common cardiovascular diseases</li>
+                  <li>Speak-to-chat technology</li>
+                </ul>
+              </li>
+
+              <li className="my-6">
+                Module 1: Introduction to Cardiovascular System
+                <ul className="list-disc list-inside ">
+                  <li>Understand the anatomy and physiology of the heart</li>
+                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
+                  <li>Explore treatment options for common cardiovascular diseases</li>
+                  <li>Speak-to-chat technology</li>
+                </ul>
+              </li>
+
+              <li className="my-6">
+                Module 1: Introduction to Cardiovascular System
+                <ul className="list-disc list-inside text-gray-700">
+                  <li>Understand the anatomy and physiology of the heart</li>
+                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
+                  <li>Explore treatment options for common cardiovascular diseases</li>
+                  <li>Speak-to-chat technology</li>
+                </ul>
+              </li>
+              <li className="my-6">
+                Module 1: Introduction to Cardiovascular System
+                <ul className="list-disc list-inside text-gray-700">
+                  <li>Understand the anatomy and physiology of the heart</li>
+                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
+                  <li>Explore treatment options for common cardiovascular diseases</li>
+                  <li>Speak-to-chat technology</li>
+                </ul>
+              </li>
+            </ol>
           </div>
         </div>
-      )}
-    </>
+        {/* Course Content: */}
+        <RelatedCoures />
+      </div>
+      {isModalVisible && (
+      <CheckModel mainMess={"Please Log In or Sign Up to Enroll"} closeModal={closeModal} />
+     )}
+    </div>
+   </>
   );
 }
 export default Page;

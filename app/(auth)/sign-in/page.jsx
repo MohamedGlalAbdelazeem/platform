@@ -8,7 +8,8 @@ import { useForm } from "react-hook-form";
 import { signinValidation } from "../Validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
-
+import { addToken } from "@/app/_utils/LocalStorage";
+import { addUser } from "@/app/_utils/LocalStorage";
 function Page() {
   const router = useRouter();
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -19,10 +20,8 @@ function Page() {
       const response = await axiosClient.post("/User/login", formData);
       if (response.data.isSuccess) {
         toast.success("Login successfully");
-        const token = response?.data?.token;
-        const user = response?.data?.data;
-        localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user));
+        addToken(response?.data?.token);
+        addUser(response?.data?.data);
         router.push("/"); 
       } else {
         if (response?.data?.message === "can't find this user name") {

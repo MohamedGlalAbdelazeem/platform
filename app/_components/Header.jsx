@@ -6,21 +6,15 @@ import { FaBarsStaggered, FaCircleUser } from "react-icons/fa6";
 import { headerItms } from '../data/DataMenu';
 import { CiBellOn } from "react-icons/ci";
 import { LuChevronRight } from "react-icons/lu";
+import { getToken, getUser, removeUser } from '../_utils/LocalStorage';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [user, setUser] = useState(null);
-  
+  const [token, setToken] = useState(getToken());
+  const user = getUser();
   const userName = user?.firstName+" "+user?.lastName;
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
- 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -32,17 +26,15 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
   const handleLogout = () => {
-    localStorage.clear(); 
-    setUser(null);
+    removeUser();
+    setToken(null);
   };
   return (
-
     <header className={` fixed top-0   mx-auto left-0 right-0 z-50 text-white transition-colors duration-100 ${isScrolled ? 'bg-[#1F0C30E5]' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20  items-center justify-between">
@@ -70,7 +62,7 @@ const Header = () => {
           {/* Profile and Bell icons */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-6">
-              {user && (
+              {token && (
                 <>
                   <CiBellOn  className="text-3xl font-bold text-textColor cursor-pointer" />
                   <div className="relative group">
@@ -86,7 +78,7 @@ const Header = () => {
                 </>
               )}
 
-              {!user && (
+              {!token && (
                 <>
                   <Link href="/sign-in" className="px-5 py-3 text-xl">Sign in</Link>
                   <Link href="/sign-up" className="rounded-md border-2 border-fontColor text-fontColor px-5 py-2 text-xl">Get Started</Link>
@@ -126,7 +118,7 @@ const Header = () => {
                 </div>
               ))}
               <div className="flex mt-7 w-full justify-between items-center">
-                {user && (
+                {token && (
                   <>
                     <CiBellOn  className="text-textColor text-3xl cursor-pointer" />
                     <div className="relative group">
@@ -141,7 +133,7 @@ const Header = () => {
                     </div>
                   </>
                 )}
-                {!user && (
+                {!token && (
                   <>
                     <Link href="/sign-in" className="px-5 py-3 text-white text-xl">Sign in</Link>
                     <Link href="/sign-up" className="rounded-md border-2 border-fontColor text-fontColor px-5 py-2 text-xl">Get Started</Link>

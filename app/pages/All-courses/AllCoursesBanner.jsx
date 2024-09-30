@@ -1,27 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
-import { IoCloseCircleSharp } from "react-icons/io5";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import CheckModel from "@/app/_components/CheckModel";
-
+import useCheckUser from "@/app/_utils/useCheckUser";
 function AllCoursesBanner() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const router = useRouter();
-  const getToken = () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-        router.push("/pages/Upload-courses")
-    } else {
-        setIsModalVisible(true);
-    }
-  }
-  const closeModal = () => {
-    setIsModalVisible(false);
-  };
- 
+  const { checkUser, isModalVisible, closeModal } = useCheckUser();
   return (
     <div className="relative bg-gray-300 p-2 flex items-center justify-center h-[406px]">
       <div className="absolute inset-0 bg-[#1f0c30f4] opacity-90 z-10"></div>
@@ -44,14 +29,17 @@ function AllCoursesBanner() {
           <div className="mt-2 flex items-center justify-center max-sm:flex-col">
             <button
               type="button"
-              onClick={getToken} 
+              onClick={() => checkUser("/pages/Upload-courses")}
               className="hover:bg-transparent text-fontColor transition-all font-bold text-lg rounded px-2 py-3"
             >
               Upload Your Course
             </button>
             {isModalVisible && (
-                <CheckModel mainMess={"Please Log In or Sign Up to Upload Courses"} closeModal={closeModal} />
-               )}
+                <CheckModel
+                  mainMess={"Please Log In or Sign Up to Join"}
+                  closeModal={closeModal}
+                />
+              )}
             <FaArrowRightLong className="text-fontColor" />
           </div>
         </div>

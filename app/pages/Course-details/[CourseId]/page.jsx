@@ -3,22 +3,12 @@ import RelatedCoures from "../RelatedCoures";
 import {  useState } from "react";
 import { useRouter } from "next/navigation";
 import CheckModel from "@/app/_components/CheckModel";
+import useCheckUser from "@/app/_utils/useCheckUser";
 
 
 function Page() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const router = useRouter();
-  const getToken = () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-        router.push("/pages/Payment-methods")
-    } else {
-        setIsModalVisible(true);
-    }
-  }
-  const closeModal = () => {
-    setIsModalVisible(false);
-  };
+  const { checkUser, isModalVisible, closeModal } = useCheckUser();
+
   return (
    <>
     <div className="bg-[#1F0C30E5] w-full h-[221px]"></div>
@@ -56,7 +46,9 @@ function Page() {
               </span>
             </div>
             <div className="px-1 py-2 flex flex-col gap-3 items-center">
-              <button  onClick={getToken}  type="button" className="bg-bgFontColor text-center text-white p-3 w-full rounded-3xl" >
+              <button  
+                      onClick={() => checkUser("/pages/Payment-methods")}
+              type="button" className="bg-bgFontColor text-center text-white p-3 w-full rounded-3xl" >
                     Enroll Now
              </button>
               <button className="border-2 border-textColor text-textColor p-3 w-full rounded-3xl"> Watch a trial lesson</button>

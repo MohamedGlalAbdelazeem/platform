@@ -8,26 +8,16 @@ import { IoTimeOutline } from "react-icons/io5";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import CheckModel from "./CheckModel"; 
+import useCheckUser from "../_utils/useCheckUser";
 
 function OurCourses() {
     const baseUrl = 'http://localhost:5000/api/';
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const { checkUser, isModalVisible, closeModal } = useCheckUser(); 
     const router = useRouter();
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-  
-    const getToken = () => {
-        const token = localStorage.getItem("token");
-        if (token) {
-            router.push("/pages/Payment-methods")
-        } else {
-            setIsModalVisible(true);
-        }
-      }
-      const closeModal = () => {
-        setIsModalVisible(false);
-      };
+    
     useEffect(() => {
         const fetchCourses = async () => {
             try {
@@ -35,7 +25,6 @@ function OurCourses() {
                 const data = await response.json();
                 if (data.isSuccess) {
                     setCourses(data.data);
-                    console.log(data);
                 } 
             } catch (error) {
                 setError("No books add Please Try again");
@@ -97,13 +86,17 @@ function OurCourses() {
                             </div>
                             <div className="px-6 py-2 flex flex-row items-center">
                             <button
-                             onClick={getToken} 
-                            className="text-[12px] hover:opacity-40 bg-bgFontColor text-white p-3 w-full rounded-3xl">
+                                onClick={() => checkUser("/pages/Payment-methods")} 
+                                className="text-[12px] hover:opacity-40 bg-bgFontColor text-white p-3 w-full rounded-3xl"
+                            >
                                 Enroll Now
-                             </button>
-                                {isModalVisible && (
-                                    <CheckModel mainMess={"Please Log In or Sign Up to Enroll"} closeModal={closeModal} />
-                                )}
+                            </button>
+                            {isModalVisible && (
+                                <CheckModel
+                                mainMess={"Please Log In or Sign Up to Enroll"}
+                                closeModal={closeModal}
+                                />
+                            )}
                             </div>
                             <div className="px-6 gap-3 py-2 flex flex-row items-center">
                                 <button className="border-2 border-textColor text-[12px] text-textColor p-3 w-full rounded-3xl">See More</button> 

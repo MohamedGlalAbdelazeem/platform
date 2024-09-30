@@ -37,7 +37,7 @@ function BlogCards() {
    <>
       {blogs.length > 0 ? 
       (blogs.map((blog, index) => (
-        console.log(blog),
+      
               <div  key={index} className="hover:opacity-50 mx-2 my-1 rounded-2xl p-1  shadow-lg w-[320px]">
                 <div className="relative">
                   <img 

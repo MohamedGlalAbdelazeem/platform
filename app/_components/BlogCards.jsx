@@ -37,11 +37,12 @@ function BlogCards() {
    <>
       {blogs.length > 0 ? 
       (blogs.map((blog, index) => (
+        console.log(blog),
               <div  key={index} className="hover:opacity-50 mx-2 my-1 rounded-2xl p-1  shadow-lg w-[320px]">
                 <div className="relative">
                   <img 
                     className="w-[315px] h-[198px] rounded-b-[20px] rounded-t-[30px]" 
-                    src={`${imageUrl}${blog?.imageURL}`}
+                    src={`http://localhost:5000${blog?.imageURL}`}
                     alt={blog.title || "Blog Image"} 
                   />
                 </div>

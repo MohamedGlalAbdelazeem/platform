@@ -35,11 +35,10 @@ function OurCourses() {
                 const data = await response.json();
                 if (data.isSuccess) {
                     setCourses(data.data);
-                } else {
-                    throw new Error("Failed to fetch courses");
-                }
+                    console.log(data);
+                } 
             } catch (error) {
-                setError(error.message);
+                setError("No books add Please Try again");
                 console.log(error);
             } finally {
                 setLoading(false);
@@ -53,7 +52,7 @@ function OurCourses() {
       </div>;
     }
     if (error) {
-        return <div>Error: {error}</div>;
+        return <p className="text-center my-20 font-bold text-lg text-red-500">{error}</p>;;
     }
     return (
         <div className="w-10/12 sm:w-full mx-auto my-32">

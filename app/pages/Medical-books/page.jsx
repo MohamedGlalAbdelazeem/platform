@@ -8,17 +8,15 @@ function page() {
   const imageUrl = 'http://localhost:5000/';
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get(`${baseUrl}Book`);
-        setBooks(response?.data?.data); 
+        setBooks(response?.data?.data || []); 
         setLoading(false);
+        console.log(response)
       } catch (error) {
         console.log(error);
-        
         setError("Not books Found! Please Try again");
         setLoading(false);
       }
@@ -32,12 +30,14 @@ function page() {
       </div>
     );
   }
-  if (error) {
-    return <p className="font-bold text-lg text-red-500">{error}</p>;
-  }
   return (
    <>
     <MedicalBookBanner/>
+    {
+      books.length === 0 && (
+            <p className="font-bold text-red-400 my-10 text-center text-xl">No books available at the moment !!.</p>
+      )
+    }
      {/* filteration  */}
       {/* books */}
         <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
@@ -50,7 +50,7 @@ function page() {
                               <img
                                 className="w-full h-[293px] rounded-2xl "
                                 src={`${imageUrl}${item?.thumbnailURL}`}
-                                alt="Sunset in the mountains" />
+                                alt="Sunset in the mountains"/>
                       </div>
                       <div className="px-2 py-4">
                           <div className="font-semibold text-lg  hover:text-indigo-600 transition duration-500 ease-in-out">

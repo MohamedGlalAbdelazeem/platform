@@ -4,7 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import MyUploadedCourses from "./MyUploadedCourses";
 function page() {
-    const [showUploadCourses, setShowUploadCourses] = useState(true)
+
+    const showUploadCourses =true;
 return (
    <>
   <div className="bg-gray-200">
@@ -23,8 +24,8 @@ return (
           width={"400"}
           height={"300"}
         />
-     <span className="font-normal text-secondary">Nothing here yet</span>
-    <button className="bg-[#984D9F] text-white p-2 rounded-2xl">Upload Your Course Now</button>
+     <span className="font-bold text-secondary ">Nothing here yet</span>
+    <button className="bg-[#984D9F] text-white p-2 rounded-2xl hover:opacity-40">Upload Your Course Now</button>
   </div>
 )}
 </>

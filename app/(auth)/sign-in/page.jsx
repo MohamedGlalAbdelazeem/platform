@@ -1,6 +1,5 @@
 "use client";
 import { toast } from "react-toastify";
-import { useContext, useState } from "react";
 import Link from "next/link";
 import { FaAnglesLeft } from "react-icons/fa6";
 import axiosClient from "@/app/_utils/axiosClient";

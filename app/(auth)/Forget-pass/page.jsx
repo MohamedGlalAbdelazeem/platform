@@ -35,7 +35,6 @@ function Page() {
       console.log(error);
     }
   };
-
   return (
     <div className="flex flex-col justify-center items-center lg:h-screen p-6">
       <div className="grid md:grid-cols-2 items-center gap-y-8 bg-white max-w-7xl w-full shadow-[0_2px_10px_-3px_rgba(6,81,237,0.5)] rounded-3xl overflow-hidden">

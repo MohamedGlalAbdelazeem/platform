@@ -36,24 +36,6 @@ const signinValidation = z.object({
     .min(5, "Password must be at least 5 characters")
 });
 
-const profilValidation = z.object({
-  firstName: z.string().min(1, 'First Name is required'),
-  lastName: z.string().min(1, 'Last Name is required'),
-  phone: z.string().min(10, 'Phone number must be at least 10 characters long'),
-  email: z.string().email('Invalid email address'),
-  currentPassword: z.string().min(8, 'Password must be at least 8 characters long'),
-  newPassword: z
-    .string()
-    .min(5, "Password must be at least 5 characters")
-    .regex(/[a-z]/, "Password must have at least one lowercase letter")
-    .regex(/[A-Z]/, "Password must have at least one uppercase letter")
-    .regex(/\W/, "Password must have at least one non-alphanumeric character"),
-  confirmNewPassword: z
-    .string()
-    .min(5, "Confirm password is required")
-    .refine((val, ctx) => val === ctx.parent.newPassword, {
-      message: 'Passwords do not match',
-    }),
-});
 
-export {RestPassValidation , SignupValidation ,signinValidation ,profilValidation}
+
+export {RestPassValidation , SignupValidation ,signinValidation }

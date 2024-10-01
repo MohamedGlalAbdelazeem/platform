@@ -13,7 +13,7 @@ function Page() {
   };
   return (
     <>
-      <div className="bg-[#1f0c30f4] h-20 w-full"></div>
+      <div className="bg-btnColored h-20 w-full"></div>
       <div className="p-4 m-10 flex flex-wrap justify-center items-center">
         <div className="w-[600px] bg-white rounded-lg p-8 relative">
           <div className="flex items-center pb-3 ">
@@ -105,7 +105,7 @@ function Page() {
             </p>
             <div className="flex justify-center gap-4">
               <button
-                className="bg-[#984D9F] text-white px-6 py-2 rounded-3xl"
+                className="bg-btnColored text-white px-6 py-2 rounded-3xl"
                 onClick={hideModal} // Hide the modal on "Got it" button click
               >
                 Got it

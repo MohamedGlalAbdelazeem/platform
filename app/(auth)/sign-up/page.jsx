@@ -159,7 +159,7 @@ function Page() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-2 px-6 text-lg tracking-wide font-bold rounded-md text-white bg-[#984D9F]"
+              className="w-full py-2 px-6 text-lg tracking-wide font-bold rounded-md text-white bg-btnColored"
             >
               {isLoading ? "Signing up..." : "Join Now"}
             </button>

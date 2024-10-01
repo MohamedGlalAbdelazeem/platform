@@ -19,7 +19,7 @@ function Page() {
   };
   return (
     <>
-      <div className="h-[80px] bg-[#1f0c30f4]"></div>
+      <div className="h-[80px] bg-btnColored"></div>
       <div className="container mx-auto mt-20 px-4 my-10">
         {/* Main Course Details */}
         <div className="my-10 w-full flex flex-col md:flex-row items-center justify-between ">

@@ -1,12 +1,7 @@
 'use client';
 import ProgressBar from "@ramonak/react-progress-bar";
-import { useState } from 'react';
 
 function Page() {
-  
-
- 
-
   
   const questions = [
     {
@@ -53,12 +48,12 @@ function Page() {
 
   return (
     <>
-     <div className="h-[80px] bg-[#1f0c30f4]">
+     <div className="h-[80px] bg-btnColored">
      </div>
      <div className="container mx-auto px-4 my-20">
       {/* Main Course Details */}
       <div className="my-10 w-full flex items-center justify-between">
-        <h2 className="text-xl font-bold  text-[#984D9F]">Advanced Cardiology: Diagnosis and Treatment</h2>
+        <h2 className="text-xl font-bold  text-btnColored">Advanced Cardiology: Diagnosis and Treatment</h2>
         {/* Dynamic Progress */}
         <div className="relative w-[250px] h-2 bg-gray-200 rounded-lg mb-6">
           <ProgressBar completed={95} />
@@ -108,7 +103,7 @@ function Page() {
               </ul>
             </div>
           </div>
-        {/* Main Video and Questions Section */}
+
         <div className="flex flex-col w-full md:w-1/2 p-4">
           {/* Questions */}
           <div className="mt-6 overflow-y-auto max-h-96">
@@ -126,7 +121,7 @@ function Page() {
               </div>
             ))}
           </div>
-          <button className='my-6 bg-[#984D9F] text-white p-2 w-fit rounded-lg'>Finish The Exam</button>
+          <button className='my-6 bg-btnColored text-white p-2 w-fit rounded-lg'>Finish The Exam</button>
         </div>
       </div>
     </div>

@@ -26,8 +26,8 @@ function CheckModel({ closeModal , mainMess }) {
             You need to be logged in to upload your courses. If you don’t have an account yet, creating one is quick and easy!
           </p>
         </div>
-        <Link href="/sign-in" className="py-2 rounded-xl text-white text-sm border-none outline-none bg-[#984D9F]">
-          <div className="w-full bg-[#984D9F] text-center py-2 text-base font-normal rounded-xl">
+        <Link href="/sign-in" className="py-2 rounded-xl text-white text-sm border-none outline-none bg-btnColored">
+          <div className="w-full bg-btnColored text-center py-2 text-base font-normal rounded-xl">
             Login
           </div>
         </Link>

@@ -57,7 +57,7 @@ function DeleteModel({ closeModal }) {
             <a
               href="http://"
               target="_blank"
-              className="font-bold text-lg bg-[#984D9F] text-white px-12 py-2 rounded-3xl"
+              className="font-bold text-lg bg-btnColored text-white px-12 py-2 rounded-3xl"
             >
               Got it
             </a>

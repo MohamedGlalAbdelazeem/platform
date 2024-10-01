@@ -32,13 +32,13 @@ function EditModal({ closeModal, currentStep, nextStep, prevStep }) {
           </div>
         <div className="flex gap-4">
         <button
-                className="border-2 border-[#984D9F] text-[#984D9F] p-1 text-lg rounded-lg px-5"
+                className="border-2 border-btnColored text-btnColored p-1 text-lg rounded-lg px-5"
                 onClick={prevStep}
                 disabled={currentStep === 1}>
                 Prev
             </button>
             <button
-                className="bg-[#984D9F] text-white p-1 text-lg rounded-lg px-5"
+                className="bg-btnColored text-white p-1 text-lg rounded-lg px-5"
                 onClick={nextStep}
                 disabled={currentStep === 4} >
                 Next

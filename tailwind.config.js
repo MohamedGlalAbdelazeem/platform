@@ -18,7 +18,9 @@ module.exports = {
         secondary:"#CC775D",
         textColor:"#E2508D",
         bgFontColor:"#59248E",
-        bgColor:"#842ABC"
+        bgColor:"#842ABC",
+        btnColored:"#984D9F",
+        bgBanner:"#1f0c30f4"
       }
     },
   },

@@ -9,7 +9,7 @@ function Page() {
   const score = "70%";
   return (
     <>
-    <div className="h-[80px] bg-[#1f0c30f4]">
+    <div className="h-[80px] bg-btnColored">
     </div>
      <div className="container mx-auto px-4 my-20">
       <div className="my-10 w-full flex items-center justify-between">
@@ -81,7 +81,7 @@ function Page() {
           <h2 className='my-2 font-bold text-2xl'>Keep Going!</h2>
           <p className='my-2 leading-7'>You’ve completed the course [Course Name], but don’t worry if you didn’t pass the final exam this time. Every learning journey comes with challenges, and this is just one step toward your success. Review the material and try again when you're ready — we believe in your ability to succeed!</p>
           <span className='my-2 font-bold'>You scored: 40 %</span>
-          <Link href={""} className='font-bold text-[#984D9F] flex items-center gap-2'>
+          <Link href={""} className='font-bold text-btnColored flex items-center gap-2'>
               Try Again
               <IoArrowForwardSharp />
             </Link>

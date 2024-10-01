@@ -51,7 +51,7 @@ function Page({ userId }) {
 
   return (
     <>
-      <div className="bg-[#1f0c30f4] w-full h-20"></div>
+      <div className="bg-bgBanner w-full h-20"></div>
       <section className="mt-16 flex flex-col items-center ">
         {/* User Info Section */}
         <div className="w-full md:w-1/2 flex flex-col md:flex-row items-center text-center">
@@ -183,7 +183,7 @@ function Page({ userId }) {
 
               <button
                 type="submit"
-                className="w-full md:w-[175px] hover:shadow-form rounded-3xl bg-[#984D9F] py-3 px-8 text-center text-base font-semibold text-white outline-none"
+                className="w-full md:w-[175px] hover:shadow-form rounded-3xl bg-btnColored py-3 px-8 text-center text-base font-semibold text-white outline-none"
               >
                 Save Changes
               </button>

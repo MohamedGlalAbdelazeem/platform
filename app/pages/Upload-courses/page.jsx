@@ -1,6 +1,5 @@
 "use client"
 import OurCoursesBanner from "../Our-courses/OurCoursesBanner";
-import { useState } from "react";
 import Image from "next/image";
 import MyUploadedCourses from "./MyUploadedCourses";
 function page() {
@@ -12,7 +11,7 @@ return (
       <OurCoursesBanner  bg2="#301a45" bg1="#984D9F"/> 
   </div>
 
- {showUploadCourses === false ? 
+ {showUploadCourses === true ? 
   (
     <MyUploadedCourses/>
   ):
@@ -25,7 +24,7 @@ return (
           height={"300"}
         />
      <span className="font-bold text-secondary ">Nothing here yet</span>
-    <button className="bg-[#984D9F] text-white p-2 rounded-2xl hover:opacity-40">Upload Your Course Now</button>
+    <button className="bg-btnColored text-white p-2 rounded-2xl hover:opacity-40">Upload Your Course Now</button>
   </div>
 )}
 </>

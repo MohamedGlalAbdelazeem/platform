@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { FaCheckCircle } from "react-icons/fa";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
-
+import ProgressBar from "@ramonak/react-progress-bar";
 function Page() {
   const [progress, setProgress] = useState(30); // Example progress percentage
   const [currentQuestion, setCurrentQuestion] = useState(0); // Current question index
@@ -33,27 +33,6 @@ function Page() {
     },
   ];
 
-  const handleAnswer = (questionIndex, optionIndex) => {
-    setSelectedAnswers({
-      ...selectedAnswers,
-      [questionIndex]: optionIndex
-    });
-
-    // Update the answeredQuestions Set
-    setAnsweredQuestions(prev => new Set(prev).add(questionIndex));
-  };
-
-  const handlePrevQuestion = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
-
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
 
   // Filter questions based on the filter state
   const filteredQuestions = questions.filter((_, index) => {
@@ -67,21 +46,24 @@ function Page() {
   });
 
   return (
-    <div className="container mx-auto px-4 my-32">
-      <div className="my-12 bg-slate-100 gap-8 rounded-lg flex flex-col justify-around items-center md:flex-row px-12 py-6">
+  <>
+    <div className="h-[80px] bg-btnColored">
+    </div>
+    <div className="container mx-auto px-4 mb-16">
+      <div className="my-12  shadow-lg gap-8 rounded-lg flex flex-col justify-around items-center md:flex-row px-12 py-6">
         <div>
           <h1 className='font-bold text-xl'>Unlock Your Full Potential!</h1>
           <p>Upgrade to the premium plan and gain access to more than 500 questions in Anatomy. Test your knowledge with an expanded question bank and ensure you're fully prepared.</p>
         </div>
         <div>
-          <button className='bg-gray-300 w-[152px] rounded-lg p-2'>Upgrade Now</button>
+          <button className='bg-secondary text-white w-[152px] rounded-lg p-2'>Upgrade Now</button>
         </div>
       </div>
 
       {/* Left Side: Questions List and Filter */}
       <div className="flex justify-around md:flex-row gap-8">
-        <div className="w-full md:w-1/3 bg-gray-100 rounded-lg p-4">
-          <h3 className="text-xl font-semibold mb-4">Questions For Free Plan (50)</h3>
+        <div className="w-full md:w-1/3 bg-gray-100 border-[2px] border-fontColor rounded-lg p-4">
+          <h3 className="text-xl font-bold my-6">Questions For Free Plan (50)</h3>
           
           {/* Filters */}
           <div className="flex justify-between mb-4">
@@ -110,47 +92,33 @@ function Page() {
         <div className="flex flex-col w-full md:w-1/2">
           <h1 className='font-bold text-2xl'>Exam Yourself Here</h1>
           <div className="my-10 w-full flex items-center justify-between">
-            <div className="relative w-full h-2 bg-gray-500 rounded-lg">
-              <div className="w-[100%] h-full rounded-full bg-blue-500 relative" style={{ width: `${progress}%` }}>
-                <div className="absolute text-xs -right-4 bg-blue-600 text-white font-bold px-1.5 min-w-[40px] min-h-[24px] -top-8 rounded flex items-center justify-center">
-                  {Math.round(progress)}%
-                </div>
-              </div>
-            </div>
+           <div className="relative w-full h-2 bg-gray-200 rounded-lg mb-6">
+            <ProgressBar completed={50} />
+           </div>
           </div>
 
+         
           {/* Questions */}
-          <div className="overflow-y-auto max-h-[calc(100vh-200px)]">
-            <h3 className="text-lg font-semibold mb-4">{questions[currentQuestion].question}</h3>
-            <ul className="space-y-2">
-              {questions[currentQuestion].options.map((option, index) => (
-                <li key={index} className="flex py-4 items-center">
-                  <input
-                    type="radio"
-                    name={`q${currentQuestion}`}
-                    id={`option${index}`}
-                    checked={selectedAnswers[currentQuestion] === index}
-                    onChange={() => handleAnswer(currentQuestion, index)}
-                  />
-                  <label htmlFor={`option${index}`} className="text-sm">{option}</label>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Prev/Next Buttons */}
-          <div className="flex mt-6 gap-6">
-            <button onClick={handlePrevQuestion} className="text-lg border-2 border-gray-400 p-1 w-[128px] rounded-xl" disabled={currentQuestion === 0}>
-              Prev Question
-            </button>
-            <button onClick={handleNextQuestion} className="text-lg bg-slate-400 p-2 rounded-xl w-[128px]" disabled={currentQuestion === questions.length - 1}>
-              Next Question
-            </button>
+          <div className="mt-6 overflow-y-auto max-h-96">
+            {questions.map((question, index) => (
+              <div key={index} className="mb-6">
+                <h3 className="text-lg font-semibold mb-4">{question.question}</h3>
+                <ul className="space-y-2">
+                  {question.options.map((option, optIndex) => (
+                    <li key={optIndex} className="flex items-center space-x-2">
+                      <input type="radio" name={`q${index}`} id={`option${optIndex}`} />
+                      <label htmlFor={`option${optIndex}`} className="text-sm">{option}</label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+           <button className='my-6 bg-btnColored text-white p-2 w-fit rounded-lg'>Finish The Exam</button>
           </div>
         </div>
       </div>
     </div>
+  </>
   );
 }
-
 export default Page;

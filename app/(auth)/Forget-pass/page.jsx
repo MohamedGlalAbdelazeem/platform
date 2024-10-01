@@ -102,7 +102,7 @@ function Page() {
           <div className="mt-6">
             <button
               type="submit"
-              className="w-full py-3 px-6 tracking-wide rounded-md text-white font-bold text-lg bg-[#984D9F] focus:outline-none transition-all"
+              className="w-full py-3 px-6 tracking-wide rounded-md text-white font-bold text-lg bg-btnColored focus:outline-none transition-all"
             >
               Send 
             </button>

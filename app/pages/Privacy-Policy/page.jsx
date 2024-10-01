@@ -5,7 +5,7 @@ const page = () => {
     <>
        <div className="relative bg-gray-300 flex items-center justify-center h-[251px] mb-14">
             {/* Semi-transparent overlay */}
-            <div className="absolute inset-0 bg-[#1f0c30f4] opacity-90 z-10"></div>
+            <div className="absolute inset-0 bg-btnColored opacity-90 z-10"></div>
 
             {/* Image as banner */}
             <Image

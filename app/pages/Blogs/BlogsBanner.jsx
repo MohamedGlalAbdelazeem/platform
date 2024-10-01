@@ -2,7 +2,7 @@ import Image from "next/image";
 function BlogsBanner() {
   return (
     <div className="relative bg-gray-300 p-2 flex items-center justify-center h-[406px]">
-      <div className="absolute inset-0 bg-[#1f0c30f4] opacity-90 z-10"></div>
+      <div className="absolute inset-0 bg-bgBanner opacity-90 z-10"></div>
       <Image
         src="/Banner.jpg"
         alt="Banner image"

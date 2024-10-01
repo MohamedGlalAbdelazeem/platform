@@ -110,7 +110,7 @@ return (
           <div className="mt-6">
             <button
               type="submit"
-              className="w-full py-2 px-6 text-lg tracking-wide font-bold rounded-md text-white bg-[#984D9F] focus:outline-none transition-all">
+              className="w-full py-2 px-6 text-lg tracking-wide font-bold rounded-md text-white bg-btnColored focus:outline-none transition-all">
               Sign In
             </button>
             <div className="w-full flex justify-center my-6 font-bold text-lg">

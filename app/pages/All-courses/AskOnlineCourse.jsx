@@ -24,7 +24,7 @@ function AskOnlineCourse() {
       {/* Button to open the modal */}
       <div
         onClick={openModal}
-        className="fixed bottom-20 text-[50px] right-2 cursor-pointer font-bold text-[#984D9F] p-3 rounded-full"
+        className="fixed bottom-20 text-[50px] right-2 cursor-pointer font-bold text-btnColored p-3 rounded-full"
       >
         <RxQuestionMarkCircled />
       </div>
@@ -51,7 +51,7 @@ function AskOnlineCourse() {
               <button
                 onClick={closeModal}
                 type="button"
-                className="px-4 py-2 rounded-lg text-white text-base font-bold border-none outline-none tracking-wide bg-[#984D9F]">
+                className="px-4 py-2 rounded-lg text-white text-base font-bold border-none outline-none tracking-wide bg-btnColored">
                 Got it
               </button>
             </div>

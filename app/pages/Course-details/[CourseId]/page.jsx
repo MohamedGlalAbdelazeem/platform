@@ -80,49 +80,7 @@ function Page() {
             </p>
           </div>
 
-          <div className="my-9">
-            <h1 className="font-bold text-2xl my-6 text-bgFontColor">Course Content:</h1>
-            <ol className="list-decimal">
-              <li className="my-6 font-normal text-lg">
-                Module 1: Introduction to Cardiovascular System
-                <ul className="list-disc list-inside ">
-                  <li>Understand the anatomy and physiology of the heart</li>
-                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
-                  <li>Explore treatment options for common cardiovascular diseases</li>
-                  <li>Speak-to-chat technology</li>
-                </ul>
-              </li>
-
-              <li className="my-6">
-                Module 1: Introduction to Cardiovascular System
-                <ul className="list-disc list-inside ">
-                  <li>Understand the anatomy and physiology of the heart</li>
-                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
-                  <li>Explore treatment options for common cardiovascular diseases</li>
-                  <li>Speak-to-chat technology</li>
-                </ul>
-              </li>
-
-              <li className="my-6">
-                Module 1: Introduction to Cardiovascular System
-                <ul className="list-disc list-inside text-gray-700">
-                  <li>Understand the anatomy and physiology of the heart</li>
-                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
-                  <li>Explore treatment options for common cardiovascular diseases</li>
-                  <li>Speak-to-chat technology</li>
-                </ul>
-              </li>
-              <li className="my-6">
-                Module 1: Introduction to Cardiovascular System
-                <ul className="list-disc list-inside text-gray-700">
-                  <li>Understand the anatomy and physiology of the heart</li>
-                  <li>Learn how to interpret ECGs and other diagnostic tools</li>
-                  <li>Explore treatment options for common cardiovascular diseases</li>
-                  <li>Speak-to-chat technology</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
+          
         </div>
         {/* Course Content: */}
         <RelatedCoures />

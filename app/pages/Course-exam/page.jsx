@@ -48,7 +48,7 @@ function Page() {
 
   return (
     <>
-     <div className="h-[80px] bg-btnColored">
+     <div className="h-[80px] bg-bgBanner">
      </div>
      <div className="container mx-auto px-4 my-20">
       {/* Main Course Details */}
@@ -59,8 +59,6 @@ function Page() {
           <ProgressBar completed={95} />
         </div>
       </div>
-
-      
       <div className="flex flex-col justify-around md:flex-row gap-8">
        {/* Left Section: Course Lessons and Exam */}
        <div className="w-full md:w-1/2 ">

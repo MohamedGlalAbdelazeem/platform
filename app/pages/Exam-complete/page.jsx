@@ -10,7 +10,7 @@ function Page() {
 
   return (
     <>
-    <div className="h-[80px] bg-btnColored">
+    <div className="h-[80px] bg-bgBanner">
        </div>
        <div className="relative my-12 flex w-full flex-col items-center sm:mt-16">
        

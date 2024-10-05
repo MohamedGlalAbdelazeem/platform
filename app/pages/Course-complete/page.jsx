@@ -6,10 +6,10 @@ import { FaArrowRight } from "react-icons/fa6";
 import Link from "next/link";
 
 function Page() {
-  const score = "70%";
+  const score = "90%";
   return (
     <>
-    <div className="h-[80px] bg-btnColored">
+    <div className="h-[80px] bg-bgBanner">
     </div>
      <div className="container mx-auto px-4 my-20">
       <div className="my-10 w-full flex items-center justify-between">

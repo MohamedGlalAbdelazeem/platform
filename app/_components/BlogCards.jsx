@@ -1,7 +1,5 @@
 'use client';
 import { useState, useEffect } from "react";
-import { AiFillLike } from "react-icons/ai";
-
 import axios from "axios";
 import Link from "next/link";
 function BlogCards() {

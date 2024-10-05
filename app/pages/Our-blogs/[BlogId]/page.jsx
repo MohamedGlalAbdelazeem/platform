@@ -36,7 +36,7 @@ function page({params}) {
   return (
     <>
     <div className="relative bg-gray-300 p-2 flex items-center justify-center -z-10 h-[406px]">
-      <div className="absolute inset-0 bg-btnColored opacity-90 z-10"></div>
+      <div className="absolute inset-0 bg-bgBanner opacity-90 z-10"></div>
       <Image
         src="/Banner.jpg"
         alt="Banner image"

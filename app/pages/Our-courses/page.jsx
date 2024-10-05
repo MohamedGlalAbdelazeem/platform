@@ -24,6 +24,8 @@ function Page() {
         }
       } catch (err) {
         setError("An error occurred while fetching the courses");
+        console.log(err);
+        
       } finally {
         setLoading(false);
       }
@@ -37,7 +39,7 @@ function Page() {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="my-11">Error: {error}</div>;
   }
 
   return (
